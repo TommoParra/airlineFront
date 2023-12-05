@@ -9,6 +9,15 @@
     margin: 0;
 }
 
+a {
+    display: block;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
 html,
 body,
 div,

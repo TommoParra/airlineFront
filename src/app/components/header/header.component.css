@@ -1,0 +1,41 @@
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 110px;
+    display: flex;
+    gap: 4rem;
+    background-color: white;
+    box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.20);
+    padding: 0 var(--contentPadding);
+}
+
+header>* {
+    margin: auto 0;
+}
+
+header .logo_container {
+    height: 30px;
+}
+
+header .logo_container img {
+    height: 100%;
+}
+
+.main_navbar {
+    display: flex;
+    gap: 4rem;
+}
+
+.register_navbar {
+    display: flex;
+    gap: .5rem;
+    margin-right: 0;
+}
+
+.hor_nav_divider {
+    width: 2px;
+    height: 1rem;
+    background-color: var(--primaryYellow);
+
+}
