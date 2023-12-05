@@ -1,1 +1,56 @@
-<p>airport-registration works!</p>
+<div class="wrapp">
+    <div class="container">
+        <form [formGroup]="airportForm" (ngSubmit)="onSubmit()">
+            <div class="mb-2">
+                <label class="form-label">Id</label>
+                <input type="number" class="form-control" formControlName="id" placeholder="Id número" min="5" required>
+                <!-- <div *ngIf="airportForm.get('id')?.hasError('required')">
+                    El campo Id es obligatorio.
+                </div>
+                <div *ngIf="airportForm.get('id')?.hasError('min')">
+                    El Id debe ser mayor que 5.
+                </div>
+                <div *ngIf="airportForm.get('id')?.hasError('pattern')">
+                    Ingresa un número positivo válido.
+                </div> -->
+
+
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Origin ID</label>
+                <input type="text" class="form-control" formControlName="origin_id" placeholder="Origin_id">
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Destination ID</label>
+                <input type="text" class="form-control" formControlName="destination_id" placeholder="Destination ID">
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Departure</label>
+                <input type="text" class="form-control" formControlName="departure" placeholder="Departure">
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Arrival</label>
+                <input type="date" class="form-control" formControlName="arrival" placeholder="Arrival">
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Duration</label>
+                <select class="form-control" formControlName="categoria">
+                    <option value="" disabled></option>
+                    <option value="softawe">Aventuras extremas</option>
+                    <option value="softawe">Aventuras acuaticas</option>
+                    <option value="softawe">Viajes culturales</option>
+                    <option value="softawe">Aventuras en la naturaleza</option>
+                </select>
+            </div>
+            <div class="formGroup">
+                <label for="imagen">Post Image</label>
+
+                <input class="form-control" type="url" accept="image/*" formControlName="imagen" name="imagen">
+            </div>
+
+            <button class="btn btn-success" type="submit">Submit</button>
+        </form>
+
+
+    </div>
+</div>

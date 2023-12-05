@@ -1,1 +1,57 @@
-<p>flight-registration works!</p>
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-8">
+                <form [formGroup]="flightForm" (ngSubmit)="onSubmit()">
+                    <div class="mb-2">
+                        <label class="form-label">Id</label>
+                        <input type="number" class="form-control" formControlName="id" placeholder="Id número" min="5"
+                            required>
+                        <div *ngIf="flightForm.get('id')?.hasError('required')">
+                            El campo Id es obligatorio.
+                        </div>
+                        <div *ngIf="flightForm.get('id')?.hasError('min')">
+                            El Id debe ser mayor que 5.
+                        </div>
+                        <div *ngIf="flightForm.get('id')?.hasError('pattern')">
+                            Ingresa un número positivo válido.
+                        </div>
+
+
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Titulo</label>
+                        <input type="text" class="form-control" formControlName="titulo"
+                            placeholder="Titulo de tu post">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Texto</label>
+                        <input type="text" class="form-control" formControlName="texto" placeholder="Texto">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Autor</label>
+                        <input type="text" class="form-control" formControlName="autor" placeholder="Autor">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Fecha</label>
+                        <input type="date" class="form-control" formControlName="fecha" placeholder="Fecha">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Categoria</label>
+                        <select class="form-control" formControlName="categoria">
+                            <option value="" disabled></option>
+                            <option value="softawe">Aventuras extremas</option>
+                            <option value="softawe">Aventuras acuaticas</option>
+                            <option value="softawe">Viajes culturales</option>
+                            <option value="softawe">Aventuras en la naturaleza</option>
+                        </select>
+                    </div>
+                    <div class="formGroup">
+                        <label for="imagen">Post Image</label>
+
+                        <input class="form-control" type="url" accept="image/*" formControlName="imagen" name="imagen">
+                    </div>
+
+                    <button class="btn btn-success" type="submit">Submit</button>
+                </form>
+            </div>
