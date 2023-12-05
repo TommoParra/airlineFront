@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AccessLightboxComponent } from './components/access-lightbox/access-lightbox.component';
 import { HeroComponent } from './components/hero/hero.component';
@@ -13,6 +15,8 @@ import { AirportRegistrationComponent } from './components/airport-registration/
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
+    FooterComponent,
     HomeComponent,
     AccessLightboxComponent,
     HeroComponent,
@@ -22,7 +26,8 @@ import { AirportRegistrationComponent } from './components/airport-registration/
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
