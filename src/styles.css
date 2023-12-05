@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+@import url(normalize.css);
+
+:root {}
+
+@media (width < 540px) {
+    :root {}
+}
+
+@media (width < 768px) {
+    :root {}
+}
+
+@media (width < 992px) {
+    :root {}
+}
+
+
+/* Global css */
+
+.wrapper {
+    display: gird;
+}
+
+.content_wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+}
