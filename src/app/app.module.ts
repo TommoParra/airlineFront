@@ -13,6 +13,7 @@ import { FlightListComponent } from './pages/flight-list/flight-list.component';
 import { FlightRegistrationComponent } from './components/flight-registration/flight-registration.component';
 import { AirportRegistrationComponent } from './components/airport-registration/airport-registration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FlightSearchFormComponent } from './components/flight-search-form/flight-search-form.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HeroComponent,
     FlightListComponent,
     FlightRegistrationComponent,
-    AirportRegistrationComponent
+    AirportRegistrationComponent,
+    FlightSearchFormComponent
   ],
   imports: [
     BrowserModule,

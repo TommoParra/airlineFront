@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HeroComponent {
 
+  isHomePage: boolean = true;
+  backgroundImageUrl: string = '/assets/images/default-background.jpg';
+
 }

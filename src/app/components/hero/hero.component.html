@@ -1,1 +1,14 @@
-<p>hero works!</p>
+<section class="hero" [ngStyle]="{ backgroundImage: 'url(' + '\/assets\/homeHeroBg.jpg' + ')' }">
+
+    <div class="hero_content">
+        <header class="hero_header">
+            <h1 class="hero_title">Find your perfect flight with Flightify</h1>
+            <h2 class="hero_subtitle">1,480,086 flights around the world are waiting for you!</h2>
+        </header>
+
+        <app-flight-search-form *ngIf="isHomePage"></app-flight-search-form>
+
+    </div>
+
+
+</section>

@@ -1,0 +1,34 @@
+.hero {
+    min-height: 65vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: grid;
+}
+
+.hero>* {
+    font-weight: 700;
+    font-family: Roboto, sans-serif;
+}
+
+.hero_content {
+    margin: auto;
+    gap: 4rem;
+}
+
+.hero_header {
+    display: grid;
+    gap: 2rem;
+    text-align: center;
+}
+
+.hero_title {
+    color: white;
+    font-size: 2.5rem;
+    font-style: normal;
+}
+
+.hero_subtitle {
+    color: var(--lightGrey, #F3F3F3);
+    font-size: 1.25rem;
+}
