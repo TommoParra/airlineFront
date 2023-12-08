@@ -1,22 +1,36 @@
-<header>
+<header class="header" [ngClass]="{active : isOpen}">
+
     <a class="logo_container" [routerLink]="['/']">
         <img src="assets/logo.png" alt="Flightify Logo">
     </a>
-    <nav class="main_navbar">
-        <li class="navbar_item">
-            <a [routerLink]="['/flights']">Our flights</a>
-        </li>
-        <li class="navbar_item">
-            <a [routerLink]="['/airports']">Our airports</a>
-        </li>
-    </nav>
-    <nav class="register_navbar">
-        <li class="navbar_item">
-            <a [routerLink]="['/login']">Login</a>
-        </li>
-        <div class="hor_nav_divider"></div>
-        <li class="navbar_item">
-            <a [routerLink]="['/register']">Register</a>
-        </li>
-    </nav>
+
+    <div class="hamb_menu" (click)="toggleMenu()">
+        <div class="hamb_menu_line"></div>
+        <div class="hamb_menu_line"></div>
+        <div class="hamb_menu_line"></div>
+    </div>
+
+    <div class="header_nav_container">
+        <!-- <div class="header_nav_container active"> -->
+        <nav class="main_navbar">
+            <li class="navbar_item">
+                <a [routerLink]="['/flights']">Our flights</a>
+            </li>
+            <li class="navbar_item">
+                <a [routerLink]="['/airports']">Our airports</a>
+            </li>
+        </nav>
+
+        <nav class="register_navbar">
+            <img src="assets/login.png" alt="Login Icon">
+            <li class="navbar_item">
+                <a [routerLink]="['/login']">Login</a>
+            </li>
+            <div class="hor_nav_divider"></div>
+            <li class="navbar_item">
+                <a [routerLink]="['/register']">Register</a>
+            </li>
+        </nav>
+    </div>
+
 </header>

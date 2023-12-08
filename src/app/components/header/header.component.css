@@ -1,13 +1,70 @@
+@media (width < 768px) {
+
+    header.header {
+        padding: 2rem var(--contentPadding) 1rem var(--contentPadding);
+        grid-gap: 0;
+
+    }
+
+    .header_nav_container {
+        flex-direction: column;
+        grid-row: 2;
+        grid-column: 1/-1;
+        gap: 2rem;
+        overflow: hidden;
+        transition: .5s;
+        height: 0px;
+        padding-top: 1rem;
+    }
+
+
+    header.active .header_nav_container {
+        height: 140px;
+    }
+
+    .header_nav_container .main_navbar {
+        flex-direction: column;
+    }
+
+    header .header_nav_container .main_navbar {
+        align-items: flex-start;
+    }
+
+    header .header_nav_container .register_navbar {
+        margin: auto auto 0 auto;
+    }
+
+    header.active .hamb_menu .hamb_menu_line:nth-child(1) {
+        transform: translateY(12px) rotate(45deg);
+    }
+
+    header.active .hamb_menu .hamb_menu_line:nth-child(2) {
+        opacity: 0;
+    }
+
+    header.active .hamb_menu .hamb_menu_line:nth-child(3) {
+        transform: translateY(-12px) rotate(-45deg);
+    }
+
+
+}
+
 header {
     position: sticky;
     top: 0;
     left: 0;
-    height: 110px;
-    display: flex;
-    gap: 4rem;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-gap: 2rem;
     background-color: white;
     box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.20);
-    padding: 0 var(--contentPadding);
+    padding: 35px var(--contentPadding);
+}
+
+.header_nav_container {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
 }
 
 header>* {
@@ -22,20 +79,46 @@ header .logo_container img {
     height: 100%;
 }
 
+.navbar_item {
+    height: max-content;
+}
+
 .main_navbar {
     display: flex;
-    gap: 4rem;
+    align-items: center;
+    gap: 2rem;
+    width: max-content;
 }
 
 .register_navbar {
     display: flex;
     gap: .5rem;
-    margin-right: 0;
+    margin: auto 0 auto auto;
 }
 
 .hor_nav_divider {
     width: 2px;
     height: 1rem;
     background-color: var(--primaryYellow);
-
 }
+
+.hamb_menu {
+    cursor: pointer;
+    display: var(--onlyMobileGrid);
+    width: max-content;
+    gap: .5rem;
+}
+
+header .hamb_menu {
+    margin: auto 0 auto auto;
+}
+
+.hamb_menu_line {
+    width: 40px;
+    height: 4px;
+    background-color: var(--almostBlack);
+    border-radius: 10px;
+    transition: 0.25s;
+}
+
+/* Mobile header */

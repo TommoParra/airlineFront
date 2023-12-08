@@ -8,23 +8,34 @@
     /* Global variables */
     --contentPadding: 64px;
 
+    --onlydesktopGrid: none;
+    --onlyDesktopFlex: none;
+    --onlyMobileGrid: grid;
+    --onlyMobileFlex: flex;
+
     /* colors */
     --almostBlack: #313131;
     --darkGrey: #545454;
     --lightGrey: #F3F3F3;
     --primaryYellow: #FFD800;
 
+
 }
 
-@media (width < 540px) {
+@media (width > 540px) {
     :root {}
 }
 
-@media (width < 768px) {
-    :root {}
+@media (width > 768px) {
+    :root {
+        --onlydesktopGrid: grid;
+        --onlyDesktopFlex: flex;
+        --onlyMobileGrid: none;
+        --onlyMobileFlex: none;
+    }
 }
 
-@media (width < 992px) {
+@media (width > 992px) {
     :root {
         --contentPadding: 64px;
     }
