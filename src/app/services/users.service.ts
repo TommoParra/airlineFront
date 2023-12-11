@@ -9,9 +9,10 @@ import { firstValueFrom } from 'rxjs';
 export class UsersService {
 
 
-  httpClient = inject(HttpClient);
 
-  private apiUrl = 'http://localhost:3100/api'
+  private httpClient = inject(HttpClient);
+
+  private apiUrl: string = 'http://localhost:3100/api'
 
   getById(userId: number) {
     return firstValueFrom(this.httpClient.get(`${this.apiUrl}/users/${userId}`))
@@ -21,6 +22,22 @@ export class UsersService {
     return firstValueFrom(this.httpClient.post(`${this.apiUrl}/users`, body))
   }
 
+
+  //aqui hacemos el registro de usuario
+
+  register(body: IUser) {
+    return firstValueFrom(
+      this.httpClient.post(`${this.apiUrl}/users`, body)
+    );
+
+  }
+  //login de usuario
+
+  login(body: IUser) {
+    return firstValueFrom(
+      this.httpClient.post(`${this.apiUrl}/login`, body)
+    )
+  }
 
 
   constructor() { }

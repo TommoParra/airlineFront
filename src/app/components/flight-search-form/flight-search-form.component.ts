@@ -22,8 +22,8 @@ export class FlightSearchFormComponent {
       fare: new FormControl(null, []),
       from: new FormControl(null, []),
       to: new FormControl(null, []),
-      departDate: new FormControl(null, []),
-      returnDate: new FormControl(null, []),
+      departure: new FormControl(null, []),
+      return: new FormControl(null, []),
       passengers: new FormControl(null, []),
       class: new FormControl(null, []),
     })
@@ -36,8 +36,10 @@ export class FlightSearchFormComponent {
   onSubmit() {
 
     const formValues = this.flightSearchForm.value;
-    this.flightService.createFlight(formValues)
+    this.flightService.getFlightsBySearch(formValues)
     this.router.navigate(['flight-list?']);
+    console.log(formValues);
+
 
   }
 

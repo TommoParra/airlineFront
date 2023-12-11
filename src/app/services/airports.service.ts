@@ -8,7 +8,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AirportsService {
 
-  httpClient = inject(HttpClient);
+  private airportsArr = [];
+
+  private httpClient = inject(HttpClient);
 
   private apiUrl = 'http://localhost:3100/api'
 

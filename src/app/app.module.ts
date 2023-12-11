@@ -14,26 +14,36 @@ import { FlightRegistrationComponent } from './components/flight-registration/fl
 import { AirportRegistrationComponent } from './components/airport-registration/airport-registration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlightSearchFormComponent } from './components/flight-search-form/flight-search-form.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { PanelComponent } from './pages/panel/panel.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    HomeComponent,
     AccessLightboxComponent,
-    HeroComponent,
+    AppComponent,
+    AirportRegistrationComponent,
+    FooterComponent,
     FlightListComponent,
     FlightRegistrationComponent,
-    AirportRegistrationComponent,
-    FlightSearchFormComponent
+    FlightSearchFormComponent,
+    HeaderComponent,
+    HeroComponent,
+    HomeComponent,
+    RegisterComponent,
+    LoginComponent,
+    PanelComponent,
+
+
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
 
 

@@ -8,7 +8,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FlightsService {
 
-  httpClient = inject(HttpClient);
+
+
+  private httpClient = inject(HttpClient);
   private apiUrl = 'http://localhost:3100/api'
 
 
@@ -20,7 +22,8 @@ export class FlightsService {
     return firstValueFrom(this.httpClient.get(`${this.apiUrl}/flights/${flightId}`))
   }
 
-  getFlightsBySearch() {
+  getFlightsBySearch(body: any) {
+    return firstValueFrom(this.httpClient.post(`${this.apiUrl}/flights`, body));
 
   }
 
