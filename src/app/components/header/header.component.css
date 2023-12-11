@@ -47,6 +47,7 @@ header {
     background-color: white;
     box-shadow: var(--DP4);
     padding: 45px var(--contentPadding);
+    z-index: 2;
 }
 
 .header_nav_container {

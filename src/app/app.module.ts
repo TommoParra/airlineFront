@@ -14,6 +14,7 @@ import { FlightRegistrationComponent } from './components/flight-registration/fl
 import { AirportRegistrationComponent } from './components/airport-registration/airport-registration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlightSearchFormComponent } from './components/flight-search-form/flight-search-form.component';
+import { FlightCardComponent } from './components/flight-card/flight-card.component';
 
 
 
@@ -28,7 +29,8 @@ import { FlightSearchFormComponent } from './components/flight-search-form/fligh
     FlightListComponent,
     FlightRegistrationComponent,
     AirportRegistrationComponent,
-    FlightSearchFormComponent
+    FlightSearchFormComponent,
+    FlightCardComponent
   ],
   imports: [
     BrowserModule,
