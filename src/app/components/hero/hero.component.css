@@ -12,6 +12,8 @@
 }
 
 .hero_content {
+    display: grid;
+    grid-gap: 2rem;
     margin: auto;
     gap: 4rem;
 }

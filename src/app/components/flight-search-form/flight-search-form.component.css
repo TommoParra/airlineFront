@@ -1,0 +1,18 @@
+.flight_search_form {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 1rem;
+}
+
+.flight_search_form .form_field {
+    grid-column: span 2;
+}
+
+.flight_search_form .form_field:nth-child(1) {
+    grid-column: span 2;
+}
+
+.flight_search_form .form_field:nth-child(2),
+.flight_search_form .form_field:nth-child(3) {
+    grid-column: span 3;
+}

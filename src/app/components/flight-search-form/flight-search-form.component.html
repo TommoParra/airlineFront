@@ -1,1 +1,51 @@
-<p>flight-search-form works!</p>
+<form class="form flight_search_form" [formGroup]="flightSearchForm" (ngSubmit)="onSubmit()">
+    <div class="form_field">
+        <label for="fare">Fare:</label>
+        <select formControlName="fare">
+            <option value="one way">One Way</option>
+            <option value="round trip">Round Trip</option>
+        </select>
+        <div class="form_field_underline"></div>
+    </div>
+
+    <div class="form_field">
+        <label for="from">From:</label>
+        <input type="text" formControlName="from" placeholder="Here from?">
+        <div class="form_field_underline"></div>
+    </div>
+
+    <div class="form_field">
+        <label for="to">To:</label>
+        <input type="text" formControlName="to" placeholder="Here to?">
+        <div class="form_field_underline"></div>
+    </div>
+
+    <div class="form_field">
+        <label for="departDate">Departure Date:</label>
+        <input type="date" formControlName="departDate" placeholder="Select departure date">
+        <div class="form_field_underline"></div>
+    </div>
+
+    <div class="form_field">
+        <label for="returnDate">Return Date:</label>
+        <input type="date" formControlName="returnDate" placeholder="Select return date (optional)">
+        <div class="form_field_underline"></div>
+    </div>
+
+    <div class="form_field">
+        <label for="passengers">Passengers:</label>
+        <input type="number" formControlName="passengers" placeholder="How many people?">
+        <div class="form_field_underline"></div>
+    </div>
+
+    <div class="form_field">
+        <label for="class">Class:</label>
+        <select formControlName="class" [value]="'Economy'">
+            <option value="Economy">Economy</option>
+            <option value="Business">Business</option>
+        </select>
+        <div class="form_field_underline"></div>
+    </div>
+
+    <button class="btn btn_light" type="submit">Search</button>
+</form>
