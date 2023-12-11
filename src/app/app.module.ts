@@ -15,6 +15,8 @@ import { AirportRegistrationComponent } from './components/airport-registration/
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlightSearchFormComponent } from './components/flight-search-form/flight-search-form.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,10 @@ import { FlightSearchFormComponent } from './components/flight-search-form/fligh
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+
+
 
 
   ],

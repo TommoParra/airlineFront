@@ -1,33 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { FlightsService } from 'src/app/services/flights.service';
+
 @Component({
   selector: 'app-flight-search-form',
   templateUrl: './flight-search-form.component.html',
   styleUrls: ['./flight-search-form.component.css']
 })
-export class FlightSearchFormComponent implements OnInit {
+export class FlightSearchFormComponent {
 
   flightSearchForm: FormGroup;
 
+  flightService = inject(FlightsService);
+  router = inject(Router);
+
+
+
   constructor() {
     this.flightSearchForm = new FormGroup({
-      fare: new FormControl(),
-      from: new FormControl(),
-      to: new FormControl(),
-      departDate: new FormControl(),
-      returnDate: new FormControl(),
-      passengers: new FormControl(),
-      class: new FormControl(),
-    }
-    )
+      fare: new FormControl(null, []),
+      from: new FormControl(null, []),
+      to: new FormControl(null, []),
+      departDate: new FormControl(null, []),
+      returnDate: new FormControl(null, []),
+      passengers: new FormControl(null, []),
+      class: new FormControl(null, []),
+    })
   }
 
 
-  ngOnInit(): void {
-  }
+  // ngOnInit(): void {
+  // }
 
   onSubmit() {
-    console.log(this.flightSearchForm.value);
+
+    const formValues = this.flightSearchForm.value;
+    this.flightService.createFlight(formValues)
+    this.router.navigate(['flight-list?']);
+
   }
 
 

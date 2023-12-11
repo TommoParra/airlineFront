@@ -20,6 +20,10 @@ export class FlightsService {
     return firstValueFrom(this.httpClient.get(`${this.apiUrl}/flights/${flightId}`))
   }
 
+  getFlightsBySearch() {
+
+  }
+
 
   constructor() { }
 }
