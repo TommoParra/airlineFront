@@ -6,7 +6,7 @@
 
 :root {
     /* Global variables */
-    --contentPadding: 64px;
+    --contentPadding: 1rem;
 
     --onlydesktopGrid: none;
     --onlyDesktopFlex: none;
@@ -114,12 +114,13 @@
     background-color: var(--darkGrey);
 }
 
-select {}
 
+.form_field select,
 option {
     background-color: white;
-    border: 0;
 }
+
+
 
 
 /* Buttons */

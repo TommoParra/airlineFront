@@ -34,3 +34,10 @@
     color: var(--lightGrey, #F3F3F3);
     font-size: 1.25rem;
 }
+
+
+@media (width < 768px) {
+    .hero {
+        padding: var(--contentPadding);
+    }
+}
