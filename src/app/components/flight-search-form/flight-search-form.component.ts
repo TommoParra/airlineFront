@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IAirport } from 'src/app/interfaces/iairport';
 import { AirportsService } from 'src/app/services/airports.service';
-import { FlightsService } from 'src/app/services/flights.service';
+
 
 @Component({
   selector: 'app-flight-search-form',
