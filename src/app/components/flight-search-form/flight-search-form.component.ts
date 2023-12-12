@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FlightsService } from 'src/app/services/flights.service';
 
@@ -16,18 +16,34 @@ export class FlightSearchFormComponent {
   router = inject(Router);
 
 
+  toFieldPlaceHolder: String = "Where to?";
 
   constructor() {
     this.flightSearchForm = new FormGroup({
-      fare: new FormControl(null, []),
-      from: new FormControl(null, []),
-      to: new FormControl(null, []),
-      departure: new FormControl(null, []),
+      fare: new FormControl(null, [Validators.required]),
+      from: new FormControl(null, [Validators.required, Validators.minLength(3)]),
+      to: new FormControl({ value: null, disabled: false }, []),
+      departure: new FormControl(null, [Validators.required]),
       return: new FormControl(null, []),
-      passengers: new FormControl(null, []),
-      class: new FormControl(null, []),
+      passengers: new FormControl(null, [Validators.required]),
+      class: new FormControl(null, [Validators.required]),
     })
+
+
+    this.flightSearchForm.get('fare')?.valueChanges.subscribe((fareValue) => {
+      if (fareValue === 'one_way') {
+        this.flightSearchForm.get('to')?.disable({ emitEvent: true });
+        this.flightSearchForm.get('to')?.setValue('');
+        this.toFieldPlaceHolder = 'One way trip selected';
+        this.flightSearchForm.get('to')?.setValidators([Validators.required]);
+      } else {
+        this.flightSearchForm.get('to')?.enable({ emitEvent: true });
+        this.toFieldPlaceHolder = 'Where to?';
+      }
+    });
   }
+
+
 
 
   // ngOnInit(): void {

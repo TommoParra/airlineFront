@@ -161,7 +161,9 @@ option {
     background-color: white;
 }
 
-
+.disabled_field {
+    opacity: .3;
+}
 
 
 /* Buttons */

@@ -10,13 +10,13 @@
 
     <div class="form_field">
         <label for="from">From:</label>
-        <input type="text" formControlName="from" placeholder="Here from?">
+        <input type="text" formControlName="from" placeholder="Where from?">
         <div class="form_field_underline"></div>
     </div>
 
-    <div class="form_field">
+    <div class="form_field" [ngClass]="{ 'disabled_field': flightSearchForm.get('to')?.disabled }">
         <label for="to">To:</label>
-        <input type="text" formControlName="to" placeholder="Here to?">
+        <input type="text" formControlName="to" placeholder="{{toFieldPlaceHolder}}">
         <div class="form_field_underline"></div>
     </div>
 
@@ -34,7 +34,7 @@
 
     <div class="form_field">
         <label for="passengers">Passengers:</label>
-        <input type="number" formControlName="passengers" placeholder="How many people?">
+        <input type="number" formControlName="passengers" min="1" max="10" placeholder="How many people?">
         <div class="form_field_underline"></div>
     </div>
 
