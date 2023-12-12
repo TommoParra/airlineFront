@@ -28,6 +28,7 @@ import { FlightCardComponent } from './components/flight-card/flight-card.compon
     AppComponent,
     AirportRegistrationComponent,
     FooterComponent,
+    FlightCardComponent,
     FlightListComponent,
     FlightRegistrationComponent,
     FlightSearchFormComponent,
