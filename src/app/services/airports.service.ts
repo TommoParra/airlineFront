@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AirportsService {
 
-  private airportsArr = [];
+
 
   private httpClient = inject(HttpClient);
 
@@ -22,9 +22,9 @@ export class AirportsService {
     return firstValueFrom(this.httpClient.get(`${this.apiUrl}/airports/${airportId}`))
   }
 
-  // getAll() {
-  //   return firstValueFrom(this.httpClient.get(`${this.apiUrl}/airports`));
-  // }
+  getAll(): Promise<IAirport[]> {
+    return firstValueFrom(this.httpClient.get<IAirport[]>(`${this.apiUrl}/airports`));
+  }
 
 
 

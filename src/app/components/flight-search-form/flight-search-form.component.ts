@@ -29,8 +29,8 @@ export class FlightSearchFormComponent {
   constructor() {
     this.flightSearchForm = new FormGroup({
       fare: new FormControl(null, [Validators.required]),
-      from: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-      to: new FormControl({ value: null, disabled: false }, []),
+      origin: new FormControl(null, [Validators.required, Validators.minLength(3)]),
+      destination: new FormControl({ value: null, disabled: false }, []),
       departure: new FormControl(null, [Validators.required]),
       return: new FormControl(null, []),
       passengers: new FormControl(null, [Validators.required]),
@@ -40,12 +40,12 @@ export class FlightSearchFormComponent {
 
     this.flightSearchForm.get('fare')?.valueChanges.subscribe((fareValue) => {
       if (fareValue === 'one_way') {
-        this.flightSearchForm.get('to')?.disable({ emitEvent: true });
-        this.flightSearchForm.get('to')?.setValue('');
+        this.flightSearchForm.get('destination')?.disable({ emitEvent: true });
+        this.flightSearchForm.get('destination')?.setValue('');
         this.toFieldPlaceHolder = 'One way trip selected';
-        this.flightSearchForm.get('to')?.setValidators([Validators.required]);
+        this.flightSearchForm.get('destination')?.setValidators([Validators.required]);
       } else {
-        this.flightSearchForm.get('to')?.enable({ emitEvent: true });
+        this.flightSearchForm.get('destination')?.enable({ emitEvent: true });
         this.toFieldPlaceHolder = 'Where to?';
       }
     });
@@ -54,14 +54,17 @@ export class FlightSearchFormComponent {
 
 
 
-  // ngOnInit(): void {
-  // }
+  async ngOnInit(): Promise<void> {
+    this.airportsArr = await this.airportService.getAll();
+    console.log(this.airportsArr);
+
+  }
 
   onSubmit() {
 
     const formValues = this.flightSearchForm.value;
 
-    this.flightService.getFlightsBySearch(formValues)
+    this.flightService.getFullSearch(formValues)
     this.router.navigate(['flight-list?']);
     console.log(formValues);
 

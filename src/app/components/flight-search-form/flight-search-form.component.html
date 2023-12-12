@@ -9,16 +9,24 @@
     </div>
 
     <div class="form_field">
-        <!-- <div *ngFor="let airports of airportsArr "> -->
+
         <label for="from">From:</label>
-        <input type="text" formControlName="from" placeholder="Where from?">
+        <input type="text" formControlName="origin" placeholder="Where from?" list="airportsFrom">
+        <datalist id="airportsFrom">
+            <option [value]="airport.city + '-'+ airport.name_acr + '-' + airport.country"
+                *ngFor="let airport of airportsArr"></option>
+        </datalist>
         <div class="form_field_underline"></div>
-        <!-- </div> -->
+
     </div>
 
     <div class="form_field" [ngClass]="{ 'disabled_field': flightSearchForm.get('to')?.disabled }">
         <label for="to">To:</label>
-        <input type="text" formControlName="to" placeholder="{{toFieldPlaceHolder}}">
+        <input type="text" formControlName="destination" placeholder="{{toFieldPlaceHolder}}" list="airportsTo">
+        <datalist id="airportsTo">
+            <option [value]="airport.city + '-'+ airport.name_acr + '-' + airport.country"
+                *ngFor="let airport of airportsArr"></option>
+        </datalist>
         <div class="form_field_underline"></div>
     </div>
 
