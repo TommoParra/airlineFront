@@ -228,3 +228,31 @@ option {
     font-weight: 700;
     padding-left: 1rem;
 }
+
+/* Social media */
+
+.social_media {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: auto;
+}
+
+.social_media p {
+    color: var(--almostBlack);
+    font-family: 'Roboto Mono';
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+}
+
+.social_icons {
+    display: flex;
+    margin: auto;
+    gap: 1rem;
+}
+
+.social_icon {
+    width: 25px;
+}
