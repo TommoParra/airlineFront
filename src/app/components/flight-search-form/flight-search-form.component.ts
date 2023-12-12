@@ -19,7 +19,7 @@ export class FlightSearchFormComponent {
 
   flightSearchForm: FormGroup;
 
-  flightService = inject(FlightsService);
+
   airportService = inject(AirportsService);
   router = inject(Router);
 
@@ -51,22 +51,16 @@ export class FlightSearchFormComponent {
     });
   }
 
-
-
-
   async ngOnInit(): Promise<void> {
     this.airportsArr = await this.airportService.getAll();
     console.log(this.airportsArr);
-
   }
 
   onSubmit() {
 
     const formValues = this.flightSearchForm.value;
+    this.router.navigateByUrl(`/flight-list?fare=${formValues.fare}&origin=${formValues.origin}&destination=${formValues.destination}&departure=${formValues.departure}&return=${formValues.return}&passengers=${formValues.passengers}&class=${formValues.class}`);
 
-    this.flightService.getFullSearch(formValues)
-    this.router.navigate(['flight-list?']);
-    console.log(formValues);
 
 
   }
