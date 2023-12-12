@@ -19,11 +19,11 @@
         padding-top: 1rem;
     }
 
-    .header_nav_container .main_navbar {
+    .header_nav_container .main_navbar ul {
         flex-direction: column;
     }
 
-    header .header_nav_container .main_navbar {
+    header .header_nav_container .main_navbar ul {
         align-items: flex-start;
     }
 
@@ -72,7 +72,7 @@ header .logo_container img {
     height: max-content;
 }
 
-.main_navbar {
+.main_navbar ul {
     display: flex;
     align-items: center;
     gap: 2rem;
