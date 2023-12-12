@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { IAirport } from 'src/app/interfaces/iairport';
 import { IFlight } from 'src/app/interfaces/iflight';
 import { FlightsService } from 'src/app/services/flights.service';
 
@@ -11,6 +12,7 @@ import { FlightsService } from 'src/app/services/flights.service';
 export class FlightListComponent {
 
   flightList: IFlight[] = [];
+  airportList: IAirport[] = [];
 
   flightService = inject(FlightsService);
   activateRoute = inject(ActivatedRoute);
@@ -24,14 +26,19 @@ export class FlightListComponent {
 
       } catch (error) {
         console.log(error);
-
       }
 
       // flightList o response
 
+    });
 
 
-    })
+
+
+
+
+
+
   }
 
 }
