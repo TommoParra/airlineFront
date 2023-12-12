@@ -23,7 +23,7 @@ export class FlightsService {
   }
 
   getFullSearch(body: any): Promise<any> {
-    return firstValueFrom(this.httpClient.post(`${this.apiUrl}/flights`, body));
+    return firstValueFrom(this.httpClient.post(`${this.apiUrl}/flights/search`, body));
 
   }
 

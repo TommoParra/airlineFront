@@ -19,6 +19,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { PanelComponent } from './pages/panel/panel.component';
 import { FlightCardComponent } from './components/flight-card/flight-card.component';
+import { FlightResultsCardComponent } from './components/flight-results-card/flight-results-card.component';
 
 
 
@@ -38,7 +39,8 @@ import { FlightCardComponent } from './components/flight-card/flight-card.compon
     RegisterComponent,
     LoginComponent,
     PanelComponent,
-    FlightCardComponent
+    FlightCardComponent,
+    FlightResultsCardComponent
 
 
   ],

@@ -1,7 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IAirport } from 'src/app/interfaces/iairport';
-import { IFlight } from 'src/app/interfaces/iflight';
 import { FlightsService } from 'src/app/services/flights.service';
 
 @Component({
@@ -11,15 +9,15 @@ import { FlightsService } from 'src/app/services/flights.service';
 })
 export class FlightListComponent {
 
-  flightList: IFlight[] = [];
-  airportList: IAirport[] = [];
+  flightList: any[] = [];
+  // airportList: IAirport[] = [];
 
   flightService = inject(FlightsService);
   activateRoute = inject(ActivatedRoute);
 
   ngOnInit() {
     this.activateRoute.queryParams.subscribe(async (queryParams: any) => {
-      // console.log(queryParams);
+      console.log(queryParams);
       try {
         this.flightList = await this.flightService.getFullSearch(queryParams);
         console.log(this.flightList);  //para probar despues
