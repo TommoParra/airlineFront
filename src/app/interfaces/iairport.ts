@@ -1,5 +1,4 @@
-import { IGate } from "./igate";
-import { ITerminal } from "./iterminal";
+
 
 export interface IAirport {
     name: string,
@@ -8,7 +7,7 @@ export interface IAirport {
     city_acr: string,
     country: string,
     country_acr: string,
-    terminals: ITerminal[],
-    gates: IGate[],
+    terminals: Number,
+    gates: Number,
     img: string,
 }

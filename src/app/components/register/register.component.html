@@ -2,30 +2,50 @@
     <div class="mb-3">
         <label>First Name</label>
         <input type="text" class="form-control" formControlName="first_name">
+        <p class="error" *ngIf="checkError('name', 'required')">
+            The name is mandatory
+        </p>
     </div>
     <div class="mb-3">
         <label>Last Name</label>
         <input type="text" class="form-control" formControlName="last_name">
+        <p class="error" *ngIf="checkError('last_name', 'required')">
+            Last name is mandatory
+        </p>
     </div>
     <div class="mb-3">
         <label>Email</label>
         <input type="text" class="form-control" formControlName="email">
+        <p class="error" *ngIf="checkError('email', 'pattern')">
+            The email is mandatory
+        </p>
     </div>
     <div class="mb-3">
         <label>Password</label>
         <input type="password" class="form-control" formControlName="password">
     </div>
     <div class="mb-3">
+        <label>Repeat password</label>
+        <input type="password" class="form-control" formControlName="repeat_password">
+    </div>
+    <div class="mb-3">
         <label>Passport</label>
         <input type="text" class="form-control" formControlName="passport">
+        <p class="error" *ngIf="checkError('passport', 'required')">
+            The passport is mandatory
+        </p>
     </div>
     <div class="mb-3">
         <label>Membership</label>
         <input type="text" class="form-control" formControlName="membership">
+
     </div>
     <div class="mb-3">
         <label>Phone</label>
         <input type="text" class="form-control" formControlName="phone">
+        <p class="error" *ngIf="checkError('phone', 'required')">
+            Please introduce a valine phone number
+        </p>
     </div>
     <input type="submit" value="Submit" class="btn btn-info">
 </form>

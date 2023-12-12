@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { PanelComponent } from './pages/panel/panel.component';
+import { FlightCardComponent } from './components/flight-card/flight-card.component';
 
 
 
@@ -36,6 +37,7 @@ import { PanelComponent } from './pages/panel/panel.component';
     RegisterComponent,
     LoginComponent,
     PanelComponent,
+    FlightCardComponent
 
 
   ],

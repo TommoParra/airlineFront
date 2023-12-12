@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { IUser } from '../interfaces/iuser';
 import { firstValueFrom } from 'rxjs';
 
+type LoginResponse = { success: string, token: string, error: any };
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -33,11 +36,18 @@ export class UsersService {
   }
   //login de usuario
 
-  login(body: IUser) {
+  login(body: any) {
     return firstValueFrom(
-      this.httpClient.post(`${this.apiUrl}/login`, body)
+      this.httpClient.post<LoginResponse>(`${this.apiUrl}/users/login`, body)
     )
   }
+
+  // isLogged(): boolean {
+  //   if (localStorage.getItem('auth_token')) return true;
+  //   else return false;
+
+  //   // return localStorage.getItem('auth_token') ? true : false;
+  // }
 
 
   constructor() { }

@@ -22,6 +22,10 @@ export class AirportsService {
     return firstValueFrom(this.httpClient.get(`${this.apiUrl}/airports/${airportId}`))
   }
 
+  // getAll() {
+  //   return firstValueFrom(this.httpClient.get(`${this.apiUrl}/airports`));
+  // }
+
 
 
   constructor() { }
