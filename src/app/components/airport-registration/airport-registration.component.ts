@@ -18,19 +18,15 @@ export class AirportRegistrationComponent {
 
   constructor() {
     this.airportForm = new FormGroup({
-      origin_id: new FormControl(null, []),
-      destination_id: new FormControl(null, []),
-      departure: new FormControl(null, []),
-      arrival: new FormControl(null, []),
-      duration: new FormControl(null, []),
-      domestic: new FormControl(null, []),
-      price: new FormControl(null, []),
-      seat: new FormControl(null, []),
-      max_luggage: new FormControl(null, []),
-      terminal: new FormControl(null, []),
-      gate: new FormControl(null, []),
+      name: new FormControl(null, []),
+      name_acr: new FormControl(null, []),
+      city: new FormControl(null, []),
+      city_acr: new FormControl(null, []),
+      country: new FormControl(null, []),
+      country_acr: new FormControl(null, []),
+      terminals: new FormControl(null, []),
+      gates: new FormControl(null, []),
       img: new FormControl(null, []),
-
     })
 
   }
@@ -38,7 +34,7 @@ export class AirportRegistrationComponent {
   onSubmit() {
     const formValues = this.airportForm.value;
     this.airportService.createAirport(formValues)
-    this.router.navigate(['flight list'])
+    console.log('An airport was added. Yay!')
   }
 
 

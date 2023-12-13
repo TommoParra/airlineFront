@@ -3,54 +3,54 @@
         <div class="row">
             <div class="col-md-8">
                 <form [formGroup]="flightForm" (ngSubmit)="onSubmit()">
-                    <div class="mb-2">
-                        <label class="form-label">Id</label>
-                        <input type="number" class="form-control" formControlName="id" placeholder="Id número" min="5"
-                            required>
-                        <div *ngIf="flightForm.get('id')?.hasError('required')">
-                            El campo Id es obligatorio.
-                        </div>
-                        <div *ngIf="flightForm.get('id')?.hasError('min')">
-                            El Id debe ser mayor que 5.
-                        </div>
-                        <div *ngIf="flightForm.get('id')?.hasError('pattern')">
-                            Ingresa un número positivo válido.
-                        </div>
-
-
-                    </div>
-                    <div class="mb-2">
-                        <label class="form-label">Titulo</label>
-                        <input type="text" class="form-control" formControlName="titulo"
-                            placeholder="Titulo de tu post">
-                    </div>
-                    <div class="mb-2">
-                        <label class="form-label">Texto</label>
-                        <input type="text" class="form-control" formControlName="texto" placeholder="Texto">
-                    </div>
-                    <div class="mb-2">
-                        <label class="form-label">Autor</label>
-                        <input type="text" class="form-control" formControlName="autor" placeholder="Autor">
-                    </div>
-                    <div class="mb-2">
-                        <label class="form-label">Fecha</label>
-                        <input type="date" class="form-control" formControlName="fecha" placeholder="Fecha">
-                    </div>
-                    <div class="mb-2">
-                        <label class="form-label">Categoria</label>
-                        <select class="form-control" formControlName="categoria">
-                            <option value="" disabled></option>
-                            <option value="softawe">Aventuras extremas</option>
-                            <option value="softawe">Aventuras acuaticas</option>
-                            <option value="softawe">Viajes culturales</option>
-                            <option value="softawe">Aventuras en la naturaleza</option>
+                    <div class="meow">
+                        <label class="meow-label">Origin</label>
+                        <select formControlName="origin_id">
+                            <option *ngFor="let airport of arrAirports" [ngValue]="airport.id">
+                                {{airport.country}} |
+                                {{airport.city}} |
+                                {{airport.name_acr}}
+                            </option>
                         </select>
                     </div>
-                    <div class="formGroup">
-                        <label for="imagen">Post Image</label>
-
-                        <input class="form-control" type="url" accept="image/*" formControlName="imagen" name="imagen">
+                    <div class="meow">
+                        <label class="meow-label">Destination</label>
+                        <select formControlName="destination_id">
+                            <option *ngFor="let airport of arrAirports" [ngValue]="airport.id">
+                                {{airport.country}} |
+                                {{airport.city}} |
+                                {{airport.name_acr}}
+                            </option>
+                        </select>
                     </div>
+
+
+                    <!-- Find how to let a person choose date and time through selector -->
+                    <div class="form_field">
+                        <label for="departDate">Departure:</label>
+                        <input type="datetime" formControlName="departure" placeholder="Select departure date">
+                        <div class="form_field_underline"></div>
+                    </div>
+                    <div class="form_field">
+                        <label for="departDate">Arrival:</label>
+                        <input type="datetime" formControlName="arrival" placeholder="Select departure date">
+                        <div class="form_field_underline"></div>
+                    </div>
+
+
+                    <!-- 
+            origin_id: number,
+            destination_id: number,
+            destination_city: string,
+            departure: Date,
+            arrival: Date,
+            duration: number,
+            price: number,
+            available_seats: number,
+            available_luggage: number,
+            terminal: number,
+            gate: number,
+            img: string, -->
 
                     <button class="btn btn-success" type="submit">Submit</button>
                 </form>
