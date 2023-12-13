@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HTTP_INTERCEPTORS } from '@angular/common/http'
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,7 +22,7 @@ import { PanelComponent } from './pages/panel/panel.component';
 import { FlightCardComponent } from './components/flight-card/flight-card.component';
 import { FlightResultsCardComponent } from './components/flight-results-card/flight-results-card.component';
 import { PassengerReservationComponent } from './pages/passenger-reservation/passenger-reservation.component';
-
+import { AuthTokenInterceptor } from './interceptors/access-token.interceptors';
 
 
 @NgModule({
@@ -58,7 +59,9 @@ import { PassengerReservationComponent } from './pages/passenger-reservation/pas
 
 
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

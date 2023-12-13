@@ -27,12 +27,20 @@
 
         <nav class="register_navbar">
             <img src="assets/login.png" alt="Login Icon">
-            <li class="navbar_item">
+            <li *ngIf="!userService.isLogged()" class="navbar_item">
                 <a [routerLink]="['/login']">Login</a>
             </li>
-            <div class="hor_nav_divider"></div>
-            <li class="navbar_item">
+            <div *ngIf="!userService.isLogged()" class="hor_nav_divider"></div>
+            <li *ngIf="!userService.isLogged()" class="navbar_item">
                 <a [routerLink]="['/register']">Register</a>
+            </li>
+
+            <li *ngIf="userService.isLogged()" class="navbar_item">
+                <a [routerLink]="['']">My flights</a>
+            </li>
+            <div *ngIf="userService.isLogged()" class="hor_nav_divider"></div>
+            <li *ngIf="userService.isLogged()" (click)="onClickLogout()" class="navbar_item">
+                <a [routerLink]="['/register']">Log out</a>
             </li>
         </nav>
     </div>

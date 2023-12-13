@@ -25,18 +25,12 @@ export class LoginComponent {
 
   async onSubmit() {
     const response = await this.userService.login(this.loginForm.value);
-    console.log(response);
+
+    console.log(response)
     if (response.success) {
       localStorage.setItem('auth_token', response.token)
       console.log(response.token)
       this.router.navigate(['/home'])
-
-
     }
-
-
-
-
   }
-
 }

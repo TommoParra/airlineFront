@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-header',
@@ -8,8 +10,16 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   isOpen = false;
 
+  router = inject(Router)
+  userService = inject(UsersService)
+
   toggleMenu() {
     this.isOpen = !this.isOpen;
+  }
+
+  onClickLogout() {
+    localStorage.removeItem('auth_token')
+    this.router.navigate(['/home'])
   }
 
 }

@@ -42,12 +42,7 @@ export class UsersService {
     )
   }
 
-  // isLogged(): boolean {
-  //   if (localStorage.getItem('auth_token')) return true;
-  //   else return false;
-
-  //   // return localStorage.getItem('auth_token') ? true : false;
-  // }
+  isLogged(): boolean { return localStorage.getItem('auth_token') ? true : false }
 
 
   constructor() { }
