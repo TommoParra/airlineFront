@@ -20,6 +20,7 @@ import { LoginComponent } from './components/login/login.component';
 import { PanelComponent } from './pages/panel/panel.component';
 import { FlightCardComponent } from './components/flight-card/flight-card.component';
 import { FlightResultsCardComponent } from './components/flight-results-card/flight-results-card.component';
+import { PassengerReservationComponent } from './pages/passenger-reservation/passenger-reservation.component';
 
 
 
@@ -40,7 +41,8 @@ import { FlightResultsCardComponent } from './components/flight-results-card/fli
     LoginComponent,
     PanelComponent,
     FlightCardComponent,
-    FlightResultsCardComponent
+    FlightResultsCardComponent,
+    PassengerReservationComponent
 
 
   ],

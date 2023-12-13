@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { PanelComponent } from './pages/panel/panel.component';
 import { FlightResultsCardComponent } from './components/flight-results-card/flight-results-card.component';
+import { PassengerReservationComponent } from './pages/passenger-reservation/passenger-reservation.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'flight-list', component: FlightListComponent },
+  { path: 'reservation', component: PassengerReservationComponent },
   { path: 'panel', component: PanelComponent },
   { path: '**', redirectTo: '/home' }
 ];

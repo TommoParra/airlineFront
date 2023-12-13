@@ -30,6 +30,10 @@ export class FlightsService {
 
   }
 
+  bookFlight(body: IFlight) {
+    return firstValueFrom(this.httpClient.post(`${this.apiUrl}/flights/book`, body));
+  }
+
 
 
 }

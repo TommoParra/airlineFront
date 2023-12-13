@@ -1,0 +1,16 @@
+<form class="flight_reservation_form" [formGroup]="flightReservationForm" (ngSubmit)="onSubmit()"
+    style="max-width: 400px; margin: 7rem auto 5rem auto">
+    <div class="passenger_form_group">
+        <h3 class="single_passenger_title"></h3>
+        <div class="form_field">
+            <label>Passenger full name</label>
+            <input type="text" formControlName="passenger_name" placeholder="As it appears in your passport">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field">
+            <label>Passenger passport</label>
+            <input type="text" formControlName="passenger_passport" placeholder="Unique Passport Identifier">
+            <div class="form_field_underline"></div>
+        </div>
+    </div>
+</form>
