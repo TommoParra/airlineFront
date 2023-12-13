@@ -9,8 +9,10 @@ import { FlightsService } from 'src/app/services/flights.service';
 })
 export class FlightListComponent {
 
-  flightList: any[] = [];
-  // airportList: IAirport[] = [];
+  arrResults: any[] = [];
+  outboundArr: any[] = [];
+  returnArr: any[] = [];
+
 
   flightService = inject(FlightsService);
   activateRoute = inject(ActivatedRoute);
@@ -19,14 +21,15 @@ export class FlightListComponent {
     this.activateRoute.queryParams.subscribe(async (queryParams: any) => {
       console.log(queryParams);
       try {
-        this.flightList = await this.flightService.getFullSearch(queryParams);
-        console.log(this.flightList);  //para probar despues
+        this.arrResults = await this.flightService.getFullSearch(queryParams);
+        this.outboundArr = this.arrResults[0];
+        this.returnArr = this.arrResults[1];
 
       } catch (error) {
         console.log(error);
       }
 
-      // flightList o response
+      // arrResults o response
 
     });
 
