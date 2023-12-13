@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-flight-results-card',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class FlightResultsCardComponent {
 
+  @Input() result: any;
+
+  ngOnInit() {
+    console.log(this.result);
+
+  }
 }
