@@ -1,57 +1,85 @@
-<div class="card">
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-8">
-                <form [formGroup]="flightForm" (ngSubmit)="onSubmit()">
-                    <div class="meow">
-                        <label class="meow-label">Origin</label>
-                        <select formControlName="origin_id">
-                            <option *ngFor="let airport of arrAirports" [ngValue]="airport.id">
-                                {{airport.country}} |
-                                {{airport.city}} |
-                                {{airport.name_acr}}
-                            </option>
-                        </select>
-                    </div>
-                    <div class="meow">
-                        <label class="meow-label">Destination</label>
-                        <select formControlName="destination_id">
-                            <option *ngFor="let airport of arrAirports" [ngValue]="airport.id">
-                                {{airport.country}} |
-                                {{airport.city}} |
-                                {{airport.name_acr}}
-                            </option>
-                        </select>
-                    </div>
+<div class="content_wrapper meow">
+    <h3>Register a new flight</h3>
+    <form [formGroup]="flightForm" (ngSubmit)="onSubmit()">
+        <div class="form_field">
+            <label>Origin</label>
+            <select formControlName="origin_id">
+                <option *ngFor="let airport of arrAirports" [ngValue]="airport.id">
+                    {{airport.country}} |
+                    {{airport.city}} |
+                    {{airport.name_acr}}
+                </option>
+            </select>
+        </div>
+        <div class="form_field_underline"></div>
+        <div class="form_field">
+            <label>Destination</label>
+            <select formControlName="destination_id">
+                <option *ngFor="let airport of arrAirports" [ngValue]="airport.id">
+                    {{airport.country}} |
+                    {{airport.city}} |
+                    {{airport.name_acr}}
+                </option>
+            </select>
+        </div>
+        <div class="form_field_underline"></div>
+        <div class="form_field">
+            <label>Destination</label>
+            <select formControlName="destination_city">
+                <option *ngFor="let airport of arrAirports" [ngValue]="airport.city">
+                    {{airport.city}}
+                </option>
+            </select>
+        </div>
+        <div class="form_field_underline"></div>
 
 
-                    <!-- Find how to let a person choose date and time through selector -->
-                    <div class="form_field">
-                        <label for="departDate">Departure:</label>
-                        <input type="datetime" formControlName="departure" placeholder="Select departure date">
-                        <div class="form_field_underline"></div>
-                    </div>
-                    <div class="form_field">
-                        <label for="departDate">Arrival:</label>
-                        <input type="datetime" formControlName="arrival" placeholder="Select departure date">
-                        <div class="form_field_underline"></div>
-                    </div>
-
-
-                    <!-- 
-            origin_id: number,
-            destination_id: number,
-            destination_city: string,
-            departure: Date,
-            arrival: Date,
-            duration: number,
-            price: number,
-            available_seats: number,
-            available_luggage: number,
-            terminal: number,
-            gate: number,
-            img: string, -->
-
-                    <button class="btn btn-success" type="submit">Submit</button>
-                </form>
-            </div>
+        <!-- Find how to let a person choose date and time through selector -->
+        <div class="form_field">
+            <label for="departDate">Departure:</label>
+            <input type="text" formControlName="departure" placeholder="Select departure date">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field">
+            <label for="departDate">Arrival:</label>
+            <input type="text" formControlName="arrival" placeholder="Select arrival date">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field">
+            <label>Duration (in hours):</label>
+            <input type="text" formControlName="duration" placeholder="2 | 1.5 | 3">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field">
+            <label>Price (without currency):</label>
+            <input type="text" formControlName="price" placeholder="100">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field">
+            <label>Available seats:</label>
+            <input type="text" formControlName="available_seats" placeholder="50">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field">
+            <label>Available luggage (number indicates KG):</label>
+            <input type="text" formControlName="available_luggage" placeholder="70">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field">
+            <label>Terminal:</label>
+            <input type="text" formControlName="terminal" placeholder="2">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field">
+            <label>Gate:</label>
+            <input type="text" formControlName="gate" placeholder="5">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field">
+            <label>Image:</label>
+            <input type="text" formControlName="img" placeholder="Image url">
+            <div class="form_field_underline"></div>
+        </div>
+        <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+</div>

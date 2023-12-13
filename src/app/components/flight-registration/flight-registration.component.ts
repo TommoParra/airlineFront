@@ -24,6 +24,7 @@ export class FlightRegistrationComponent {
     this.flightForm = new FormGroup({
       origin_id: new FormControl(null, []),
       destination_id: new FormControl(null, []),
+      destination_city: new FormControl(null, []),
       departure: new FormControl(null, []),
       arrival: new FormControl(null, []),
       duration: new FormControl(null, []),
@@ -33,7 +34,6 @@ export class FlightRegistrationComponent {
       terminal: new FormControl(null, []),
       gate: new FormControl(null, []),
       img: new FormControl(null, []),
-
     })
 
   }
@@ -43,37 +43,12 @@ export class FlightRegistrationComponent {
     console.log(this.arrAirports);
   }
 
-  // id: number,
-  // origin_id: number,
-  // destination_id: number,
-  // destination_city: string,
-  // departure: Date,
-  // arrival: Date,
-  // duration: number,
-  // price: number,
-  // available_seats: number,
-  // available_luggage: number,
-  // terminal: number,
-  // gate: number,
-  // img: string,
-
   onSubmit() {
     const formValues = this.flightForm.value;
 
-
-
     console.log(formValues)
 
-    // this.flightForm.setValue({origin_id:1})
-
-
-    // const formValues = this.flightForm.value;
-    // this.flightService.createFlight(formValues);
-
-    // hacerlo con setValue
-    // Add on submit!
-    // origin_id instead of origin. destination_id instead of destination
-    // destination_city
+    this.flightService.createFlight(formValues);
   }
 
 
