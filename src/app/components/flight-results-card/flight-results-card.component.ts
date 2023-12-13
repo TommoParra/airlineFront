@@ -1,4 +1,5 @@
 import { Component, Input, inject } from '@angular/core';
+import { FlightsService } from 'src/app/services/flights.service';
 
 
 
@@ -9,10 +10,19 @@ import { Component, Input, inject } from '@angular/core';
 })
 export class FlightResultsCardComponent {
 
-  @Input() result: any;
+  flightService = inject(FlightsService);
 
-  ngOnInit() {
+  @Input() result: any;
+  @Input() passengers: number = 0;
+
+
+
+  onClick() {
+    this.result.passengers_number = Number(this.passengers);
     console.log(this.result);
+
+
+
 
   }
 }
