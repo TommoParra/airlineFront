@@ -13,6 +13,9 @@ export class FlightsService {
   private httpClient = inject(HttpClient);
   private apiUrl = 'http://localhost:3100/api'
 
+  getAll(): Promise<IFlight[]> {
+    return firstValueFrom(this.httpClient.get<IFlight[]>(`${this.apiUrl}/flights`));
+  }
 
   createFlight(body: IFlight) {
     return firstValueFrom(this.httpClient.post(`${this.apiUrl}/flights`, body))
@@ -30,5 +33,4 @@ export class FlightsService {
 
 
 
-  constructor() { }
 }

@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { FlightCardComponent } from 'src/app/components/flight-card/flight-card.component';
+import { IFlight } from 'src/app/interfaces/iflight';
 import { FlightsService } from 'src/app/services/flights.service';
 
 @Component({
@@ -9,5 +11,19 @@ import { FlightsService } from 'src/app/services/flights.service';
 })
 export class HomeComponent {
   isHomePage: boolean = false;
+
+  router = inject(Router)
+  flightService = inject(FlightsService)
+
+  arrFlights: IFlight[] = []
+
+  async ngOnInit() {
+    try {
+      this.arrFlights = await this.flightService.getAll()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 
 }

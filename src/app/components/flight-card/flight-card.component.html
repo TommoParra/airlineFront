@@ -1,8 +1,8 @@
 <article class="flight_card" [ngStyle]="{ backgroundImage: 'url(' + '\/assets\/homeHeroBg.jpg' + ')' }">
     <div class="card_txt_container">
-        <h3 class="card_title">New York</h3>
+        <h3 class="card_title">{{Flight.destination_city}}</h3>
         <p class="card_alt">Ecconomy</p>
-        <p class="card_txt">From EUR 130</p>
+        <p class="card_txt">From EUR {{Flight.price}}</p>
     </div>
     <div class="flight_card_layer"></div>
     <div class="flight_card_bottom_line"></div>

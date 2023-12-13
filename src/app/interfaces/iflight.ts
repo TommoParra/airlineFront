@@ -3,6 +3,7 @@ export interface IFlight {
     id: number,
     origin_id: number,
     destination_id: number,
+    destination_city: string,
     departure: Date,
     arrival: Date,
     duration: number,
