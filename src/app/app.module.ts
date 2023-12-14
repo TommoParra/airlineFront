@@ -57,7 +57,6 @@ import { AuthTokenInterceptor } from './interceptors/access-token.interceptors';
 
 
 
-
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true }
