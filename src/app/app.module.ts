@@ -61,7 +61,6 @@ import { ReservationCardComponent } from './components/reservation-card/reservat
 
 
 
-
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true }

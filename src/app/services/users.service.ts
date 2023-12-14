@@ -16,6 +16,7 @@ export class UsersService {
 
   private httpClient = inject(HttpClient);
 
+
   private apiUrl: string = 'http://localhost:3100/api'
 
   getById(userId: number) {
@@ -51,5 +52,5 @@ export class UsersService {
   }
 
 
-  constructor() { }
+
 }

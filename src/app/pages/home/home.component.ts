@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { FlightCardComponent } from 'src/app/components/flight-card/flight-card.component';
 import { IFlight } from 'src/app/interfaces/iflight';
 import { FlightsService } from 'src/app/services/flights.service';
+import { JwtService } from 'src/app/services/jwt.service';
 
 @Component({
   selector: 'app-home',
@@ -14,16 +14,22 @@ export class HomeComponent {
 
   router = inject(Router)
   flightService = inject(FlightsService)
+  jwt = inject(JwtService)
 
   arrFlights: IFlight[] = []
 
   async ngOnInit() {
     try {
       this.arrFlights = await this.flightService.getAll()
+      let token = this.jwt.checkPermissions()
+      console.log(token)
+
     } catch (error) {
       console.log(error)
     }
   }
+
+
 
 
 }
