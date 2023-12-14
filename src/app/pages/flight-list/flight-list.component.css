@@ -1,0 +1,59 @@
+.outbond {
+    font-size: large;
+    font-weight: 300;
+    background-color: lightgray;
+    padding: 20px;
+    border: 1px gray solid;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.return {
+
+    background-color: lightgray;
+    padding: 20px;
+    border: 1px gray solid;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Begining of media Queries */
+
+@media (width < 768px) {
+
+    header.header {
+        padding: 2rem var(--contentPadding) 1rem var(--contentPadding);
+        grid-gap: 0;
+
+    }
+
+    .header_nav_container {
+        flex-direction: column;
+        grid-row: 2;
+        grid-column: 1/-1;
+        gap: 2rem;
+        overflow: hidden;
+        transition: .5s;
+        height: 0px;
+        padding-top: 1rem;
+    }
+
+    .header_nav_container .main_navbar ul {
+        flex-direction: column;
+    }
+
+    header .header_nav_container .main_navbar ul {
+        align-items: flex-start;
+    }
+
+    header .header_nav_container .register_navbar {
+        margin: auto auto 0 auto;
+    }
+
+
+
+}
+
+/* End of media Queries */

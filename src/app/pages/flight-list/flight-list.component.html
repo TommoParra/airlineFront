@@ -1,17 +1,17 @@
-<section class="wrap">
-    <h2>Outbond Flights</h2>
-    <hr>
+<section class="wrap1">
+    <h2 class="outbond">OUTBOND FLIGHTS</h2>
+    <!-- <hr> -->
     <article *ngFor="let result of outboundArr">
 
-        <app-flight-results-card [result]="result"> </app-flight-results-card>
+        <app-flight-results-card [result]="result" [passengers]="passengers"> </app-flight-results-card>
     </article>
 </section>
 
-<section class="wrap">
-    <h2>Return Flights</h2>
-    <hr>
+<section class="wrap2">
+    <h2 class="return">RETURN FLIGHTS</h2>
+    <!-- <hr> -->
     <article *ngFor="let result of returnArr">
 
-        <app-flight-results-card [result]="result"> </app-flight-results-card>
+        <app-flight-results-card [result]="result" [passengers]="passengers"> </app-flight-results-card>
     </article>
 </section>
