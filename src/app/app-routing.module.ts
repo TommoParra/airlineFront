@@ -9,6 +9,7 @@ import { FlightResultsCardComponent } from './components/flight-results-card/fli
 import { PassengerReservationComponent } from './pages/passenger-reservation/passenger-reservation.component';
 import { ReservationCardComponent } from './components/reservation-card/reservation-card.component';
 import { ReservationSummaryComponent } from './pages/reservation-summary/reservation-summary.component';
+import { UserPanelComponent } from './pages/user-panel/user-panel.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'flight-list', component: FlightListComponent },
   { path: 'reservation', component: PassengerReservationComponent },
   { path: 'summary', component: ReservationSummaryComponent },
+  { path: 'user', component: UserPanelComponent },
   { path: 'panel', component: PanelComponent },
   { path: '**', redirectTo: '/home' }
 ];

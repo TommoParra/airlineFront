@@ -1,6 +1,5 @@
-import { Component, Input, inject } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FlightsService } from 'src/app/services/flights.service';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 
 
@@ -11,7 +10,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class ReservationSummaryComponent {
 
-  router = inject(Router);
+  // router = inject(Router);
   usersService = inject(UsersService);
 
   arrDetails: any[] = [];
