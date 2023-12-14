@@ -2,10 +2,16 @@
     max-width: 1440px;
     margin: 0 auto;
     padding: 20px;
+    display: flex;
+
 }
 
 .wrapper:hover {
     transition-delay: 1s;
+}
+
+.image {
+    justify-content: baseline;
 }
 
 
@@ -64,9 +70,5 @@ button {
     font-weight: bold;
     position: relative;
     border-radius: 5px;
-
-
-
-
 
 }

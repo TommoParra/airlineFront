@@ -20,9 +20,6 @@ export class FlightResultsCardComponent {
   onClick() {
     this.result.passengers_number = Number(this.passengers);
     console.log(this.result);
-
-
-
-
+    localStorage.setItem('booking', JSON.stringify(this.result));
   }
 }
