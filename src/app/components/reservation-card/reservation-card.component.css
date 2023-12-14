@@ -1,0 +1,21 @@
+.card {
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 50px;
+
+
+
+}
+
+
+
+.card-details {
+    border: 1px gray solid;
+    margin-top: 40px;
+    font-size: 24px;
+
+
+}

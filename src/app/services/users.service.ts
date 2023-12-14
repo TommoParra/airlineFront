@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { IUser } from '../interfaces/iuser';
 import { firstValueFrom } from 'rxjs';
 
+
 type LoginResponse = { success: string, token: string, error: any };
 
 
@@ -43,6 +44,11 @@ export class UsersService {
   }
 
   isLogged(): boolean { return localStorage.getItem('auth_token') ? true : false }
+
+  getTicket(body: any): Promise<any[]> {
+    return firstValueFrom(this.httpClient.post<any[]>(`${this.apiUrl}/users/reservations`, body));
+
+  }
 
 
   constructor() { }

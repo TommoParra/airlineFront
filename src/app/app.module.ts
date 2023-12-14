@@ -23,6 +23,8 @@ import { FlightCardComponent } from './components/flight-card/flight-card.compon
 import { FlightResultsCardComponent } from './components/flight-results-card/flight-results-card.component';
 import { PassengerReservationComponent } from './pages/passenger-reservation/passenger-reservation.component';
 import { AuthTokenInterceptor } from './interceptors/access-token.interceptors';
+import { ReservationSummaryComponent } from './pages/reservation-summary/reservation-summary.component';
+import { ReservationCardComponent } from './components/reservation-card/reservation-card.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { AuthTokenInterceptor } from './interceptors/access-token.interceptors';
     PanelComponent,
     FlightCardComponent,
     FlightResultsCardComponent,
-    PassengerReservationComponent
+    PassengerReservationComponent,
+    ReservationSummaryComponent,
+    ReservationCardComponent
 
 
   ],
