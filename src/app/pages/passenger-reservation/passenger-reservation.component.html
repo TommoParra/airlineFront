@@ -1,5 +1,5 @@
-<form class="flight_reservation_form" [formGroup]="flightReservationForm" *ngFor="let i of Arr(num).fill(1)"
-    style="max-width: 400px; margin: 7rem auto 5rem auto">
+<form class="flight_reservation_form" [formGroup]="flightReservationForm"
+    *ngFor="let i of Arr(num).fill(1); let j = index" style="max-width: 400px; margin: 7rem auto 5rem auto">
     <div class="passenger_form_group">
         <h3 class="single_passenger_title"></h3>
         <div class="form_field">
@@ -9,17 +9,17 @@
         </div>
         <div class="form_field">
             <label>Passenger passport</label>
-            <input type="text" formControlName="passenger_passport" placeholder="Unique Passport Identifier">
+            <input type="text" formControlName="passport" placeholder="Unique Passport Identifier">
             <div class="form_field_underline"></div>
         </div>
         <div class="form_field">
-            <label>How many(20kg) luggage?</label>
-            <input type="number" formControlName="passenger_luggage">
+            <label>How much(20kg) luggage?</label>
+            <input type="number" formControlName="luggage">
             <div class="form_field_underline"></div>
         </div>
     </div>
 
-    <button (click)="onClickTest()">Add</button>
+    <button (click)="addOnClick();" [disabled]="disabledButtons[j]">Add</button>
 </form>
 
-<button (ngSubmit)="onSubmit()">SUBMIT</button>
+<button (click)="onSubmit()">Submit</button>

@@ -1,7 +1,8 @@
 <section class="wrap1">
+    <button (click)="checkoutOnClick()">Checkout</button>
     <h2 class="outbond">OUTBOND FLIGHTS</h2>
     <!-- <hr> -->
-    <article *ngFor="let result of outboundArr">
+    <article *ngFor="let result of outboundArr | slice:0:4">
 
         <app-flight-results-card [result]="result" [passengers]="passengers"> </app-flight-results-card>
     </article>
@@ -10,7 +11,7 @@
 <section class="wrap2">
     <h2 class="return">RETURN FLIGHTS</h2>
     <!-- <hr> -->
-    <article *ngFor="let result of returnArr">
+    <article *ngFor="let result of returnArr | slice:0:4">
 
         <app-flight-results-card [result]="result" [passengers]="passengers"> </app-flight-results-card>
     </article>

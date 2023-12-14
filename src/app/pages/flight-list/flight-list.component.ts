@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FlightsService } from 'src/app/services/flights.service';
 
 @Component({
@@ -17,6 +17,7 @@ export class FlightListComponent {
 
   flightService = inject(FlightsService);
   activateRoute = inject(ActivatedRoute);
+  router = inject(Router)
 
   ngOnInit() {
     this.activateRoute.queryParams.subscribe(async (queryParams: any) => {
@@ -35,13 +36,10 @@ export class FlightListComponent {
 
     });
 
+  }
 
-
-
-
-
-
-
+  checkoutOnClick() {
+    this.router.navigate(['/reservation'])
   }
 
 }
