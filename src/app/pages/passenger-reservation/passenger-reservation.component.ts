@@ -16,6 +16,10 @@ export class PassengerReservationComponent {
 
   flightsData;
 
+  userDataArr: any = []
+
+
+
 
   constructor() {
     /* Placeholder flightData */
@@ -73,9 +77,18 @@ export class PassengerReservationComponent {
 
     /* Reservation form */
     this.flightReservationForm = new FormGroup({
-      passenger_name: new FormControl(null, [Validators.required]),
-      passenger_passport: new FormControl(null, [Validators.required]),
+      passenger_name: new FormControl(null, []),
+      passenger_passport: new FormControl(null, []),
     })
+
+    // this.flightReservationForm = new FormGroup({
+    //   passenger_name: new FormControl(null, [Validators.required]),
+    //   passenger_passport: new FormControl(null, [Validators.required]),
+    // })
+
+
+
+
 
 
 
@@ -97,9 +110,20 @@ export class PassengerReservationComponent {
     }
   }
 
+  async onClickTest() {
+    const formValues = this.flightReservationForm.value;
+
+    console.log(formValues)
+    this.userDataArr.push(formValues)
+    console.log(this.userDataArr)
+
+  }
+
 
   onSubmit() {
     this.FlightsService.bookFlight(this.flightReservationForm.value);
+
+    // Envia el array userdataarray
   }
 
 }
