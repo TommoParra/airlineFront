@@ -70,5 +70,8 @@ button {
     font-weight: bold;
     position: relative;
     border-radius: 5px;
+    text-align: center;
+    display: inline-block;
+    padding: 8px 2px;
 
 }

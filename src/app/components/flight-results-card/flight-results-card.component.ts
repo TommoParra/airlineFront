@@ -17,6 +17,8 @@ export class FlightResultsCardComponent {
   @Input() result: any;
   @Input() passengers: number = 0;
 
+  isButtonDisabled: boolean = false;
+
 
 
   onClick() {
@@ -24,6 +26,7 @@ export class FlightResultsCardComponent {
     this.ticketsArr.push(this.result);
     localStorage.setItem('booking', JSON.stringify(this.ticketsArr));
     console.log(this.result);
+    this.isButtonDisabled = true;
 
   }
 }
