@@ -1,4 +1,4 @@
-<form class="flight_reservation_form" [formGroup]="flightReservationForm"
+<form class="flight_reservation_form" [formGroup]="flightReservationForm" *ngFor="let i of Arr(num).fill(1)"
     style="max-width: 400px; margin: 7rem auto 5rem auto">
     <div class="passenger_form_group">
         <h3 class="single_passenger_title"></h3>
@@ -12,26 +12,14 @@
             <input type="text" formControlName="passenger_passport" placeholder="Unique Passport Identifier">
             <div class="form_field_underline"></div>
         </div>
-    </div>
-    <button (click)="onClickTest()">Add</button>
-</form>
-<form class="flight_reservation_form" [formGroup]="flightReservationForm" (ngSubmit)="onSubmit()"
-    style="max-width: 400px; margin: 7rem auto 5rem auto">
-    <div class="passenger_form_group">
-        <h3 class="single_passenger_title"></h3>
         <div class="form_field">
-            <label>Passenger full name</label>
-            <input type="text" formControlName="passenger_name" placeholder="As it appears in your passport">
-            <div class="form_field_underline"></div>
-        </div>
-        <div class="form_field">
-            <label>Passenger passport</label>
-            <input type="text" formControlName="passenger_passport" placeholder="Unique Passport Identifier">
+            <label>How many(20kg) luggage?</label>
+            <input type="number" formControlName="passenger_luggage">
             <div class="form_field_underline"></div>
         </div>
     </div>
+
     <button (click)="onClickTest()">Add</button>
-
-
-    <button (ngSubmit)="onSubmit()">SUBMIT</button>
 </form>
+
+<button (ngSubmit)="onSubmit()">SUBMIT</button>

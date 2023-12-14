@@ -12,6 +12,8 @@ export class FlightResultsCardComponent {
 
   flightService = inject(FlightsService);
 
+  ticketsArr: any = [];
+
   @Input() result: any;
   @Input() passengers: number = 0;
 
@@ -19,10 +21,9 @@ export class FlightResultsCardComponent {
 
   onClick() {
     this.result.passengers_number = Number(this.passengers);
+    this.ticketsArr.push(this.result);
+    localStorage.setItem('booking', JSON.stringify(this.ticketsArr));
     console.log(this.result);
-
-
-
 
   }
 }
