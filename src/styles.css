@@ -121,20 +121,63 @@
     line-height: normal;
 }
 
+/* Grid column */
+
+.col_1 {
+    grid-column: span 1;
+}
+
+.col_2 {
+    grid-column: span 2;
+}
+
+.col_3 {
+    grid-column: span 3;
+}
+
+.col_4 {
+    grid-column: span 4;
+}
+
+.col_all {
+    grid-column: 1/-1;
+}
+
 
 /* Forms */
-.flight_search_form {
+
+.form {
     display: grid;
-    border-radius: 20px;
-    background-color: white;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 2rem;
+    margin: auto;
     padding: 20px;
+    box-shadow: var(--DP2);
+    border-radius: 20px;
+    border: 2px solid transparent;
+    transition: .25s;
 }
+
+.form:hover {
+    border: 2px solid var(--grey);
+
+}
+
+.form_title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    text-align: center;
+    grid-column: 1/-1;
+}
+
+
 
 .form_field {
     display: grid;
     grid-row-gap: 1rem;
-
 }
+
 
 .form_field input:focus-visible {
     outline: none;
@@ -168,15 +211,17 @@ option {
 
 /* Buttons */
 .btn {
-    cursor: pointer;
+    width: max-content;
     padding: 1rem;
+    margin: auto;
     border: none;
     border-radius: 0.625rem;
+    box-shadow: var(--DP2);
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 1rem;
     text-align: center;
     transition: .25s;
-    box-shadow: var(--DP2);
+    cursor: pointer;
 }
 
 .btn_dark {

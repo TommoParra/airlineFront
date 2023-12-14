@@ -1,7 +1,7 @@
-<div class="content_wrapper meow">
-    <h3>Register a new flight</h3>
-    <form [formGroup]="flightForm" (ngSubmit)="onSubmit()">
-        <div class="form_field">
+<div class="content_wrapper">
+    <form class="form flight_registration_form" [formGroup]="flightForm" (ngSubmit)="onSubmit()">
+        <h3 class="form_title">Register a new flight</h3>
+        <div class="form_field col_4">
             <label>Origin</label>
             <select formControlName="origin_id">
                 <option *ngFor="let airport of arrAirports" [ngValue]="airport.id">
@@ -10,9 +10,9 @@
                     {{airport.name_acr}}
                 </option>
             </select>
+            <div class="form_field_underline"></div>
         </div>
-        <div class="form_field_underline"></div>
-        <div class="form_field">
+        <div class="form_field col_4">
             <label>Destination</label>
             <select formControlName="destination_id">
                 <option *ngFor="let airport of arrAirports" [ngValue]="airport.id">
@@ -21,65 +21,65 @@
                     {{airport.name_acr}}
                 </option>
             </select>
+            <div class="form_field_underline"></div>
         </div>
-        <div class="form_field_underline"></div>
-        <div class="form_field">
+        <div class="form_field col_4">
             <label>Destination</label>
             <select formControlName="destination_city">
                 <option *ngFor="let airport of arrAirports" [ngValue]="airport.city">
                     {{airport.city}}
                 </option>
             </select>
+            <div class="form_field_underline"></div>
         </div>
-        <div class="form_field_underline"></div>
 
 
         <!-- Find how to let a person choose date and time through selector -->
-        <div class="form_field">
+        <div class="form_field col_4">
             <label for="departDate">Departure:</label>
             <input type="text" formControlName="departure" placeholder="Select departure date">
             <div class="form_field_underline"></div>
         </div>
-        <div class="form_field">
+        <div class="form_field col_4">
             <label for="departDate">Arrival:</label>
             <input type="text" formControlName="arrival" placeholder="Select arrival date">
             <div class="form_field_underline"></div>
         </div>
-        <div class="form_field">
+        <div class="form_field col_4">
             <label>Duration (in hours):</label>
             <input type="text" formControlName="duration" placeholder="2 | 1.5 | 3">
             <div class="form_field_underline"></div>
         </div>
-        <div class="form_field">
+        <div class="form_field col_4">
             <label>Price (without currency):</label>
             <input type="text" formControlName="price" placeholder="100">
             <div class="form_field_underline"></div>
         </div>
-        <div class="form_field">
+        <div class="form_field col_4">
             <label>Available seats:</label>
             <input type="text" formControlName="available_seats" placeholder="50">
             <div class="form_field_underline"></div>
         </div>
-        <div class="form_field">
+        <div class="form_field col_4">
             <label>Available luggage (number indicates KG):</label>
             <input type="text" formControlName="available_luggage" placeholder="70">
             <div class="form_field_underline"></div>
         </div>
-        <div class="form_field">
+        <div class="form_field col_4">
             <label>Terminal:</label>
             <input type="text" formControlName="terminal" placeholder="2">
             <div class="form_field_underline"></div>
         </div>
-        <div class="form_field">
+        <div class="form_field col_4">
             <label>Gate:</label>
             <input type="text" formControlName="gate" placeholder="5">
             <div class="form_field_underline"></div>
         </div>
-        <div class="form_field">
+        <div class="form_field col_4">
             <label>Image:</label>
             <input type="text" formControlName="img" placeholder="Image url">
             <div class="form_field_underline"></div>
         </div>
-        <button class="btn btn-success" type="submit">Submit</button>
+        <button class="btn btn-success col_all" type="submit">Submit</button>
     </form>
 </div>

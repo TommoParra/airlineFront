@@ -1,9 +1,8 @@
 .flight_search_form {
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(3, 1fr);
     grid-auto-flow: dense;
-    grid-gap: 1rem;
+    background-color: white;
 }
+
 
 .flight_search_form .form_field {
     grid-column: span 2;

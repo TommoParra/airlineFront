@@ -1,53 +1,53 @@
-<div class="content_wrapper meow">
-    <h3>Register a new airport</h3>
-    <form [formGroup]="airportForm" (ngSubmit)="onSubmit()">
-        <div class="form_field">
+<div class="content_wrapper">
+    <h3 class="form_title">Register a new airport</h3>
+    <form class="form" [formGroup]="airportForm" (ngSubmit)="onSubmit()">
+        <div class="form_field col_4">
             <label class="form-label">Airport name</label>
             <input type="text" class="form-control" formControlName="name"
                 placeholder="Los Angeles International Airport">
+            <div class="form_field_underline"></div>
         </div>
-        <div class="form_field_underline"></div>
-        <div class="form_field">
+        <div class="form_field col_4">
             <label class="form-label">Airport name acronym</label>
             <input type="text" class="form-control" formControlName="name_acr" placeholder="LAX">
+            <div class="form_field_underline"></div>
         </div>
-        <div class="form_field_underline"></div>
-        <div class="form_field">
+        <div class="form_field col_4">
             <label class="form-label">City</label>
             <input type="text" class="form-control" formControlName="city" placeholder="Los Angeles">
+            <div class="form_field_underline"></div>
         </div>
-        <div class="form_field_underline"></div>
-        <div class="form_field">
+        <div class="form_field col_4">
             <label class="form-label">City acronym</label>
             <input type="text" class="form-control" formControlName="city_acr" placeholder="LAX">
+            <div class="form_field_underline"></div>
         </div>
-        <div class="form_field_underline"></div>
-        <div class="form_field">
+        <div class="form_field col_4">
             <label class="form-label">Country</label>
             <input type="text" class="form-control" formControlName="country" placeholder="United States">
+            <div class="form_field_underline"></div>
         </div>
-        <div class="form_field_underline"></div>
-        <div class="form_field">
+        <div class="form_field col_4">
             <label class="form-label">Country acr</label>
             <input type="text" class="form-control" formControlName="country_acr" placeholder="US">
+            <div class="form_field_underline"></div>
         </div>
-        <div class="form_field_underline"></div>
-        <div class="form_field">
+        <div class="form_field col_4">
             <label>Terminals - total terminals</label>
             <input class="form-control" type="text" formControlName="terminals" placeholder="2">
+            <div class="form_field_underline"></div>
         </div>
-        <div class="form_field_underline"></div>
-        <div class="form_field">
+        <div class="form_field col_4">
             <label>Gates - total gates</label>
             <input class="form-control" type="text" formControlName="gates" placeholder="10">
+            <div class="form_field_underline"></div>
         </div>
-        <div class="form_field_underline"></div>
-        <div class="form_field">
+        <div class="form_field col_4">
             <label>Related image</label>
             <input class="form-control" type="url" formControlName="img"
                 name="https://example.com/lax_airport_image.jpg">
+            <div class="form_field_underline"></div>
         </div>
-        <div class="form_field_underline"></div>
-        <button class="btn btn_light" type="submit">Submit</button>
+        <button class="btn btn_light col_all" type="submit">Submit</button>
     </form>
 </div>
