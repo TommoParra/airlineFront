@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FlightsService } from 'src/app/services/flights.service';
+import { JwtService } from 'src/app/services/jwt.service';
 @Component({
   selector: 'app-passenger-reservation',
   templateUrl: './passenger-reservation.component.html',
@@ -11,7 +12,7 @@ export class PassengerReservationComponent {
 
   flightReservationForm: FormGroup;
   FlightsService = inject(FlightsService);
-
+  jwt = inject(JwtService);
 
   flightsData: any;
   flightId: number = 0;
@@ -21,7 +22,7 @@ export class PassengerReservationComponent {
   userDataArr: any = []
   num: number;
 
-
+  userData: any;
 
 
   constructor() {
@@ -38,7 +39,11 @@ export class PassengerReservationComponent {
 
   }
   ngOnInit() {
+    this.userData = this.jwt.checkPermissions();
+    console.log(this.userData.user_id);
+
     this.flightsData = localStorage.getItem('booking') || null;
+
     if (this.flightsData) {
       this.flightsData = JSON.parse(this.flightsData);
       this.passengerNumber = this.flightsData![0].passengers_number;
