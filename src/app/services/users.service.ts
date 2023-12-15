@@ -26,16 +26,12 @@ export class UsersService {
     return firstValueFrom(this.httpClient.post(`${this.apiUrl}/users`, body))
   }
 
-
-  //aqui hacemos el registro de usuario
-
   register(body: IUser) {
     return firstValueFrom(
       this.httpClient.post(`${this.apiUrl}/users`, body)
     );
 
   }
-  //login de usuario
 
   login(body: any) {
     return firstValueFrom(
@@ -43,7 +39,11 @@ export class UsersService {
     )
   }
 
-  isLogged(): boolean { return localStorage.getItem('auth_token') ? true : false }
+  editUser(userId: number, body: any) {
+    return firstValueFrom(
+      this.httpClient.put(`${this.apiUrl}/users/${userId}`, body)
+    )
+  }
 
   getTicket(body: any): Promise<any[]> {
     return firstValueFrom(this.httpClient.post<any[]>(`${this.apiUrl}/users/reservations`, body));
@@ -51,5 +51,9 @@ export class UsersService {
   }
 
 
+
+
+
+  isLogged(): boolean { return localStorage.getItem('auth_token') ? true : false }
 
 }

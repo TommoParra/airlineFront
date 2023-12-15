@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FlightsService } from 'src/app/services/flights.service';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-flight-list',
@@ -17,6 +18,7 @@ export class FlightListComponent {
 
 
   flightService = inject(FlightsService);
+  userService = inject(UsersService)
   activateRoute = inject(ActivatedRoute);
   router = inject(Router)
 
@@ -39,7 +41,12 @@ export class FlightListComponent {
   }
 
   checkoutOnClick() {
-    this.router.navigate(['/reservation'])
+    if (this.userService.isLogged()) {
+      this.router.navigate(['/reservation'])
+    } else {
+      this.router.navigate(['/login'])
+    }
+
   }
 
   onFlightClikedOutbond($event: number) {

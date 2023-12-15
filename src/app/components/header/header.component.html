@@ -36,7 +36,7 @@
             </li>
 
             <li *ngIf="userService.isLogged()" class="navbar_item">
-                <a [routerLink]="['']">My flights</a>
+                <a [routerLink]="['/user']">My flights</a>
             </li>
             <div *ngIf="userService.isLogged()" class="hor_nav_divider"></div>
             <li *ngIf="userService.isLogged()" (click)="onClickLogout()" class="navbar_item">

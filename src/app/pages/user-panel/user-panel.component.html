@@ -1,11 +1,39 @@
-<section>
-    <div class="wrapper"></div>
-</section>
+<div class="content_wrapper">
+    <h3 class="form_title">User information</h3>
+    <form class="form flight_registration_form" [formGroup]="userEditForm">
+        <div class="form_field col_4">
+            <label>First name:</label>
+            <input type="text" formControlName="first_name">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label>Last name:</label>
+            <input type="text" formControlName="last_name">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label>Email:</label>
+            <input type="text" formControlName="email">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label>Phone number:</label>
+            <input type="text" formControlName="phone">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label>Passport:</label>
+            <input type="text" formControlName="passport">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label>Membership:</label>
+            <input type="text" formControlName="membership">
+            <div class="form_field_underline"></div>
+        </div>
 
+        <button class="btn btn-success col_all" type="button" (click)="editToggle()">Edit information</button>
 
-<section>
-    <div class="wrapper">
-        <!-- <app-reservation-card></app-reservation-card> -->
-        {{userData.first_name}} {{userData.last_name}}
-    </div>
-</section>
+    </form>
+
+</div>

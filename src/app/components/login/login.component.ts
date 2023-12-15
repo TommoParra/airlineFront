@@ -27,10 +27,17 @@ export class LoginComponent {
     const response = await this.userService.login(this.loginForm.value);
 
     console.log(response)
-    if (response.success) {
+    if (response.success)
       localStorage.setItem('auth_token', response.token)
-      console.log(response.token)
+    console.log(response.token)
+
+    if (localStorage.getItem('booking')) {
+      this.router.navigate(['/reservation'])
+    } else {
       this.router.navigate(['/home'])
     }
+
+
+
   }
 }
