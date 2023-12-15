@@ -23,7 +23,7 @@
             </figure>
         </div>
         <div class="button">
-            <button (click)="onClick()">GET</button>
+            <button *ngIf="!clicked" (click)="onClick()">GET</button>
         </div>
     </div>
 </section>
