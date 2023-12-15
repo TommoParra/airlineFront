@@ -1,11 +1,13 @@
 <form class="form flight_search_form" [formGroup]="flightSearchForm" (ngSubmit)="onSubmit()">
     <div class="form_field">
         <label for="fare">Fare:</label>
-        <select formControlName="fare">
+        <select formControlName="fare" required>
             <option value="one_way">One Way</option>
             <option value="round_trip">Round Trip</option>
         </select>
-        <div class="form_field_underline"></div>
+        <div class="form_field_underline" [ngClass]="{ 'error_underline': checkError('fare', 'required') || error }">
+        </div>
+        <p class="field_error" *ngIf="checkError('fare', 'required') || error">Fare select is mandatory</p>
     </div>
 
     <div class="form_field">
@@ -16,36 +18,55 @@
             <option [value]="airport.city + '-'+ airport.name_acr + '-' + airport.country"
                 *ngFor="let airport of airportsArr"></option>
         </datalist>
-        <div class="form_field_underline"></div>
+        <div class="form_field_underline" [ngClass]="{ 'error_underline': checkError('origin', 'required') || error }">
+        </div>
+        <p class="field_error" *ngIf="checkError('origin', 'required') || error">Select the origin flight</p>
 
     </div>
 
-    <div class="form_field" [ngClass]="{ 'disabled_field': flightSearchForm.get('to')?.disabled }">
+    <div class="form_field">
         <label for="to">To:</label>
         <input type="text" formControlName="destination" placeholder="{{toFieldPlaceHolder}}" list="airportsTo">
         <datalist id="airportsTo">
             <option [value]="airport.city + '-'+ airport.name_acr + '-' + airport.country"
                 *ngFor="let airport of airportsArr"></option>
         </datalist>
-        <div class="form_field_underline"></div>
+        <div class="form_field_underline"
+            [ngClass]="{ 'error_underline': checkError('destination', 'required') || error }">
+        </div>
+        <p class="field_error" *ngIf="checkError('destination', 'required') || error">Select the destination flight</p>
     </div>
 
     <div class="form_field">
         <label for="departDate">Departure Date:</label>
         <input type="date" formControlName="departure" placeholder="Select departure date">
-        <div class="form_field_underline"></div>
+        <div class="form_field_underline"
+            [ngClass]="{ 'error_underline': checkError('departure', 'required') || error }">
+        </div>
+        <p class="field_error" *ngIf="checkError('departure', 'required') || error">Select departure date</p>
     </div>
 
-    <div class="form_field">
+    <div class="form_field" [ngClass]="{ 'disabled_field': flightSearchForm.get('return')?.disabled }">
         <label for="returnDate">Return Date:</label>
         <input type="date" formControlName="return" placeholder="Select return date (optional)">
-        <div class="form_field_underline"></div>
+        <div class="form_field_underline"
+            [ngClass]="{ 'error_underline': checkError('return', 'required') || checkError('return', 'dateGreaterThan') || error }">
+        </div>
+        <p class="field_error" [ngClass]="{ 'overlapping_field_error': !checkError('return', 'required') }"
+            *ngIf="checkError('return', 'required') || checkError('return', 'dateGreaterThan') || error">
+            {{ checkError('return', 'dateGreaterThan') ? 'Return date must be greater than departure date' : 'Select
+            return date' }}
+        </p>
     </div>
+
 
     <div class="form_field">
         <label for="passengers">Passengers:</label>
         <input type="number" formControlName="passengers" min="1" max="10" placeholder="How many people?">
-        <div class="form_field_underline"></div>
+        <div class="form_field_underline"
+            [ngClass]="{ 'error_underline': checkError('passengers', 'required') || error }">
+        </div>
+        <p class="field_error" *ngIf="checkError('passengers', 'required') || error">Minimum passengers is 1</p>
     </div>
 
     <div class="form_field">
@@ -54,8 +75,11 @@
             <option value="Economy">Economy</option>
             <option value="Business">Business</option>
         </select>
-        <div class="form_field_underline"></div>
+        <div class="form_field_underline" [ngClass]="{ 'error_underline': checkError('class', 'required') || error }">
+        </div>
+        <p class="field_error" *ngIf="checkError('class', 'required') || error">Select a class</p>
     </div>
 
-    <button class="btn btn_light" type="submit">Search</button>
+    <input class="btn btn_light" type="submit" value="Search" (click)="displayRequiredFieldsError()">
+
 </form>

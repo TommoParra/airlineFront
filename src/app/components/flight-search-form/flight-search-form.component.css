@@ -28,7 +28,6 @@
     .flight_search_form {
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: auto;
-        grid-gap: 1rem;
     }
 
     .flight_search_form .form_field,
