@@ -93,7 +93,7 @@ export class PassengerReservationComponent {
     console.log(this.userDataArr)
     this.FlightsService.bookFlight(this.userDataArr);
     localStorage.removeItem('booking')
-    // this.router.navigate(['/summary'])
+    this.router.navigate(['/summary'])
   }
 
 }

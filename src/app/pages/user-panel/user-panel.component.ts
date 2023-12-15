@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { JwtService } from 'src/app/services/jwt.service';
+import { IUser } from 'src/app/interfaces/iuser';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -12,21 +12,16 @@ export class UserPanelComponent {
   arrReservations: any[] = [];
   usersService = inject(UsersService);
 
-  jwt = inject(JwtService);
+  userData!: IUser;
 
-  // async ngOnInit() {
-  //   try {
-  //     this.arrReservations = await this.usersService.getById(userId)
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
+  async ngOnInit() {
+    try {
+      this.userData = await this.usersService.getLoggedUser()
 
-  // ngOnInit() {
-  //   this.arrReservations = this.jwt.checkPermissions();
-  //   console.log(this.arrReservations.user_id);
-
-  // }
-
+      console.log(this.userData)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
 }
