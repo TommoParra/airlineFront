@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { IUser } from 'src/app/interfaces/iuser';
-import { JwtService } from 'src/app/services/jwt.service';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -10,29 +9,18 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class UserPanelComponent {
 
-
-
-  userData: any;
   usersService = inject(UsersService);
 
-  jwt = inject(JwtService);
-
-
+  userData!: IUser;
 
   async ngOnInit() {
     try {
-      const token = this.jwt.checkPermissions();
-      console.log(token.user_id);
+      this.userData = await this.usersService.getLoggedUser()
 
-      this.userData = await this.usersService.getById(token.user_id)
-      console.log(this.userData);
-
+      console.log(this.userData)
     } catch (error) {
       console.log(error)
     }
   }
-
-
-
 
 }

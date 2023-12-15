@@ -18,8 +18,8 @@ export class UsersService {
 
   private apiUrl: string = 'http://localhost:3100/api'
 
-  getById(userId: number) {
-    return firstValueFrom(this.httpClient.get(`${this.apiUrl}/users/${userId}`))
+  getLoggedUser() {
+    return firstValueFrom(this.httpClient.get<IUser>(`${this.apiUrl}/users`))
   }
 
   createUser(body: IUser) {
