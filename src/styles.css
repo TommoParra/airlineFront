@@ -23,6 +23,7 @@
     --grey: #D6D6D6;
     --lightGrey: #F3F3F3;
     --primaryYellow: #FFD800;
+    --errorRed: #DB4437;
 
     /* shadow depths */
     --DP2: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -150,6 +151,7 @@
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-gap: 2rem;
+    position: relative;
     margin: auto;
     padding: 20px;
     box-shadow: var(--DP2);
@@ -175,16 +177,16 @@
 
 .form_field {
     display: grid;
+    position: relative;
     grid-row-gap: 1rem;
 }
-
 
 .form_field input:focus-visible {
     outline: none;
 }
 
 .form_field>* {
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Roboto Condensed', monospace;
     font-size: 1rem;
     font-weight: 400;
     border: none;
@@ -198,7 +200,6 @@
     background-color: var(--darkGrey);
 }
 
-
 .form_field select,
 option {
     background-color: white;
@@ -207,6 +208,33 @@ option {
 .disabled_field {
     opacity: .3;
 }
+
+.form_field .field_error {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    max-width: 100%;
+    font-size: .8rem;
+    color: var(--errorRed);
+}
+
+.form_field .overlapping_field_error {
+    max-width: unset;
+    width: max-content;
+    top: -20px;
+}
+
+.form_field_underline.error_underline {
+    background-color: var(--errorRed);
+}
+
+.required_fields_error {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    color: var(--errorRed);
+}
+
 
 
 /* Buttons */
