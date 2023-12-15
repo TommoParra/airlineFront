@@ -59,7 +59,7 @@ export class FlightSearchFormComponent {
   onSubmit() {
 
     const formValues = this.flightSearchForm.value;
-    this.router.navigateByUrl(`/flight-list?fare=${formValues.fare}&origin=${formValues.origin}&destination=${formValues.destination}&departure=${formValues.departure}&return=${formValues.return}&passengers=${formValues.passengers}&class=${formValues.class}`);
+    this.router.navigateByUrl(`/flight-list?fare=${formValues.fare}&origin=${formValues.origin}&destination=${formValues.destination}&departure=${formValues.departure}&return_date=${formValues.return}&passengers=${formValues.passengers}&class=${formValues.class}`);
 
 
 
