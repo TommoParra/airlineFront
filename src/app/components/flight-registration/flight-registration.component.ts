@@ -25,6 +25,10 @@ export class FlightRegistrationComponent {
       origin_id: new FormControl(null, []),
       destination_id: new FormControl(null, []),
       destination_city: new FormControl(null, []),
+      departure_date: new FormControl(null, []),
+      departure_time: new FormControl(null, []),
+      arrival_date: new FormControl(null, []),
+      arrival_time: new FormControl(null, []),
       departure: new FormControl(null, []),
       arrival: new FormControl(null, []),
       duration: new FormControl(null, []),
@@ -46,9 +50,13 @@ export class FlightRegistrationComponent {
   onSubmit() {
     const formValues = this.flightForm.value;
 
-    console.log(formValues)
+    let fullArrival = `${formValues.arrival} ${formValues.arrival_time}`
 
-    this.flightService.createFlight(formValues);
+    console.log(formValues.arrival)
+    console.log(formValues.arrival_time)
+    console.log(fullArrival)
+
+    // this.flightService.createFlight(formValues);
   }
 
 

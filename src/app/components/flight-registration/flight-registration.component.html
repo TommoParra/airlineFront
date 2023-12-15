@@ -37,12 +37,17 @@
         <!-- Find how to let a person choose date and time through selector -->
         <div class="form_field col_4">
             <label for="departDate">Departure:</label>
-            <input type="text" formControlName="departure" placeholder="Select departure date">
+            <input type="date" formControlName="departure" placeholder="Select departure date">
             <div class="form_field_underline"></div>
         </div>
         <div class="form_field col_4">
-            <label for="departDate">Arrival:</label>
-            <input type="text" formControlName="arrival" placeholder="Select arrival date">
+            <label for="arriveDate">Arrival date:</label>
+            <input type="date" formControlName="arrival" placeholder="Select arrival date">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label for="arriveDate">Arrival time:</label>
+            <input type="time" formControlName="arrival_time" placeholder="Select arrival date">
             <div class="form_field_underline"></div>
         </div>
         <div class="form_field col_4">
