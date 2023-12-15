@@ -44,21 +44,19 @@ export class FlightRegistrationComponent {
 
   async ngOnInit() {
     this.arrAirports = await this.airportService.getAll();
-    console.log(this.arrAirports);
   }
 
   onSubmit() {
+
+    let fullDeparture = `${this.flightForm.value.departure_date} ${this.flightForm.value.departure_time}`
+    this.flightForm.patchValue({ departure: fullDeparture })
+    let fullArrival = `${this.flightForm.value.arrival_date} ${this.flightForm.value.arrival_time}`
+    this.flightForm.patchValue({ arrival: fullArrival })
+
     const formValues = this.flightForm.value;
+    console.log(formValues)
 
-    let fullArrival = `${formValues.arrival} ${formValues.arrival_time}`
-
-    console.log(formValues.arrival)
-    console.log(formValues.arrival_time)
-    console.log(fullArrival)
-
-    // this.flightService.createFlight(formValues);
+    this.flightService.createFlight(formValues);
   }
-
-
 
 }

@@ -32,17 +32,24 @@
             </select>
             <div class="form_field_underline"></div>
         </div>
-
-
-        <!-- Find how to let a person choose date and time through selector -->
         <div class="form_field col_4">
-            <label for="departDate">Departure:</label>
-            <input type="date" formControlName="departure" placeholder="Select departure date">
+            <label>Image:</label>
+            <input type="text" formControlName="img" placeholder="Image url">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label for="departDate">Departure date:</label>
+            <input type="date" formControlName="departure_date" placeholder="Select departure date">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label for="departDate">Departure time:</label>
+            <input type="time" formControlName="departure_time" placeholder="Select departure date">
             <div class="form_field_underline"></div>
         </div>
         <div class="form_field col_4">
             <label for="arriveDate">Arrival date:</label>
-            <input type="date" formControlName="arrival" placeholder="Select arrival date">
+            <input type="date" formControlName="arrival_date" placeholder="Select arrival date">
             <div class="form_field_underline"></div>
         </div>
         <div class="form_field col_4">
@@ -80,11 +87,7 @@
             <input type="text" formControlName="gate" placeholder="5">
             <div class="form_field_underline"></div>
         </div>
-        <div class="form_field col_4">
-            <label>Image:</label>
-            <input type="text" formControlName="img" placeholder="Image url">
-            <div class="form_field_underline"></div>
-        </div>
+
         <button class="btn btn-success col_all" type="submit">Submit</button>
     </form>
 </div>
