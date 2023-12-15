@@ -18,6 +18,10 @@ export class HomeComponent {
 
   arrFlights: IFlight[] = []
 
+
+  center: any;
+  userPosition: any;
+
   async ngOnInit() {
     try {
       this.arrFlights = await this.flightService.getAll()
@@ -27,6 +31,22 @@ export class HomeComponent {
     } catch (error) {
       console.log(error)
     }
+  }
+
+  ngAfterViewInit() {
+    navigator.geolocation.getCurrentPosition(position => {
+      console.log(position)
+      this.center = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      }
+      console.log(position)
+      this.userPosition = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      }
+    })
+
   }
 
 
