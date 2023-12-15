@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { FlightsService } from 'src/app/services/flights.service';
 
 
@@ -17,7 +17,7 @@ export class FlightResultsCardComponent {
   @Input() result: any;
   @Input() passengers: number = 0;
 
-  isButtonDisabled: boolean = false;
+  @Output() flightClicked: EventEmitter<number> = new EventEmitter();
 
 
 
@@ -26,7 +26,12 @@ export class FlightResultsCardComponent {
     this.ticketsArr.push(this.result);
     localStorage.setItem('booking', JSON.stringify(this.ticketsArr));
     console.log(this.result);
-    this.isButtonDisabled = true;
+
+
+    this.flightClicked.emit(this.result.id);
+
 
   }
+
+
 }

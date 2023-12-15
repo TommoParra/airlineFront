@@ -15,9 +15,11 @@ export class FlightListComponent {
   passengers: number = 0;
 
 
+
   flightService = inject(FlightsService);
   activateRoute = inject(ActivatedRoute);
   router = inject(Router)
+
 
   ngOnInit() {
     this.activateRoute.queryParams.subscribe(async (queryParams: any) => {
@@ -32,14 +34,20 @@ export class FlightListComponent {
         console.log(error);
       }
 
-      // arrResults o response
-
     });
 
   }
 
   checkoutOnClick() {
     this.router.navigate(['/reservation'])
+  }
+
+  onFlightClikedOutbond($event: number) {
+    this.outboundArr = this.outboundArr.filter(flightOutbond => flightOutbond.id === $event);
+  }
+
+  onFlightClikedReturn($event: number) {
+    this.returnArr = this.returnArr.filter(flightReturn => flightReturn.id === $event);
   }
 
 }

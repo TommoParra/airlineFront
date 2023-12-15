@@ -1,14 +1,10 @@
 <section>
-    <div class="wrapper">
-
-    </div>
-
+    <div class="wrapper"></div>
 </section>
+
 
 <section>
     <div class="wrapper">
-        <app-reservation-card [reservation]="reservation"
-            *ngFor="let reservation of arrReservations"></app-reservation-card>
+        <app-reservation-card>{{userData.first_name}}</app-reservation-card>
     </div>
-
 </section>

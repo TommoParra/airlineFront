@@ -4,33 +4,26 @@
             <img src="https://images.unsplash.com/flagged/photo-1555685460-1d9cf532761b?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="">
         </div>
-
         <h3 class="arrival">{{result.arrival | date:"shortTime" }} </h3>
-
         <div class="city">
             <h3 class="city">{{result.city}} </h3>
         </div>
-
         <div class="destination">
             <h3 class="destination-city">{{result.destination_city}}</h3>
         </div>
-
         <h3>{{result.duration}}</h3>
-
         <div>
             <h4>{{result.price | currency:"€"}}</h4>
+
         </div>
         <!-- <a href="#">Flight Details</a> -->
-
         <div>
             <figure class="logo">
-
                 <img src="assets/logo.png" alt="Flightify Logo">
             </figure>
         </div>
-
         <div class="button">
-            <button (click)="onClick()" [disabled]="isButtonDisabled">GET</button>
+            <button (click)="onClick()">GET</button>
         </div>
     </div>
 </section>
