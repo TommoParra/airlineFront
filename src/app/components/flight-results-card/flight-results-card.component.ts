@@ -19,7 +19,7 @@ export class FlightResultsCardComponent {
 
   @Output() flightClicked: EventEmitter<number> = new EventEmitter();
 
-
+  clicked = false;
 
   onClick() {
     this.result.passengers_number = Number(this.passengers);
@@ -29,6 +29,8 @@ export class FlightResultsCardComponent {
 
 
     this.flightClicked.emit(this.result.id);
+
+    this.clicked = true;
 
 
   }
