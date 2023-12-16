@@ -16,6 +16,7 @@ export class UserPanelComponent {
 
   userData!: IUser;
   isFormDisabled: boolean = true;
+  arrReservations: any[] = []
 
   constructor() {
     this.userEditForm = new FormGroup({
@@ -41,6 +42,9 @@ export class UserPanelComponent {
       this.userEditForm.patchValue({ passport: this.userData.passport });
       this.userEditForm.patchValue({ membership: this.userData.membership });
       console.log(this.userData)
+
+      this.arrReservations = await this.usersService.getAllReservations({ userId: this.userData.id })
+
 
     } catch (error) {
       console.log(error)

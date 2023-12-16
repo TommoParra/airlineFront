@@ -1,5 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
-
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-reservation-card',
@@ -8,9 +7,6 @@ import { Component, Input, inject } from '@angular/core';
 })
 export class ReservationCardComponent {
 
-
-  @Input() details!: any;
-  @Input() reservation!: any
-
+  @Input() reservation: any;
 
 }

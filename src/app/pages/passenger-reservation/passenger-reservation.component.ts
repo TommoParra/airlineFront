@@ -78,12 +78,13 @@ export class PassengerReservationComponent {
 
   }
 
-  onSubmit() {
+  async onSubmit() {
     console.log(this.userDataArr)
-    this.FlightsService.bookFlight(this.userDataArr);
+    await this.FlightsService.bookFlight(this.userDataArr);
 
     localStorage.removeItem('reservations')
-    // this.router.navigate(['/summary'])
+    localStorage.setItem('reservations_summary', JSON.stringify(this.userDataArr));
+    this.router.navigate(['/summary'])
   }
 
 }

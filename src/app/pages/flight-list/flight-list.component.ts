@@ -26,6 +26,8 @@ export class FlightListComponent {
 
 
   ngOnInit() {
+    localStorage.removeItem('reservations_summary')
+
     this.activateRoute.queryParams.subscribe(async (queryParams: any) => {
       console.log(queryParams);
       this.passengers = queryParams.passengers;

@@ -37,3 +37,12 @@
     </form>
 
 </div>
+
+<!-- Button to toggle show / hide needed for the flights section. -->
+
+<div>
+    <div class="info">
+        <app-reservation-card [reservation]="reservation"
+            *ngFor="let reservation of arrReservations"></app-reservation-card>
+    </div>
+</div>
