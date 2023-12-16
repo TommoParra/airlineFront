@@ -23,6 +23,7 @@ export class HomeComponent {
   userPosition: any;
 
   async ngOnInit() {
+    localStorage.removeItem('booking')
     try {
       this.arrFlights = await this.flightService.getAll()
       let token = this.jwt.checkPermissions()

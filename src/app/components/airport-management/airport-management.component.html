@@ -1,0 +1,55 @@
+<div class="content_wrapper">
+    <h3 class="form_title">Choose an airport</h3>
+    <form class="form flight_registration_form" [formGroup]="airportSearchForm">
+        <div class="form_field col_4">
+            <select formControlName="airport_id">
+                <option *ngFor="let airport of arrAirports" [ngValue]="airport.id">
+                    {{airport.country}} |
+                    {{airport.city}} |
+                    {{airport.name_acr}}
+                </option>
+            </select>
+            <div class="form_field_underline"></div>
+        </div>
+
+        <button class="btn btn-success col_all" type="button" (click)="getAirport()">Choose this airport</button>
+    </form>
+    <h3 class="form_title">Airport information</h3>
+    <form class="form flight_registration_form" [formGroup]="airportEditForm">
+        <div class="form_field col_4">
+            <label>Airport name:</label>
+            <input type="text" formControlName="name">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label>Airport acronym:</label>
+            <input type="text" formControlName="name_acr">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label>City name:</label>
+            <input type="text" formControlName="city">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label>City acronym:</label>
+            <input type="text" formControlName="city_acr">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label>Country name:</label>
+            <input type="text" formControlName="country">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label>Country acronym:</label>
+            <input type="text" formControlName="country_acr">
+            <div class="form_field_underline"></div>
+        </div>
+
+
+        <button class="btn btn-success col_all" type="button" (click)="editToggle()">Edit information</button>
+
+    </form>
+
+</div>

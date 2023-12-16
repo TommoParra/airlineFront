@@ -18,8 +18,14 @@ export class AirportsService {
     return firstValueFrom(this.httpClient.post(`${this.apiUrl}/airports`, body))
   }
 
+  editAirport(airportId: number, body: any) {
+    return firstValueFrom(
+      this.httpClient.put(`${this.apiUrl}/airports/${airportId}`, body)
+    )
+  }
+
   getById(airportId: number) {
-    return firstValueFrom(this.httpClient.get(`${this.apiUrl}/airports/${airportId}`))
+    return firstValueFrom(this.httpClient.get<IAirport>(`${this.apiUrl}/airports/${airportId}`))
   }
 
   getAll(): Promise<IAirport[]> {

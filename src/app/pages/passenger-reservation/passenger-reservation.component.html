@@ -1,5 +1,6 @@
 <form class="flight_reservation_form" [formGroup]="flightReservationForm"
     *ngFor="let i of Arr(num).fill(1); let j = index" style="max-width: 400px; margin: 7rem auto 5rem auto">
+    <h3>Passenger {{j + 1}}</h3>
     <div class="passenger_form_group">
         <h3 class="single_passenger_title"></h3>
         <div class="form_field">

@@ -26,6 +26,7 @@ import { AuthTokenInterceptor } from './interceptors/access-token.interceptors';
 import { ReservationSummaryComponent } from './pages/reservation-summary/reservation-summary.component';
 import { ReservationCardComponent } from './components/reservation-card/reservation-card.component';
 import { UserPanelComponent } from './pages/user-panel/user-panel.component';
+import { AirportManagementComponent } from './components/airport-management/airport-management.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { UserPanelComponent } from './pages/user-panel/user-panel.component';
     PassengerReservationComponent,
     ReservationSummaryComponent,
     ReservationCardComponent,
-    UserPanelComponent
+    UserPanelComponent,
+    AirportManagementComponent
 
 
   ],
