@@ -16,7 +16,6 @@ export class JwtService {
     let userToken = localStorage.getItem('auth_token') || null
     if (userToken) {
       const decodedToken: any = jwtDecode(userToken)
-      console.log(decodedToken.user_id)
       return decodedToken
     }
     return false

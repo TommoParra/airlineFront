@@ -10,7 +10,6 @@ import { JwtService } from 'src/app/services/jwt.service';
 })
 export class PassengerReservationComponent {
 
-
   flightReservationForm: FormGroup;
   FlightsService = inject(FlightsService);
   jwt = inject(JwtService);
@@ -45,15 +44,17 @@ export class PassengerReservationComponent {
 
   ngOnInit() {
     this.userData = this.jwt.checkPermissions();
-
-    this.flightsData = localStorage.getItem('booking') || null;
+    this.flightsData = localStorage.getItem('reservations') || null;
 
     if (this.flightsData) {
       this.flightsData = JSON.parse(this.flightsData);
-      this.passengerNumber = this.flightsData![0].passengers_number;
+      this.passengerNumber = this.flightsData[0].passengers_number;
       this.num = this.passengerNumber;
     }
-    console.log(this.flightId);
+
+    for (let i = 1; i < this.passengerNumber; i++) {
+      this.disabledButtons[i] = true
+    }
 
   }
 
@@ -63,51 +64,26 @@ export class PassengerReservationComponent {
   }
 
   async addOnClick() {
-
-
-
     const formValues = this.flightReservationForm.value;
-
-    console.log(formValues)
-
     this.userDataArr.push(formValues);
 
     this.userDataArr[this.counter].users_id = this.userData.user_id
-    this.userDataArr[this.counter].flights_id = this.flightsData[0].id
-    this.userDataArr[this.counter].ticket_class = "Diamond"
+    this.userDataArr[this.counter].outbound_id = this.flightsData[0].id
+    this.userDataArr[this.counter].return_id = this.flightsData[1].id
+    this.userDataArr[this.counter].ticket_class = this.flightsData[0].ticket_class
 
     this.disabledButtons[this.counter] = true
+    this.disabledButtons[this.counter + 1] = false
     this.increaseCounter()
-
-    console.log(this.userDataArr);
-    console.log("-----------------------------")
-
-    // Introduced a bug. If you edit the second option first and then the second, the values taken are both from the second edit done.
-    // Must fill the array with for i = 0, i < passengers, i ++ and value = false
-    // Then get each value and set it to true individually (as is now).
-
 
   }
 
   onSubmit() {
     console.log(this.userDataArr)
     this.FlightsService.bookFlight(this.userDataArr);
-    localStorage.removeItem('booking')
-    this.router.navigate(['/summary'])
+
+    localStorage.removeItem('reservations')
+    // this.router.navigate(['/summary'])
   }
 
 }
-
-
-
-/* POST http://localhost:3100/api/flights/book
-Content-Type: application/json
-
-[{
-"users_id": 12, (Pending token decoding from Dima)
-"flights_id": 97, (this.flightId)
-"luggage":20, (va en kilos, como dijimos, tiene que aparecer en tu form tmb)
-"ticket_class": "Premium", (esto pasalo como sea, no sabemos aun como ira)
-"passenger_name": "Mr. Potatovich", (field de tu form)
-"passport": "asdaasdsad" (field de tu form)
-}] */

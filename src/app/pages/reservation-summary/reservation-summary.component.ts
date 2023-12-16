@@ -24,8 +24,8 @@ export class ReservationSummaryComponent {
     try {
       let userData = this.jwt.checkPermissions()
 
-      this.arrDetails = await this.usersService.getTicket({ userId: userData.user_id })
-      this.usersService
+      this.arrDetails = await this.usersService.getTicket(1, { userId: userData.user_id })
+
     } catch (error) {
       console.log(error)
     }

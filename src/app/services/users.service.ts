@@ -45,7 +45,12 @@ export class UsersService {
     )
   }
 
-  getTicket(body: any): Promise<any[]> {
+  getTicket(reservationId: number, body: any): Promise<any[]> {
+    return firstValueFrom(this.httpClient.post<any[]>(`${this.apiUrl}/users/reservations/${reservationId}`, body));
+
+  }
+
+  getAllReservations(body: any): Promise<any[]> {
     return firstValueFrom(this.httpClient.post<any[]>(`${this.apiUrl}/users/reservations`, body));
 
   }
