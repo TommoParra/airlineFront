@@ -14,6 +14,8 @@ export class FlightListComponent {
   outboundArr: any[] = [];
   returnArr: any[] = [];
   passengers: number = 0;
+  totalOutbound: number = 0;
+  totalReturn: number = 0;
 
 
 
@@ -21,6 +23,11 @@ export class FlightListComponent {
   userService = inject(UsersService)
   activateRoute = inject(ActivatedRoute);
   router = inject(Router)
+
+  shown = false;
+  hide = false;
+  // clicked = false;
+
 
 
   ngOnInit() {
@@ -42,19 +49,36 @@ export class FlightListComponent {
 
   checkoutOnClick() {
     if (this.userService.isLogged()) {
+      this.calculateTotalPrice();
       this.router.navigate(['/reservation'])
     } else {
       this.router.navigate(['/login'])
     }
 
+
   }
 
   onFlightClikedOutbond($event: number) {
     this.outboundArr = this.outboundArr.filter(flightOutbond => flightOutbond.id === $event);
+    this.shown = true;
   }
 
   onFlightClikedReturn($event: number) {
     this.returnArr = this.returnArr.filter(flightReturn => flightReturn.id === $event);
+    this.hide = true;
   }
+
+  // onClick() {
+  //   this.clicked = true;
+  // }
+
+  calculateTotalPrice() {
+    this.totalOutbound = this.outboundArr.reduce((total, flight) => total + flight.price, 0);
+    this.totalReturn = this.returnArr.reduce((total, flight) => total + flight.price, 0);
+  }
+
+
+
+
 
 }

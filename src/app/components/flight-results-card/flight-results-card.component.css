@@ -1,77 +1,82 @@
 .wrapper {
-    max-width: 1440px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 20px;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
-
+    justify-content: space-between;
 }
 
-.wrapper:hover {
-    transition-delay: 1s;
+.heading {
+    font-size: 16px;
+    font-weight: lighter;
+    text-align: left;
 }
-
-.image {
-    justify-content: baseline;
-}
-
 
 .results-card {
-    border: 1px gray solid;
-    padding: 15px;
-    border-radius: 10px;
-    border-left: 1px gray solid;
-    padding-left: 5px;
-}
-
-
-.arrival {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-bottom: 10px;
-    margin-left: 700px;
-}
-
-
-.city {
-    font-style: bold;
-    border-left: 1px gray solid;
-    padding-left: 5px;
-    font-size: 24px;
-
-
-}
-
-.destination-city {
-    font-style: bold;
-    padding-bottom: 10px;
-    border-left: 1px gray solid;
-    padding-left: 5px;
-    font-size: 24px;
-
-}
-
-img {
-    width: 40px;
-    height: 15px;
-
-
-}
-
-a {
-    margin-top: 10px;
-}
-
-button {
-    background-color: cornflowerblue;
-    cursor: pointer;
-    border: none;
-    padding: 10px 26px;
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    position: relative;
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 20px;
     border-radius: 5px;
-    text-align: center;
-    display: inline-block;
-    padding: 8px 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    display: grid;
+}
 
+.line {
+    display: flex;
+    height: 0;
+    width: 40%;
+    border: .5px #ececed solid;
+    margin-bottom: 10px;
+    margin: 20px;
+}
+
+.flight_info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.logo {
+    text-align: left;
+    display: flex;
+    width: 35px;
+    height: 20px;
+}
+
+.plane {
+    width: 23px;
+    opacity: 0.3;
+}
+
+.journey {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.journey .label {
+    font-weight: bold;
+    justify-content: center;
+}
+
+.journey .value3 {
+    padding-right: 10px;
+}
+
+.second-line {
+    display: flex;
+    justify-content: space-around;
+}
+
+.value1 {
+    color: cornflowerblue;
+    font-weight: bold;
+    opacity: 0.9;
+}
+
+.results-card .btn {
+    margin-right: 0;
 }

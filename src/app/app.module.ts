@@ -29,6 +29,7 @@ import { UserPanelComponent } from './pages/user-panel/user-panel.component';
 import { AirportManagementComponent } from './components/airport-management/airport-management.component';
 
 
+
 @NgModule({
   declarations: [
     AccessLightboxComponent,
@@ -61,6 +62,7 @@ import { AirportManagementComponent } from './components/airport-management/airp
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+
 
 
 

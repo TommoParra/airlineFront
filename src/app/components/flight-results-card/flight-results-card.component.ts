@@ -31,9 +31,6 @@ export class FlightResultsCardComponent {
     this.flightClicked.emit(this.result.id);
 
     this.clicked = true;
-
-
   }
-
 
 }

@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
 import { IUser } from 'src/app/interfaces/iuser';
 import { JwtService } from 'src/app/services/jwt.service';
 import { UsersService } from 'src/app/services/users.service';
@@ -20,6 +19,8 @@ export class ReservationSummaryComponent {
 
   ourUser!: IUser;
 
+
+
   async ngOnInit() {
     try {
       let userData = this.jwt.checkPermissions()
@@ -30,4 +31,5 @@ export class ReservationSummaryComponent {
       console.log(error)
     }
   }
+
 }

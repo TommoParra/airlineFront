@@ -1,17 +1,35 @@
-<section class="card">
-    <div class="card-header">
-        <div class="card-logo">
-            <div class="card-details">
-                <p>{{details.passenger_name}}</p>
-                <p>{{details.arrival | date}}</p>
-                <p>{{details.departure | date: "shortTime"}}</p>
-                <p>{{details.city}}</p>
-                <p>{{details.destination_city}}</p>
-                <p>{{details.id}}</p>
-                <p>{{details.passport}}</p>
-
+<section>
+    <div class="container">
+        <h1 class="heading">Flight Summary</h1>
+        <div class="flight-summary">
+            <div class="flight-info">
+                <span class="label">Flight:</span>
+                <span class="value">Flightfy - {{details.id}}</span>
+            </div>
+            <div class="flight-info">
+                <span class="label">Passenger:</span>
+                <span class="value">{{details.passenger_name}}</span>
+            </div>
+            <div class="flight-info">
+                <span class="label">Passport Number:</span>
+                <span class="value">{{details.passport}}</span>
+            </div>
+            <div class="flight-info">
+                <span class="label">Departure:</span>
+                <span class="value">{{details.city}}</span>
+            </div>
+            <div class="flight-info">
+                <span class="label">Arrival:</span>
+                <span class="value">{{details.destination_city}}</span>
+            </div>
+            <div class="flight-info">
+                <span class="label">Departure Time:</span>
+                <span class="value">{{details.departure | date: "shortTime"}}</span>
+            </div>
+            <div class="flight-info">
+                <span class="label">Date:</span>
+                <span class="value">{{details.arrival | date}}</span>
             </div>
         </div>
-
     </div>
 </section>
