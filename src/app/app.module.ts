@@ -30,6 +30,7 @@ import { AirportManagementComponent } from './components/airport-management/airp
 import { FlightManagementComponent } from './components/flight-management/flight-management.component';
 
 
+
 @NgModule({
   declarations: [
     AccessLightboxComponent,
@@ -63,6 +64,7 @@ import { FlightManagementComponent } from './components/flight-management/flight
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+
 
 
 

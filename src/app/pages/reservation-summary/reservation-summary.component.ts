@@ -20,6 +20,8 @@ export class ReservationSummaryComponent {
   arrFlightIds: any[] = []
   arrReservations: any[] = [];
 
+
+
   async ngOnInit() {
 
     this.userData = this.jwt.checkPermissions();

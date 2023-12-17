@@ -1,21 +1,37 @@
-.card {
-    display: flex;
-    justify-content: space-around;
-    text-align: left;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 50px;
-
-
-
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-
-
-.card-details {
-    border: 1px gray solid;
-    margin-top: 40px;
+.heading {
     font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
 
+.flight-summary {
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
 
+.flight-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.flight-info .label {
+    font-weight: bold;
+    color: #555;
+}
+
+.flight-info .value {
+    color: #333;
 }

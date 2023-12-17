@@ -1,7 +1,49 @@
-<section class="wrap1">
+<section class="body">
+    <div class="options">
+        <div class="arrow">
+            <span class="option1">1 - Select your flight </span>
+            <div class="triangle1"></div>
+        </div>
+        <div>
+            <span class="option2">2 - Add passengers</span>
+        </div>
+        <div>
+            <span class="option3">3 - Complete payment</span>
+        </div>
+        <div>
+            <span class="option4">4 - Your booking</span>
+            <div class="triangle2"></div>
+        </div>
+    </div>
+</section>
 
-    <h2 class="outbond">OUTBOND FLIGHTS</h2>
-    <!-- <hr> -->
+<section class="wrap">
+    <section class="calendar">
+        <div class="calendar1">
+            <div class="weekdays">
+                <div class="weekday">Mon</div>
+                <div class="weekday">Tue</div>
+                <div class="weekday">Wed</div>
+                <div class="weekday">Thu</div>
+                <div class="weekday">Fri</div>
+                <div class="weekday">Sat</div>
+                <div class="weekday">Sun</div>
+            </div>
+            <div class="prices">
+                <div class="day"><span class="day-num">1</span><span class="price">150€</span></div>
+                <div class="day"><span class="day-num">2</span><span class="price">200€</span></div>
+                <div class="day"><span class="day-num">3</span><span class="price">180€</span></div>
+                <div class="day"><span class="day-num">4</span><span class="price">190€</span></div>
+                <div class="day"><span class="day-num">5</span><span class="price">170€</span></div>
+                <div class="day"><span class="day-num">6</span><span class="price">160€</span></div>
+                <div class="day"><span class="day-num">7</span><span class="price">220€</span></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="header">
+        <h2 class="outbond" *ngIf="!shown">Paris (ALL) -> London (ALL)</h2>
+    </div>
     <article *ngFor="let result of outboundArr | slice:0:4">
 
         <app-flight-results-card (flightClicked)="onFlightClikedOutbond($event)" [result]="result"
@@ -13,17 +55,20 @@
 
 
 
-<section class=" wrap2">
-    <h2 class="return">RETURN FLIGHTS</h2>
-    <!-- <hr> -->
+<section class=" wrap">
+    <div class="header">
+        <h2 class="return" *ngIf="!hide">London (ALL) Paris (ALL)</h2>
+    </div>
     <article *ngFor="let result of returnArr | slice:0:4">
-
         <app-flight-results-card (flightClicked)="onFlightClikedReturn($event)" [result]="result"
             [passengers]="passengers">
         </app-flight-results-card>
     </article>
 </section>
 
-<div>
-    <button (click)="checkoutOnClick()">Checkout</button>
+
+<div class="btn">
+    <span>{{totalOutbound + totalReturn |currency:'EUR'}} </span>
+    <!-- <button (click)="checkoutOnClick()"></button> -->
+    <input (click)="checkoutOnClick()" class="btn btn_light" type="submit" value="Confirm">
 </div>

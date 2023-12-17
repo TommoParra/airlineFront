@@ -1,29 +1,32 @@
 <section class="wrapper">
+    <div class="logo">
+        <img src="assets/logo.png" alt="Flightify Logo">
+    </div>
     <div class="results-card">
-        <div class="image">
-            <img src="https://images.unsplash.com/flagged/photo-1555685460-1d9cf532761b?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="">
+
+        <!-- <span class="value5">{{result.duration | date:"mediumDate"}}</span> -->
+
+
+        <div class="flight_info">
+            <span class="value3">{{result.city}} </span>
+            <hr class="line">
+            <img class="plane" src="../../../assets/takeof.png" alt="">
+            <hr class="line">
+            <span class="value4">{{result.destination_city}}</span>
         </div>
-        <h3 class="arrival">{{result.arrival | date:"shortTime" }} </h3>
-        <div class="city">
-            <h3 class="city">{{result.city}} </h3>
-        </div>
-        <div class="destination">
-            <h3 class="destination-city">{{result.destination_city}}</h3>
-        </div>
-        <h3>{{result.duration}}</h3>
-        <div>
-            <h4>{{result.price | currency:"€"}}</h4>
+
+        <div class="second-line">
+            <span class="value2">{{result.arrival | date:"shortTime" }} </span>
+            <span class="value1">{{result.price + "€"}}</span>
 
         </div>
-        <!-- <a href="#">Flight Details</a> -->
-        <div>
-            <figure class="logo">
-                <img src="assets/logo.png" alt="Flightify Logo">
-            </figure>
-        </div>
-        <div class="button">
-            <button *ngIf="!clicked" (click)="onClick()">GET</button>
-        </div>
+
+        <input *ngIf="!clicked" (click)="onClick()" class="btn btn_light" type="submit" value="Reserve">
     </div>
+
+
+
+
+
+
 </section>
