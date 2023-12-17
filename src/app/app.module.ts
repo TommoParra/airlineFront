@@ -16,8 +16,8 @@ import { AirportRegistrationComponent } from './components/airport-registration/
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlightSearchFormComponent } from './components/flight-search-form/flight-search-form.component';
 import { HttpClientModule } from '@angular/common/http';
-import { RegisterComponent } from './components/register/register.component';
-import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
 import { PanelComponent } from './pages/panel/panel.component';
 import { FlightCardComponent } from './components/flight-card/flight-card.component';
 import { FlightResultsCardComponent } from './components/flight-results-card/flight-results-card.component';

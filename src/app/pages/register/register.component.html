@@ -1,0 +1,65 @@
+<div class="wrapper">
+    <div class="content_wrapper register">
+        <form class="form no_shadow" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <h1 class="form_title">Register to Flightif<span class="y">y</span> and start traveling</h1>
+            <div class="form_field col_4">
+                <label>First Name</label>
+                <input placeholder="First Name" type="text" class="form-control" formControlName="first_name">
+                <div class="form_field_underline"></div>
+                <p class="field_error" *ngIf="checkError('name', 'required')">
+                    The name is mandatory
+                </p>
+            </div>
+            <div class="form_field col_4">
+                <label>Last Name</label>
+                <input placeholder="Last Name" type="text" class="form-control" formControlName="last_name">
+                <div class="form_field_underline"></div>
+                <p class="field_error" *ngIf="checkError('last_name', 'required')">
+                    Last name is mandatory
+                </p>
+            </div>
+            <div class="form_field col_4">
+                <label>Email</label>
+                <input placeholder="Email Address" type="text" class="form-control" formControlName="email">
+                <div class="form_field_underline"></div>
+                <p class="field_error" *ngIf="checkError('email', 'pattern')">
+                    The email is mandatory
+                </p>
+            </div>
+            <div class="form_field col_4">
+                <label>Password</label>
+                <input placeholder="Security Password" type="password" class="form-control" formControlName="password">
+                <div class="form_field_underline"></div>
+            </div>
+            <div class="form_field col_4">
+                <label>Repeat password</label>
+                <input placeholder="Repeat Security Password" type="password" class="form-control"
+                    formControlName="repeat_password">
+                <div class="form_field_underline"></div>
+            </div>
+            <div class="form_field col_4">
+                <label>Passport</label>
+                <input placeholder="Passport Number" type="text" class="form-control" formControlName="passport">
+                <div class="form_field_underline"></div>
+                <p class="field_error" *ngIf="checkError('passport', 'required')">
+                    The passport is mandatory
+                </p>
+            </div>
+            <div class="form_field col_4">
+                <label>Membership</label>
+                <input placeholder="Membership" type="text" class="form-control" formControlName="membership">
+                <div class="form_field_underline"></div>
+            </div>
+            <div class="form_field col_4">
+                <label>Phone</label>
+                <input placeholder="Phone Number" type="number" class="form-control" formControlName="phone">
+                <div class="form_field_underline"></div>
+                <p class="error" *ngIf="checkError('phone', 'required')">
+                    Please introduce a valine phone number
+                </p>
+            </div>
+            <input class="btn btn_dark col_all" type="submit" value="Register">
+            <div class="form_field_underline col_all"></div>
+        </form>
+    </div>
+</div>

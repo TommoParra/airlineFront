@@ -1,0 +1,5 @@
+.content_wrapper.register {
+    display: flex;
+    min-height: 60vh;
+    padding: 2rem var(--contentPadding);
+}

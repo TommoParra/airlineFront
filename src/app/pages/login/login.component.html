@@ -1,0 +1,18 @@
+<section class="wrapper">
+    <div class="content_wrapper login">
+        <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <h1 class="form_title">Login to Fligtif<span class="y">y</span></h1>
+            <div class="form_field col_all">
+                <label>Email</label>
+                <input placeholder="Email Address" type="email" class="form-control" formControlName="email">
+                <div class="form_field_underline"></div>
+            </div>
+            <div class="form_field col_all">
+                <label>Password</label>
+                <input placeholder="Security Password" type="password" class="form-control" formControlName="password">
+                <div class="form_field_underline"></div>
+            </div>
+            <input class="btn btn_dark col_all" type="submit" value="Login">
+        </form>
+    </div>
+</section>

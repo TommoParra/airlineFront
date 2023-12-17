@@ -1,0 +1,13 @@
+.content_wrapper.login {
+    display: flex;
+    min-height: 60vh;
+}
+
+.content_wrapper.login .form {
+    width: 500px;
+    margin: auto;
+}
+
+.content_wrapper.login .form .btn {
+    margin: auto;
+}

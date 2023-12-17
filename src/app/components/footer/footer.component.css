@@ -1,5 +1,4 @@
 footer {
-    display: none !important;
     box-shadow: var(--DP4);
     width: 100%;
     padding: 3rem var(--contentPadding);
