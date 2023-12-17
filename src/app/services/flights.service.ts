@@ -17,12 +17,8 @@ export class FlightsService {
     return firstValueFrom(this.httpClient.get<IFlight[]>(`${this.apiUrl}/flights`));
   }
 
-  createFlight(body: IFlight) {
-    return firstValueFrom(this.httpClient.post(`${this.apiUrl}/flights`, body))
-  }
-
   getById(flightId: number) {
-    return firstValueFrom(this.httpClient.get(`${this.apiUrl}/flights/${flightId}`))
+    return firstValueFrom(this.httpClient.get<IFlight>(`${this.apiUrl}/flights/${flightId}`))
   }
 
   getFullSearch(body: any): Promise<any> {
@@ -34,7 +30,15 @@ export class FlightsService {
     return firstValueFrom(this.httpClient.post(`${this.apiUrl}/flights/book`, body));
   }
 
+  createFlight(body: IFlight) {
+    return firstValueFrom(this.httpClient.post(`${this.apiUrl}/flights`, body))
+  }
 
+  editFlight(flightId: number, body: any) {
+    return firstValueFrom(
+      this.httpClient.put(`${this.apiUrl}/flights/${flightId}`, body)
+    )
+  }
 
 
 

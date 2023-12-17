@@ -1,0 +1,123 @@
+<div class="content_wrapper">
+    <h3 class="form_title">Choose a flight</h3>
+    <form class="form flight_registration_form" [formGroup]="flightSearchForm">
+        <div class="form_field col_4">
+            <label>Flight id:</label>
+            <input type="text" formControlName="flight_id">
+            <div class="form_field_underline"></div>
+        </div>
+
+        <button class="btn btn-success col_all" type="button" (click)="getFlight()">Choose this flight</button>
+    </form>
+
+
+    <h3 class="form_title">Flight information</h3>
+    <form class="form flight_registration_form" [formGroup]="flightEditForm">
+        <h3 class="form_title">General information (cannot be edited)</h3>
+        <div class="form_field col_4">
+            <label>Flight id:</label>
+            <input type="text" formControlName="flight_id">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+        </div>
+        <div class="form_field col_4">
+            <label>Origin airport ID:</label>
+            <input type="text" formControlName="origin_id">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label>Destination airport ID</label>
+            <input type="text" formControlName="destination_id">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label>Seats left:</label>
+            <input type="text" formControlName="available_seats">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label>Luggage space left:</label>
+            <input type="text" formControlName="available_luggage">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label>Departure:</label>
+            <p>{{ targetFlight.departure| date:'medium' }}</p>
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label>Arrival:</label>
+            <p>{{ targetFlight.arrival | date:'medium' }}</p>
+            <div class="form_field_underline"></div>
+        </div>
+
+
+        <h3 class="form_title">Specific information</h3>
+        <div class="form_field col_4">
+            <label for="departDate">New departure date:</label>
+            <input type="date" formControlName="departure_date" placeholder="Select departure date">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label for="departDate">New departure time:</label>
+            <input type="time" formControlName="departure_time" placeholder="Select departure date">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label for="arriveDate">New arrival date:</label>
+            <input type="date" formControlName="arrival_date" placeholder="Select arrival date">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label for="arriveDate">New arrival time:</label>
+            <input type="time" formControlName="arrival_time" placeholder="Select arrival date">
+            <div class="form_field_underline"></div>
+        </div>
+
+        <div class="form_field col_4">
+            <label>Duration:</label>
+            <input type="text" formControlName="duration">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label>Status:</label>
+            <select formControlName="status">
+                <option>active</option>
+                <option>delayed</option>
+                <option>cancelled</option>
+            </select>
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label>Status:</label>
+            <input type="text" formControlName="status">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label>Terminal:</label>
+            <input type="text" formControlName="terminal">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label>Gate:</label>
+            <input type="text" formControlName="gate">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label>Price:</label>
+            <input type="text" formControlName="price">
+            <div class="form_field_underline"></div>
+        </div>
+        <div class="form_field col_4">
+            <label>Image:</label>
+            <input type="text" formControlName="img">
+            <div class="form_field_underline"></div>
+        </div>
+
+
+        <button class="btn btn-success col_all" type="button" (click)="editToggle()">Edit information</button>
+
+    </form>
+
+</div>

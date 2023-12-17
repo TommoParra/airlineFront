@@ -13,4 +13,5 @@ export interface IFlight {
     terminal: number,
     gate: number,
     img: string,
+    status: string,
 }
