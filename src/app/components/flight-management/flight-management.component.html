@@ -59,27 +59,32 @@
             <label for="departDate">New departure date:</label>
             <input type="date" formControlName="departure_date" placeholder="Select departure date">
             <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('name', 'required') || error">Can't be blank.</p>
         </div>
         <div class="form_field col_4">
             <label for="departDate">New departure time:</label>
             <input type="time" formControlName="departure_time" placeholder="Select departure date">
             <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('name', 'required') || error">Can't be blank.</p>
         </div>
         <div class="form_field col_4">
             <label for="arriveDate">New arrival date:</label>
             <input type="date" formControlName="arrival_date" placeholder="Select arrival date">
             <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('name', 'required') || error">Can't be blank.</p>
         </div>
         <div class="form_field col_4">
             <label for="arriveDate">New arrival time:</label>
             <input type="time" formControlName="arrival_time" placeholder="Select arrival date">
             <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('name', 'required') || error">Can't be blank.</p>
         </div>
 
         <div class="form_field col_4">
             <label>Duration:</label>
             <input type="text" formControlName="duration">
             <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('duration', 'required') || error">Can't be blank.</p>
         </div>
         <div class="form_field col_4">
             <label>Status:</label>
@@ -91,29 +96,28 @@
             <div class="form_field_underline"></div>
         </div>
         <div class="form_field col_4">
-            <label>Status:</label>
-            <input type="text" formControlName="status">
-            <div class="form_field_underline"></div>
-        </div>
-        <div class="form_field col_4">
             <label>Terminal:</label>
             <input type="text" formControlName="terminal">
             <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('terminal', 'required') || error">Can't be blank.</p>
         </div>
         <div class="form_field col_4">
             <label>Gate:</label>
             <input type="text" formControlName="gate">
             <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('gate', 'required') || error">Can't be blank.</p>
         </div>
         <div class="form_field col_4">
             <label>Price:</label>
             <input type="text" formControlName="price">
             <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('price', 'required') || error">Can't be blank.</p>
         </div>
         <div class="form_field col_4">
             <label>Image:</label>
             <input type="text" formControlName="img">
             <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('img', 'required') || error">Can't be blank.</p>
         </div>
 
 

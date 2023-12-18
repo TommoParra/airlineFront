@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IFlight } from 'src/app/interfaces/iflight';
 import { FlightsService } from 'src/app/services/flights.service';
 
@@ -18,6 +18,7 @@ export class FlightManagementComponent {
 
   isFormDisabled: boolean = true;
   targetFlight!: IFlight;
+  error: boolean = false;
 
 
   constructor() {
@@ -32,19 +33,19 @@ export class FlightManagementComponent {
       destination_city: new FormControl(null, []),
       departure: new FormControl(null, []),
       arrival: new FormControl(null, []),
+      available_seats: new FormControl(null, [Validators.required]),
+      available_luggage: new FormControl(null, [Validators.required]),
+
       departure_date: new FormControl(null, []),
       arrival_date: new FormControl(null, []),
       departure_time: new FormControl(null, []),
       arrival_time: new FormControl(null, []),
-
-      duration: new FormControl(null, []),
-      available_seats: new FormControl(null, []),
-      available_luggage: new FormControl(null, []),
-      price: new FormControl(null, []),
-      terminal: new FormControl(null, []),
-      gate: new FormControl(),
-      img: new FormControl(),
-      status: new FormControl()
+      duration: new FormControl(null, [Validators.required]),
+      price: new FormControl(null, [Validators.required]),
+      terminal: new FormControl(null, [Validators.required]),
+      gate: new FormControl(null, [Validators.required]),
+      img: new FormControl(null, [Validators.required]),
+      status: new FormControl(null, [])
     });
   }
 
@@ -54,7 +55,6 @@ export class FlightManagementComponent {
 
 
   async ngOnInit() {
-
     this.flightEditForm.disable();
   }
 
@@ -83,6 +83,10 @@ export class FlightManagementComponent {
     console.log(this.flightEditForm.value)
   }
 
+  checkError(controlName: string, errorName: string) {
+    return this.flightEditForm.get(controlName)?.hasError(errorName) && this.flightEditForm.get(controlName)?.touched;
+  }
+
 
   async editToggle() {
     if (this.isFormDisabled) {
@@ -93,35 +97,40 @@ export class FlightManagementComponent {
       this.flightEditForm.controls['available_seats'].disable();
       this.flightEditForm.controls['available_luggage'].disable();
     } else {
-      this.flightEditForm.disable();
+      if (this.flightEditForm.valid) {
+        this.flightEditForm.disable();
 
-      if (this.flightEditForm.value.departure_date !== null && this.flightEditForm.value.departure_time !== null) {
-        let fullDeparture = `${this.flightEditForm.value.departure_date} ${this.flightEditForm.value.departure_time}`
-        this.flightEditForm.patchValue({ departure: fullDeparture })
+        if (this.flightEditForm.value.departure_date !== null && this.flightEditForm.value.departure_time !== null) {
+          let fullDeparture = `${this.flightEditForm.value.departure_date} ${this.flightEditForm.value.departure_time}`
+          this.flightEditForm.patchValue({ departure: fullDeparture })
+        } else {
+          const date = new Date(this.flightEditForm.value.departure);
+          const formattedDeparture = date.toISOString().replace(/T/, ' ').replace(/\..+/, '').replace(/:\d{2}$/, '');
+          console.log(formattedDeparture);
+
+          this.flightEditForm.patchValue({ departure: formattedDeparture });
+
+        }
+        if (this.flightEditForm.value.arrival_date !== null && this.flightEditForm.value.arrival_time !== null) {
+          let fullArrival = `${this.flightEditForm.value.arrival_date} ${this.flightEditForm.value.arrival_time}`
+          this.flightEditForm.patchValue({ arrival: fullArrival })
+        } else {
+          const date = new Date(this.flightEditForm.value.arrival);
+          const formattedArrival = date.toISOString().replace(/T/, ' ').replace(/\..+/, '').replace(/:\d{2}$/, '');
+          console.log(formattedArrival);
+
+          this.flightEditForm.patchValue({ arrival: formattedArrival });
+        }
+
+        console.log(this.flightEditForm.value)
+
+        await this.flightService.editFlight(this.flightSearchForm.value.flight_id, this.flightEditForm.value)
+        console.log("Flight was edited.")
+        this.fillForm()
       } else {
-        const date = new Date(this.flightEditForm.value.departure);
-        const formattedDeparture = date.toISOString().replace(/T/, ' ').replace(/\..+/, '').replace(/:\d{2}$/, '');
-        console.log(formattedDeparture);
-
-        this.flightEditForm.patchValue({ departure: formattedDeparture });
-
-      }
-      if (this.flightEditForm.value.arrival_date !== null && this.flightEditForm.value.arrival_time !== null) {
-        let fullArrival = `${this.flightEditForm.value.arrival_date} ${this.flightEditForm.value.arrival_time}`
-        this.flightEditForm.patchValue({ arrival: fullArrival })
-      } else {
-        const date = new Date(this.flightEditForm.value.arrival);
-        const formattedArrival = date.toISOString().replace(/T/, ' ').replace(/\..+/, '').replace(/:\d{2}$/, '');
-        console.log(formattedArrival);
-
-        this.flightEditForm.patchValue({ arrival: formattedArrival });
+        this.error = true;
       }
 
-      console.log(this.flightEditForm.value)
-
-      await this.flightService.editFlight(this.flightSearchForm.value.flight_id, this.flightEditForm.value)
-      console.log("Flight was edited.")
-      this.fillForm()
 
     }
     this.isFormDisabled = !this.isFormDisabled;

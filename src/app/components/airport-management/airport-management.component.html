@@ -12,6 +12,7 @@
                 </option>
             </select>
             <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('airport_id', 'required') || error">Can't be blank.</p>
         </div>
 
         <button class="btn col_2" type="button" (click)="getAirport()">Choose this airport</button>
@@ -22,31 +23,37 @@
             <label>Airport name:</label>
             <input type="text" formControlName="name" placeholder="Name of the airport">
             <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('name', 'required') || error">Can't be blank.</p>
         </div>
         <div class="form_field col_4">
             <label>Airport acronym:</label>
             <input type="text" formControlName="name_acr">
             <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('name_acr', 'required') || error">Can't be blank.</p>
         </div>
         <div class="form_field col_4">
             <label>City name:</label>
             <input type="text" formControlName="city">
             <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('city', 'required') || error">Can't be blank.</p>
         </div>
         <div class="form_field col_4">
             <label>City acronym:</label>
             <input type="text" formControlName="city_acr">
             <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('city_acr', 'required') || error">Can't be blank.</p>
         </div>
         <div class="form_field col_4">
             <label>Country name:</label>
             <input type="text" formControlName="country">
             <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('country', 'required') || error">Can't be blank.</p>
         </div>
         <div class="form_field col_4">
             <label>Country acronym:</label>
             <input type="text" formControlName="country_acr">
             <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('country_acr', 'required') || error">Can't be blank.</p>
         </div>
 
 

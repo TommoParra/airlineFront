@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IAirport } from 'src/app/interfaces/iairport';
 import { AirportsService } from 'src/app/services/airports.service';
 
@@ -20,23 +20,24 @@ export class AirportManagementComponent {
   isFormDisabled: boolean = true;
   arrAirports: IAirport[] = []
   targetAirport!: IAirport;
+  error: boolean = false;
 
 
   constructor() {
     this.airportSearchForm = new FormGroup({
-      airport_id: new FormControl(null, []),
+      airport_id: new FormControl(null, [Validators.required]),
     })
 
     this.airportEditForm = new FormGroup({
-      name: new FormControl(null, []),
-      name_acr: new FormControl(null, []),
-      city: new FormControl(null, []),
-      city_acr: new FormControl(null, []),
-      country: new FormControl(),
-      country_acr: new FormControl(),
-      terminals: new FormControl(null, []),
-      gates: new FormControl(),
-      img: new FormControl()
+      name: new FormControl(null, [Validators.required]),
+      name_acr: new FormControl(null, [Validators.required]),
+      city: new FormControl(null, [Validators.required]),
+      city_acr: new FormControl(null, [Validators.required]),
+      country: new FormControl(null, [Validators.required]),
+      country_acr: new FormControl(null, [Validators.required]),
+      terminals: new FormControl(null, [Validators.required]),
+      gates: new FormControl(null, [Validators.required]),
+      img: new FormControl(null, [Validators.required])
 
     });
   }
@@ -66,12 +67,26 @@ export class AirportManagementComponent {
     console.log(this.airportEditForm.value)
   }
 
+  //Need to check both somehow.
+  checkSelect(controlName: string, errorName: string) {
+    return this.airportSearchForm.get(controlName)?.hasError(errorName) && this.airportSearchForm.get(controlName)?.touched;
+  }
+
+  checkError(controlName: string, errorName: string) {
+    return this.airportEditForm.get(controlName)?.hasError(errorName) && this.airportEditForm.get(controlName)?.touched;
+  }
+
   async editToggle() {
     if (this.isFormDisabled) {
       this.airportEditForm.enable();
     } else {
-      this.airportEditForm.disable();
-      await this.airportService.editAirport(this.airportSearchForm.value.airport_id, this.airportEditForm.value)
+      if (this.airportSearchForm.valid && this.airportEditForm.valid) {
+        this.airportEditForm.disable();
+        await this.airportService.editAirport(this.airportSearchForm.value.airport_id, this.airportEditForm.value)
+      } else {
+        this.error = true;
+      }
+
     }
     this.isFormDisabled = !this.isFormDisabled;
   }

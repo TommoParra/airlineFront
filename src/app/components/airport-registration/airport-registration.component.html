@@ -1,50 +1,67 @@
-<form class="form" [formGroup]="airportForm" (ngSubmit)="onSubmit()" [ngClass]="{active : isOpen}">
-    <h3 class="form_title" (click)="toggleForm()">Register a new airport</h3>
-    <img class="open_form" src="assets/arrDown.png" alt="Arrow down">
-    <div class="form_field col_4">
-        <label class="form-label">Airport name</label>
-        <input type="text" class="form-control" formControlName="name" placeholder="Los Angeles International Airport">
-        <div class="form_field_underline"></div>
-    </div>
-    <div class="form_field col_4">
-        <label class="form-label">Airport name acronym</label>
-        <input type="text" class="form-control" formControlName="name_acr" placeholder="LAX">
-        <div class="form_field_underline"></div>
-    </div>
-    <div class="form_field col_4">
-        <label class="form-label">City</label>
-        <input type="text" class="form-control" formControlName="city" placeholder="Los Angeles">
-        <div class="form_field_underline"></div>
-    </div>
-    <div class="form_field col_4">
-        <label class="form-label">City acronym</label>
-        <input type="text" class="form-control" formControlName="city_acr" placeholder="LAX">
-        <div class="form_field_underline"></div>
-    </div>
-    <div class="form_field col_4">
-        <label class="form-label">Country</label>
-        <input type="text" class="form-control" formControlName="country" placeholder="United States">
-        <div class="form_field_underline"></div>
-    </div>
-    <div class="form_field col_4">
-        <label class="form-label">Country acr</label>
-        <input type="text" class="form-control" formControlName="country_acr" placeholder="US">
-        <div class="form_field_underline"></div>
-    </div>
-    <div class="form_field col_4">
-        <label>Terminals - total terminals</label>
-        <input class="form-control" type="text" formControlName="terminals" placeholder="2">
-        <div class="form_field_underline"></div>
-    </div>
-    <div class="form_field col_4">
-        <label>Gates - total gates</label>
-        <input class="form-control" type="text" formControlName="gates" placeholder="10">
-        <div class="form_field_underline"></div>
-    </div>
-    <div class="form_field col_4">
-        <label>Related image</label>
-        <input class="form-control" type="url" formControlName="img" name="https://example.com/lax_airport_image.jpg">
-        <div class="form_field_underline"></div>
-    </div>
-    <button class="btn btn_light col_all" type="submit">Submit</button>
-</form>
+<div class="content_wrapper">
+    <form class="form" [formGroup]="airportForm" (ngSubmit)="onSubmit()" [ngClass]="{active : isOpen}">
+        <h3 class="form_title" (click)="toggleForm()">Register a new airport</h3>
+        <img class="open_form" src="assets/arrDown.png" alt="Arrow down">
+        <div class="form_field col_4">
+            <label class="form-label">Airport name</label>
+            <input type="text" class="form-control" formControlName="name"
+                placeholder="Los Angeles International Airport">
+            <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('name', 'required') || error">Define an airport name.</p>
+        </div>
+        <div class="form_field col_4">
+            <label class="form-label">Airport name acronym</label>
+            <input type="text" class="form-control" formControlName="name_acr" placeholder="LAX">
+            <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('name_acr', 'required') || error">Define an airport acronym.</p>
+        </div>
+        <div class="form_field col_4">
+            <label class="form-label">City</label>
+            <input type="text" class="form-control" formControlName="city" placeholder="Los Angeles">
+            <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('city', 'required') || error">Define the city where the airport is
+                located.</p>
+        </div>
+        <div class="form_field col_4">
+            <label class="form-label">City acronym</label>
+            <input type="text" class="form-control" formControlName="city_acr" placeholder="LAX">
+            <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('city_acr', 'required') || error">Define a city acronym.</p>
+        </div>
+        <div class="form_field col_4">
+            <label class="form-label">Country</label>
+            <input type="text" class="form-control" formControlName="country" placeholder="United States">
+            <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('country', 'required') || error">Define the country where the
+                airport is located.</p>
+        </div>
+        <div class="form_field col_4">
+            <label class="form-label">Country acr</label>
+            <input type="text" class="form-control" formControlName="country_acr" placeholder="US">
+            <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('country_acr', 'required') || error">Define a country acronym.</p>
+        </div>
+        <div class="form_field col_4">
+            <label>Terminals - total terminals</label>
+            <input class="form-control" type="text" formControlName="terminals" placeholder="2">
+            <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('terminals', 'required') || error">Define the total number of
+                terminals.</p>
+        </div>
+        <div class="form_field col_4">
+            <label>Gates - total gates</label>
+            <input class="form-control" type="text" formControlName="gates" placeholder="10">
+            <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('gates', 'required') || error">Define the total number of gates.
+            </p>
+        </div>
+        <div class="form_field col_4">
+            <label>Related image</label>
+            <input class="form-control" type="url" formControlName="img"
+                name="https://example.com/lax_airport_image.jpg">
+            <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('img', 'required') || error">Give a valid image url.</p>
+        </div>
+        <button class="btn btn_light col_all" type="submit">Submit</button>
+    </form>
+</div>

@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IAirport } from 'src/app/interfaces/iairport';
 import { AirportsService } from 'src/app/services/airports.service';
@@ -20,25 +20,28 @@ export class FlightRegistrationComponent {
   router = inject(Router);
 
   arrAirports: IAirport[] = []
+  targetAirport!: IAirport;
+  error: boolean = false;
 
   constructor() {
     this.flightForm = new FormGroup({
-      origin_id: new FormControl(null, []),
-      destination_id: new FormControl(null, []),
-      destination_city: new FormControl(null, []),
-      departure_date: new FormControl(null, []),
-      departure_time: new FormControl(null, []),
-      arrival_date: new FormControl(null, []),
-      arrival_time: new FormControl(null, []),
-      departure: new FormControl(null, []),
-      arrival: new FormControl(null, []),
-      duration: new FormControl(null, []),
-      price: new FormControl(null, []),
-      available_seats: new FormControl(null, []),
-      available_luggage: new FormControl(null, []),
-      terminal: new FormControl(null, []),
-      gate: new FormControl(null, []),
-      img: new FormControl(null, []),
+      origin_id: new FormControl(null, [Validators.required]),
+      destination_id: new FormControl(null, [Validators.required]),
+      destination_city: new FormControl(null, [Validators.required]),
+      departure_date: new FormControl(null, [Validators.required]),
+      departure_time: new FormControl(null, [Validators.required]),
+      arrival_date: new FormControl(null, [Validators.required]),
+      arrival_time: new FormControl(null, [Validators.required]),
+      departure: new FormControl(null, [Validators.required]),
+      arrival: new FormControl(null, [Validators.required]),
+      duration: new FormControl(null, [Validators.required]),
+      price: new FormControl(null, [Validators.required]),
+      available_seats: new FormControl(null, [Validators.required]),
+      available_luggage: new FormControl(null, [Validators.required]),
+      terminal: new FormControl(null, [Validators.required]),
+      gate: new FormControl(null, [Validators.required]),
+      img: new FormControl(null, [Validators.required]),
+      status: new FormControl("active", [])
     })
 
   }
@@ -51,17 +54,31 @@ export class FlightRegistrationComponent {
     this.isOpen = !this.isOpen;
   }
 
+  async getDestinationCity() {
+    this.targetAirport = await this.airportService.getById(this.flightForm.value.destination_id)
+    this.flightForm.patchValue({ destination_city: this.targetAirport.city });
+  }
+
+  checkError(controlName: string, errorName: string) {
+    return this.flightForm.get(controlName)?.hasError(errorName) && this.flightForm.get(controlName)?.touched;
+  }
+
   onSubmit() {
+    if (this.flightForm.valid) {
+      let fullDeparture = `${this.flightForm.value.departure_date} ${this.flightForm.value.departure_time}`
+      this.flightForm.patchValue({ departure: fullDeparture })
+      let fullArrival = `${this.flightForm.value.arrival_date} ${this.flightForm.value.arrival_time}`
+      this.flightForm.patchValue({ arrival: fullArrival })
 
-    let fullDeparture = `${this.flightForm.value.departure_date} ${this.flightForm.value.departure_time}`
-    this.flightForm.patchValue({ departure: fullDeparture })
-    let fullArrival = `${this.flightForm.value.arrival_date} ${this.flightForm.value.arrival_time}`
-    this.flightForm.patchValue({ arrival: fullArrival })
+      const formValues = this.flightForm.value;
+      console.log(formValues)
 
-    const formValues = this.flightForm.value;
-    console.log(formValues)
+      this.flightService.createFlight(formValues);
+    } else {
+      this.error = true;
+    }
 
-    this.flightService.createFlight(formValues);
+
   }
 
 }

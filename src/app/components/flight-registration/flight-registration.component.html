@@ -1,93 +1,105 @@
-<form class="form flight_registration_form" [formGroup]="flightForm" (ngSubmit)="onSubmit()"
-    [ngClass]="{active : isOpen}">
-    <h3 class="form_title" (click)="toggleForm()">Register a new flight</h3>
-    <img class="open_form" src="assets/arrDown.png" alt="Arrow down">
-    <div class="form_field col_4">
-        <label>Origin</label>
-        <select formControlName="origin_id">
-            <option *ngFor="let airport of arrAirports" [ngValue]="airport.id">
-                {{airport.country}} |
-                {{airport.city}} |
-                {{airport.name_acr}}
-            </option>
-        </select>
-        <div class="form_field_underline"></div>
-    </div>
-    <div class="form_field col_4">
-        <label>Destination</label>
-        <select formControlName="destination_id">
-            <option *ngFor="let airport of arrAirports" [ngValue]="airport.id">
-                {{airport.country}} |
-                {{airport.city}} |
-                {{airport.name_acr}}
-            </option>
-        </select>
-        <div class="form_field_underline"></div>
-    </div>
-    <div class="form_field col_4">
-        <label>Destination</label>
-        <select formControlName="destination_city">
-            <option *ngFor="let airport of arrAirports" [ngValue]="airport.city">
-                {{airport.city}}
-            </option>
-        </select>
-        <div class="form_field_underline"></div>
-    </div>
-    <div class="form_field col_4">
-        <label>Image:</label>
-        <input type="text" formControlName="img" placeholder="Image url">
-        <div class="form_field_underline"></div>
-    </div>
-    <div class="form_field col_4">
-        <label for="departDate">Departure date:</label>
-        <input type="date" formControlName="departure_date" placeholder="Select departure date">
-        <div class="form_field_underline"></div>
-    </div>
-    <div class="form_field col_4">
-        <label for="departDate">Departure time:</label>
-        <input type="time" formControlName="departure_time" placeholder="Select departure date">
-        <div class="form_field_underline"></div>
-    </div>
-    <div class="form_field col_4">
-        <label for="arriveDate">Arrival date:</label>
-        <input type="date" formControlName="arrival_date" placeholder="Select arrival date">
-        <div class="form_field_underline"></div>
-    </div>
-    <div class="form_field col_4">
-        <label for="arriveDate">Arrival time:</label>
-        <input type="time" formControlName="arrival_time" placeholder="Select arrival date">
-        <div class="form_field_underline"></div>
-    </div>
-    <div class="form_field col_4">
-        <label>Duration (in hours):</label>
-        <input type="text" formControlName="duration" placeholder="2 | 1.5 | 3">
-        <div class="form_field_underline"></div>
-    </div>
-    <div class="form_field col_4">
-        <label>Price (without currency):</label>
-        <input type="text" formControlName="price" placeholder="100">
-        <div class="form_field_underline"></div>
-    </div>
-    <div class="form_field col_4">
-        <label>Available seats:</label>
-        <input type="text" formControlName="available_seats" placeholder="50">
-        <div class="form_field_underline"></div>
-    </div>
-    <div class="form_field col_4">
-        <label>Available luggage (number indicates KG):</label>
-        <input type="text" formControlName="available_luggage" placeholder="70">
-        <div class="form_field_underline"></div>
-    </div>
-    <div class="form_field col_4">
-        <label>Terminal:</label>
-        <input type="text" formControlName="terminal" placeholder="2">
-        <div class="form_field_underline"></div>
-    </div>
-    <div class="form_field col_4">
-        <label>Gate:</label>
-        <input type="text" formControlName="gate" placeholder="5">
-        <div class="form_field_underline"></div>
-    </div>
+<div class="content_wrapper">
+    <form class="form flight_registration_form" [formGroup]="flightForm" (ngSubmit)="onSubmit()"
+        [ngClass]="{active : isOpen}">
+        <h3 class="form_title" (click)="toggleForm()">Register a new flight</h3>
+        <img class="open_form" src="assets/arrDown.png" alt="Arrow down">
+        <div class="form_field col_4">
+            <label>Origin</label>
+            <select formControlName="origin_id">
+                <option *ngFor="let airport of arrAirports" [ngValue]="airport.id">
+                    {{airport.country}} |
+                    {{airport.city}} |
+                    {{airport.name_acr}}
+                </option>
+            </select>
+            <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('origin_id', 'required') || error">Select the origin airport.</p>
+        </div>
+        <div class="form_field col_4">
+            <label>Destination</label>
+            <select formControlName="destination_id">
+                <option *ngFor="let airport of arrAirports" [ngValue]="airport.id" (click)="getDestinationCity()">
+                    {{airport.country}} |
+                    {{airport.city}} |
+                    {{airport.name_acr}}
+                </option>
+            </select>
+            <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('destination_id', 'required') || error">Select the destination
+                airport.</p>
+        </div>
+        <div class="form_field col_4">
+            <label>Price (without currency):</label>
+            <input type="text" formControlName="price" placeholder="100">
+            <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('price', 'required') || error">Define a price for this flight.</p>
+        </div>
+        <div class="form_field col_4">
+            <label>Image:</label>
+            <input type="text" formControlName="img" placeholder="Image url">
+            <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('img', 'required') || error">Provide a valid image url.</p>
+        </div>
+        <div class="form_field col_4">
+            <label for="departDate">Departure date:</label>
+            <input type="date" formControlName="departure_date" placeholder="Select departure date">
+            <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('departure_date', 'required') || error">Choose a departure date.
+            </p>
+        </div>
+        <div class="form_field col_4">
+            <label for="departDate">Departure time:</label>
+            <input type="time" formControlName="departure_time" placeholder="Select departure date">
+            <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('departure_time', 'required') || error">Choose a departure time.
+            </p>
+        </div>
+        <div class="form_field col_4">
+            <label for="arriveDate">Arrival date:</label>
+            <input type="date" formControlName="arrival_date" placeholder="Select arrival date">
+            <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('arrival_date', 'required') || error">Choose an arrival date.</p>
+        </div>
+        <div class="form_field col_4">
+            <label for="arriveDate">Arrival time:</label>
+            <input type="time" formControlName="arrival_time" placeholder="Select arrival date">
+            <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('arrival_time', 'required') || error">Choose an arrival date.</p>
+        </div>
+        <div class="form_field col_4">
+            <label>Duration (in hours):</label>
+            <input type="text" formControlName="duration" placeholder="2 | 1.5 | 3">
+            <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('duration', 'required') || error">Define the flight duration.</p>
+        </div>
+        <div class="form_field col_4">
+        </div>
+        <div class="form_field col_4">
+            <label>Available seats:</label>
+            <input type="text" formControlName="available_seats" placeholder="50">
+            <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('available_seats', 'required') || error">Define total seats on the
+                plane.</p>
+        </div>
+        <div class="form_field col_4">
+            <label>Available luggage (number in KG):</label>
+            <input type="text" formControlName="available_luggage" placeholder="70">
+            <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('available_luggage', 'required') || error">Define total luggage
+                capacity.</p>
+        </div>
+        <div class="form_field col_4">
+            <label>Terminal:</label>
+            <input type="text" formControlName="terminal" placeholder="2">
+            <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('terminal', 'required') || error">Choose a departure terminal.</p>
+        </div>
+        <div class="form_field col_4">
+            <label>Gate:</label>
+            <input type="text" formControlName="gate" placeholder="5">
+            <div class="form_field_underline"></div>
+            <p class="field_error" *ngIf="checkError('gate', 'required') || error">Choose a departure gate.</p>
+        </div>
 
-    <button class="btn btn-success col_all" type="submit">Submit</button>
-</form>
+        <button class="btn btn-success col_all" type="submit">Submit</button>
+    </form>
