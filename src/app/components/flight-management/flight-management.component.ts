@@ -12,6 +12,7 @@ export class FlightManagementComponent {
 
   flightSearchForm: FormGroup;
   flightEditForm: FormGroup;
+  isOpen = false;
 
   flightService = inject(FlightsService)
 
@@ -46,6 +47,11 @@ export class FlightManagementComponent {
       status: new FormControl()
     });
   }
+
+  toggleForm() {
+    this.isOpen = !this.isOpen;
+  }
+
 
   async ngOnInit() {
 

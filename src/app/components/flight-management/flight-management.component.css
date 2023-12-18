@@ -1,0 +1,41 @@
+.form {
+    height: 4.5rem;
+}
+
+.form.active {
+    height: max-content;
+}
+
+.open_form {
+    position: absolute;
+    width: 25px;
+    top: 27px;
+    right: 20px;
+    transition: .25s;
+}
+
+
+.form.active .open_form {
+    transform: rotate(180deg);
+}
+
+
+.flight_registration_form {
+    width: 100%;
+    height: max-content;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+}
+
+.flight_registration_form:hover {
+    box-shadow: none;
+    border: none;
+}
+
+
+h4.form_title {
+    text-align: left;
+    margin-top: 1rem;
+}

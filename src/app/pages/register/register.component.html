@@ -1,6 +1,6 @@
 <div class="wrapper">
     <div class="content_wrapper register">
-        <form class="form no_shadow" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <h1 class="form_title">Register to Flightif<span class="y">y</span> and start traveling</h1>
             <div class="form_field col_4">
                 <label>First Name</label>
@@ -59,7 +59,8 @@
                 </p>
             </div>
             <input class="btn btn_dark col_all" type="submit" value="Register">
-            <div class="form_field_underline col_all"></div>
         </form>
+        <p class="form_caption">You already have an account? <span class="link" [routerLink]="['/login']">Login</span>.
+        </p>
     </div>
 </div>

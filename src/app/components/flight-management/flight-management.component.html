@@ -1,19 +1,20 @@
-<div class="content_wrapper">
-    <h3 class="form_title">Choose a flight</h3>
-    <form class="form flight_registration_form" [formGroup]="flightSearchForm">
-        <div class="form_field col_4">
+<div class="form" [ngClass]="{active : isOpen}">
+    <h3 class="form_title">Edit airport information</h3>
+    <img class="open_form" src="assets/arrDown.png" alt="Arrow down" (click)="toggleForm()">
+    <form class="form flight_registration_form col_all" [formGroup]="flightSearchForm">
+        <h4 class="form_title">Choose an airport</h4>
+        <div class="form_field col_2">
             <label>Flight id:</label>
-            <input type="text" formControlName="flight_id">
+            <input type="text" formControlName="flight_id" placeholder="E.g.: 1">
             <div class="form_field_underline"></div>
         </div>
 
-        <button class="btn btn-success col_all" type="button" (click)="getFlight()">Choose this flight</button>
+        <button class="btn col_2" type="button" (click)="getFlight()">Choose this flight</button>
     </form>
 
 
-    <h3 class="form_title">Flight information</h3>
-    <form class="form flight_registration_form" [formGroup]="flightEditForm">
-        <h3 class="form_title">General information (cannot be edited)</h3>
+    <form class="form flight_registration_form col_all" [formGroup]="flightEditForm">
+        <h4 class="form_title">General information (cannot be edited)</h4>
         <div class="form_field col_4">
             <label>Flight id:</label>
             <input type="text" formControlName="flight_id">
@@ -53,7 +54,7 @@
         </div>
 
 
-        <h3 class="form_title">Specific information</h3>
+        <h4 class="form_title">Specific information</h4>
         <div class="form_field col_4">
             <label for="departDate">New departure date:</label>
             <input type="date" formControlName="departure_date" placeholder="Select departure date">
@@ -119,5 +120,4 @@
         <button class="btn btn-success col_all" type="button" (click)="editToggle()">Edit information</button>
 
     </form>
-
 </div>

@@ -12,6 +12,8 @@ export class AirportManagementComponent {
 
   airportSearchForm: FormGroup;
   airportEditForm: FormGroup;
+  isOpen = false;
+
 
   airportService = inject(AirportsService);
 
@@ -37,6 +39,10 @@ export class AirportManagementComponent {
       img: new FormControl()
 
     });
+  }
+
+  toggleForm() {
+    this.isOpen = !this.isOpen;
   }
 
   async ngOnInit() {

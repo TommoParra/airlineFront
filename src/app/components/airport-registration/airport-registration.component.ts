@@ -11,6 +11,7 @@ import { AirportsService } from 'src/app/services/airports.service';
 export class AirportRegistrationComponent {
 
   airportForm: FormGroup;
+  isOpen = false;
 
 
   airportService = inject(AirportsService);
@@ -29,6 +30,10 @@ export class AirportRegistrationComponent {
       img: new FormControl(null, []),
     })
 
+  }
+
+  toggleForm() {
+    this.isOpen = !this.isOpen;
   }
 
   onSubmit() {

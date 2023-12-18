@@ -46,11 +46,7 @@ header .logo_container img {
     margin: auto 0 auto auto;
 }
 
-.hor_nav_divider {
-    width: 2px;
-    height: 1rem;
-    background-color: var(--primaryYellow);
-}
+
 
 
 /* Mobile header */

@@ -1,7 +1,9 @@
-<div class="content_wrapper">
-    <h3 class="form_title">Choose an airport</h3>
-    <form class="form flight_registration_form" [formGroup]="airportSearchForm">
-        <div class="form_field col_4">
+<div class="form" [ngClass]="{active : isOpen}">
+    <h3 class="form_title">Edit airport information</h3>
+    <img class="open_form" src="assets/arrDown.png" alt="Arrow down" (click)="toggleForm()">
+    <form class="form flight_registration_form col_all" [formGroup]="airportSearchForm">
+        <h4 class="form_title">Choose an airport</h4>
+        <div class="form_field col_2">
             <select formControlName="airport_id">
                 <option *ngFor="let airport of arrAirports" [ngValue]="airport.id">
                     {{airport.country}} |
@@ -12,13 +14,13 @@
             <div class="form_field_underline"></div>
         </div>
 
-        <button class="btn btn-success col_all" type="button" (click)="getAirport()">Choose this airport</button>
+        <button class="btn col_2" type="button" (click)="getAirport()">Choose this airport</button>
     </form>
-    <h3 class="form_title">Airport information</h3>
-    <form class="form flight_registration_form" [formGroup]="airportEditForm">
+    <form class="form flight_registration_form col_all" [formGroup]="airportEditForm">
+        <h4 class="form_title">Airport information</h4>
         <div class="form_field col_4">
             <label>Airport name:</label>
-            <input type="text" formControlName="name">
+            <input type="text" formControlName="name" placeholder="Name of the airport">
             <div class="form_field_underline"></div>
         </div>
         <div class="form_field col_4">
@@ -51,5 +53,4 @@
         <button class="btn btn-success col_all" type="button" (click)="editToggle()">Edit information</button>
 
     </form>
-
 </div>

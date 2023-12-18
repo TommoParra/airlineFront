@@ -1,0 +1,20 @@
+.form {
+    height: 4.5rem;
+}
+
+.form.active {
+    height: max-content;
+}
+
+.open_form {
+    position: absolute;
+    width: 25px;
+    top: 27px;
+    right: 20px;
+    transition: .25s;
+}
+
+
+.form.active .open_form {
+    transform: rotate(180deg);
+}

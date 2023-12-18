@@ -1,5 +1,5 @@
 .content_wrapper.login {
-    display: flex;
+    display: grid;
     min-height: 60vh;
 }
 
@@ -10,4 +10,10 @@
 
 .content_wrapper.login .form .btn {
     margin: auto;
+}
+
+@media (width < 600px) {
+    .content_wrapper.login .form {
+        width: 90%;
+    }
 }

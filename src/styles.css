@@ -4,9 +4,9 @@
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;700&family=Roboto+Flex:opsz,wght@8..144,300;8..144,400&family=Roboto+Mono:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
 
-/* 
+/* Material design Icons*/
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
- */
 
 :root {
     /* Global variables */
@@ -28,6 +28,7 @@
     --lightGrey: #F3F3F3;
     --primaryYellow: #FFD800;
     --errorRed: #DB4437;
+    --linkBlue: #0026ff;
 
     /* shadow depths */
     --DP2: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -44,6 +45,8 @@
 
     /* Sections */
     --col4SectionGTC: 1fr;
+    --col_4_GC: 1/-1;
+    --col_2_GC: 1/-1;
 
 }
 
@@ -60,6 +63,8 @@
 
         /* Sections */
         --col4SectionGTC: repeat(2, 1fr);
+        --col_4_GC: span 4;
+        --col_2_GC: span 2;
     }
 }
 
@@ -97,6 +102,26 @@ h4 {
     font-weight: 700;
 }
 
+h1 {
+    font-size: 3rem
+}
+
+h2 {
+    font-size: 2.5rem
+}
+
+h3 {
+    font-size: 2rem
+}
+
+h4 {
+    font-size: 1.5rem
+}
+
+h5 {
+    font-size: 1.1rem
+}
+
 p,
 a,
 option,
@@ -109,15 +134,6 @@ h5 {
     color: var(--primaryYellow);
 }
 
-.no_shadow {
-    box-shadow: none !important;
-    border: none !important;
-}
-
-.no_shadow:hover {
-    border: none !important;
-    box-shadow: none !important;
-}
 
 .divisor {
     width: 100;
@@ -126,9 +142,38 @@ h5 {
     background-color: var(--lightGrey);
 }
 
+.link {
+    position: relative;
+    color: var(--linkBlue);
+    font-weight: 700;
+    line-height: 1.2;
+    cursor: pointer;
+    z-index: 2;
+
+    &::before {
+        content: " ";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        height: 1px;
+        width: 100%;
+        border-bottom: 2px solid var(--linkBlue);
+        background-color: #fff;
+        opacity: 0.7;
+        transform: translateY(-0.1px);
+        z-index: -1;
+    }
+}
+
 * {
     color: var(--almostBlack);
     box-sizing: border-box;
+}
+
+
+.material_icon {
+    color: var(--almostBlack);
+    line-height: 26px;
 }
 
 .wrapper {
@@ -138,16 +183,24 @@ h5 {
 .content_wrapper {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0 var(--contentPadding);
+    width: 100%;
+    padding: 2rem var(--contentPadding);
+}
+
+.hor_nav_divider {
+    width: 2px;
+    height: 1rem;
+    background-color: var(--primaryYellow);
+    margin: auto;
 }
 
 /* Global Sections */
 .section_title {
+    grid-column: 1/-1;
     margin-bottom: var(--sectionInnerGap);
-    font-size: 2.625rem;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    margin: 0;
 }
 
 
@@ -176,7 +229,7 @@ h5 {
 }
 
 .col_2 {
-    grid-column: span 2;
+    grid-column: var(--col_2_GC);
 }
 
 .col_3 {
@@ -184,7 +237,7 @@ h5 {
 }
 
 .col_4 {
-    grid-column: span 4;
+    grid-column: var(--col_4_GC);
 }
 
 .col_all {
@@ -205,6 +258,8 @@ h5 {
     border-radius: 20px;
     border: 1px solid transparent;
     transition: .25s;
+    overflow: hidden;
+    transition: .25s;
 }
 
 .form:hover {
@@ -214,8 +269,6 @@ h5 {
 
 .form_title {
     font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 2rem;
     text-align: center;
     grid-column: 1/-1;
 }
@@ -282,7 +335,23 @@ option {
     color: var(--errorRed);
 }
 
+.form_caption {
+    margin: auto;
+    font-size: 1.2rem;
+}
 
+/* removes number arrows for chrome,
+Safari, Edge, Opera  */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* ...and for Firefox */
+input[type=number] {
+    appearance: textfield;
+}
 
 /* Buttons */
 .btn {
@@ -293,7 +362,7 @@ option {
     border-radius: 0.625rem;
     box-shadow: var(--DP2);
     font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
+    font-size: 1.2rem;
     text-align: center;
     transition: .25s;
     cursor: pointer;

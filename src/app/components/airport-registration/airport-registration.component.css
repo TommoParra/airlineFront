@@ -1,9 +1,19 @@
-.meow h3 {
-    text-align: center;
-    font-size: 25px;
-    margin: 15px 0;
+.form {
+    height: 4.5rem;
 }
 
-.meow .form_field {
-    margin-top: 30px;
+.form.active {
+    height: max-content;
+}
+
+.open_form {
+    position: absolute;
+    width: 25px;
+    top: 27px;
+    right: 20px;
+    transition: .25s;
+}
+
+.form.active .open_form {
+    transform: rotate(180deg);
 }
