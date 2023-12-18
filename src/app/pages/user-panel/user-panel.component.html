@@ -50,9 +50,8 @@
                 </div>
             </div>
         </div>
-        <div class="item" *ngIf="!hide">
+        <div class="item">
             <div class="heading">3 - Chek In</div>
-
             <div class="content_wrapper">
                 <!-- <h3 class="form_title">User information</h3> -->
                 <form class="form flight_registration_form">
@@ -71,15 +70,21 @@
                         <input placeholder="Flight date" type="text">
                         <div class="form_field_underline"></div>
                     </div>
-                    <button class="btn btn-success col_all" type="button" (click)="onClick($event)">Check In</button>
+                    <button *ngIf="!hide" class="btn btn-success col_all" type="button" (click)="onClick($event)">Check
+                        In</button>
                 </form>
+            </div>
+            <div class="alert" *ngIf="showAlert">
+                <span class="closebtn" (click)="onCloseAlert()">&times;</span>
+                You have succesfully done your Ckeck In!
             </div>
 
 
         </div>
         <div class="item">
             <div class="heading">4 - Flight status</div>
-            <div class="content_wrapper">
+
+            <!-- <div class="content_wrapper">
                 <div class="row">
                     <p>On time</p>
                     <label class="label">
@@ -91,79 +96,39 @@
                     <label class="label">
                         <input class="input" type="checkbox">
                     </label>
-                </div>
+                </div> -->
+
+
+            <div class="content_wrapper">
+                <!-- <h3 class="form_title">User information</h3> -->
+                <form class="form flight_registration_form">
+                    <div class="form_field col_4">
+                        <!-- <label>Flight number</label> -->
+                        <input placeholder="Fly from" type="text">
+                        <div class="form_field_underline"></div>
+                    </div>
+                    <div class="form_field col_4">
+                        <!-- <label>Last name:</label> -->
+                        <input placeholder="Fy to" type="text">
+                        <div class="form_field_underline"></div>
+                    </div>
+                    <div class="form_field col_4">
+                        <!-- <label>Email:</label> -->
+                        <input placeholder="Flight date" type="text">
+                        <div class="form_field_underline"></div>
+                    </div>
+                    <button *ngIf="!hiden" class="btn btn-success col_all" type="button" (click)="onClick2($event)">See
+                        flights</button>
+                </form>
+            </div>
+            <div class="alert" *ngIf="showAlert2">
+                <span class="closebtn" (click)="onCloseAlert2()">&times;</span>
+                Your flight is running on time
             </div>
         </div>
-
     </div>
 
-    <div class="alert" *ngIf="showAlert">
-        <span class="closebtn" (click)="onCloseAlert()">&times;</span>
-        You have succesfully done your Ckeck In!
-    </div>
+    <!-- </div> -->
+
+
 </section>
-
-<!---->
-<!-- <div class="alert" *ngIf="!show">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    You have succesfully done your Ckeck In!
-</div> -->
-<!---->
-
-
-
-
-
-
-
-
-<!-- <section>
-    <div class="content_wrapper">
-        <h3 class="form_title">User information</h3>
-        <form class="form flight_registration_form" [formGroup]="userEditForm">
-            <div class="form_field col_4">
-                <label>First name:</label>
-                <input type="text" formControlName="first_name">
-                <div class="form_field_underline"></div>
-            </div>
-            <div class="form_field col_4">
-                <label>Last name:</label>
-                <input type="text" formControlName="last_name">
-                <div class="form_field_underline"></div>
-            </div>
-            <div class="form_field col_4">
-                <label>Email:</label>
-                <input type="text" formControlName="email">
-                <div class="form_field_underline"></div>
-            </div>
-            <div class="form_field col_4">
-                <label>Phone number:</label>
-                <input type="text" formControlName="phone">
-                <div class="form_field_underline"></div>
-            </div>
-            <div class="form_field col_4">
-                <label>Passport:</label>
-                <input type="text" formControlName="passport">
-                <div class="form_field_underline"></div>
-            </div>
-            <div class="form_field col_4">
-                <label>Membership:</label>
-                <input type="text" formControlName="membership">
-                <div class="form_field_underline"></div>
-            </div>
-            <button class="btn btn-success col_all" type="button" (click)="editToggle()">Edit information</button>
-        </form>
-    </div>
-</section> -->
-
-
-
-<!-- Button to toggle show / hide needed for the flights section. -->
-<!-- <section>
-    <div>
-        <div class="info">
-            <app-reservation-card [reservation]="reservation"
-                *ngFor="let reservation of arrReservations"></app-reservation-card>
-        </div>
-    </div>
-</section> -->

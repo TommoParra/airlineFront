@@ -21,6 +21,9 @@ export class UserPanelComponent {
   showAlert = false;
   hide = false;
 
+  showAlert2 = false;
+  hiden = false;
+
 
 
   constructor() {
@@ -82,6 +85,15 @@ export class UserPanelComponent {
 
   onCloseAlert() {
     this.showAlert = false;
+  }
+
+  onClick2($event: Event) {
+    this.hiden = !this.hiden;
+    this.showAlert2 = !this.showAlert2;
+  }
+
+  onCloseAlert2() {
+    this.showAlert2 = false;
   }
 
 }
