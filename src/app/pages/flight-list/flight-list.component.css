@@ -30,32 +30,30 @@
 }
 
 .triangle1 {
-    width: 40px;
-    height: 40px;
-    border: 2px #FFD800 solid;
+    width: 28px;
+    height: 28px;
     position: absolute;
-    transform: translate(-50%, -50%) rotate(45deg);
-    left: 50%;
-    top: 50%;
+    transform: rotate(45deg);
     border-left: transparent;
     border-bottom: transparent;
     background-color: #FFD800;
+    top: -5px;
+    right: -14px;
 
 }
 
 .triangle2 {
-    width: 40px;
-    height: 40px;
-    border: 1px lightgray solid;
+    width: 28px;
+    height: 28px;
     position: absolute;
-    transform: translate(-50%, -50%) rotate(45deg);
-    left: 50%;
-    top: 50%;
-    border-left: none;
-    border-bottom: none;
+    transform: rotate(45deg);
+    /* border-left: none;
+    border-bottom: none; */
     border-left: transparent;
     border-bottom: transparent;
     background-color: lightgray;
+    top: -15px;
+    right: 20px;
 }
 
 .arrow {
