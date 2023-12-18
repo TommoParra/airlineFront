@@ -1,3 +1,29 @@
+<!--status top line-->
+
+<section class="body">
+    <div class="options">
+        <div class="arrow">
+            <span class="option1">1 - Select your flight </span>
+            <div class="triangle1"></div>
+        </div>
+        <div>
+            <span class="option2">2 - Add passengers</span>
+        </div>
+        <div>
+            <span class="option3">3 - Complete payment</span>
+        </div>
+        <div>
+            <span class="option4">4 - Your booking</span>
+            <div class="triangle2"></div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
 <form class="flight_reservation_form" [formGroup]="flightReservationForm"
     *ngFor="let i of Arr(num).fill(1); let j = index" style="max-width: 400px; margin: 7rem auto 5rem auto">
     <h3>Passenger {{j + 1}}</h3>

@@ -16,7 +16,12 @@ export class UserPanelComponent {
 
   userData!: IUser;
   isFormDisabled: boolean = true;
-  arrReservations: any[] = []
+  arrReservations: any[] = [];
+
+  showAlert = false;
+  hide = false;
+
+
 
   constructor() {
     this.userEditForm = new FormGroup({
@@ -61,7 +66,22 @@ export class UserPanelComponent {
     }
 
     this.isFormDisabled = !this.isFormDisabled;
+  }
 
+  // onClick($event: any) {
+
+  //   this.hide = true;
+  //   this.show = false;
+
+  // }
+
+  onClick($event: Event) {
+    this.hide = !this.hide;
+    this.showAlert = !this.showAlert;
+  }
+
+  onCloseAlert() {
+    this.showAlert = false;
   }
 
 }
@@ -69,9 +89,6 @@ export class UserPanelComponent {
 
 
 
-// onClickEdit() {
-
-// }
 
 
 
