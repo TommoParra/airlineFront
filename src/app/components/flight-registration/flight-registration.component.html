@@ -1,7 +1,7 @@
 <form class="form flight_registration_form" [formGroup]="flightForm" (ngSubmit)="onSubmit()"
     [ngClass]="{active : isOpen}">
-    <h3 class="form_title">Register a new flight</h3>
-    <img class="open_form" src="assets/arrDown.png" alt="Arrow down" (click)="toggleForm()">
+    <h3 class="form_title" (click)="toggleForm()">Register a new flight</h3>
+    <img class="open_form" src="assets/arrDown.png" alt="Arrow down">
     <div class="form_field col_4">
         <label>Origin</label>
         <select formControlName="origin_id">

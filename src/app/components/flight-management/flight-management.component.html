@@ -1,6 +1,6 @@
 <div class="form" [ngClass]="{active : isOpen}">
-    <h3 class="form_title">Edit airport information</h3>
-    <img class="open_form" src="assets/arrDown.png" alt="Arrow down" (click)="toggleForm()">
+    <h3 class="form_title" (click)="toggleForm()">Edit airport information</h3>
+    <img class="open_form" src="assets/arrDown.png" alt="Arrow down">
     <form class="form flight_registration_form col_all" [formGroup]="flightSearchForm">
         <h4 class="form_title">Choose an airport</h4>
         <div class="form_field col_2">

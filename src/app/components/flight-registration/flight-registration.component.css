@@ -2,6 +2,10 @@
     height: 4.5rem;
 }
 
+.form_title {
+    cursor: pointer;
+}
+
 .form.active {
     height: max-content;
 }
