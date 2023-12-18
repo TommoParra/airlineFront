@@ -15,7 +15,7 @@
 
 }
 
-.triangle1 {
+/* .triangle1 {
     width: 40px;
     height: 40px;
     border: 2px #FFD800 solid;
@@ -47,7 +47,7 @@
 .arrow {
     position: relative;
     display: inline-block;
-}
+} */
 
 .option1 {
     border: 1px lightgray solid;
@@ -55,8 +55,6 @@
     padding: 10px;
     border-right: none;
     flex: 1;
-    position: relative;
-    overflow: hidden;
     padding-right: 70px;
     padding-left: 20px;
 }
@@ -89,4 +87,16 @@
     background-color: lightgray;
     padding-right: 70px;
     padding-left: 20px;
+}
+
+.content_wrapper {
+    display: flex;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+.form_field_underline {
+    opacity: 0.5;
 }
