@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { IFlight } from 'src/app/interfaces/iflight';
 
 @Component({
@@ -8,6 +8,18 @@ import { IFlight } from 'src/app/interfaces/iflight';
 })
 export class FlightCardComponent {
 
-  @Input() Flight!: IFlight
+  @Input() Flight!: IFlight;
 
+
+  // //
+  // @Input() result: any;
+  // @Output() flightClicked: EventEmitter<number> = new EventEmitter();
+
+
+
+  // onClick(){
+  //   this.flightClicked.emit(this.result.id);
+  //   this.clicked = true;
+
+  // }
 }

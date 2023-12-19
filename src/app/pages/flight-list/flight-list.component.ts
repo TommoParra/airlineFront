@@ -43,6 +43,7 @@ export class FlightListComponent {
   calendarData: any[] = [];
   //
 
+  /*send the array by URL*/
   ngOnInit() {
     localStorage.removeItem('reservations_summary')
 

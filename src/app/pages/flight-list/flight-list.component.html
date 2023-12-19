@@ -44,6 +44,14 @@
 
 
 
+        <section class="flights_calendar_week col_all">
+            <div class="flights_calendar_day" *ngFor="let dayData of returnArr">
+                <div class="flight_calendar_day_price">
+                    <p>{{ dayData.departure | date:"shortTime"}}</p>
+                    <span class="price">{{ dayData.price | currency:'EUR' }}</span>
+                </div>
+            </div>
+        </section>
 
 
         <section class="flight_list_display col_all">
