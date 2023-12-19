@@ -53,7 +53,12 @@
             [ngClass]="{ 'error_underline': checkError('return', 'required') || checkError('return', 'dateGreaterThan') || error }">
         </div>
         <p class="field_error" [ngClass]="{ 'overlapping_field_error': !checkError('return', 'required') }"
-            *ngIf="checkError('return', 'required') || checkError('return', 'dateGreaterThan') || error">
+            *ngIf="checkError('return', 'required') || error">
+            {{ checkError('return', 'dateGreaterThan') ? 'Return date must be greater than departure date' : 'Select
+            return date' }}
+        </p>
+        <p class="field_error" [ngClass]="{ 'overlapping_field_error': !checkError('return', 'dateGreaterThan') }"
+            *ngIf=" checkError('return', 'dateGreaterThan') || error">
             {{ checkError('return', 'dateGreaterThan') ? 'Return date must be greater than departure date' : 'Select
             return date' }}
         </p>

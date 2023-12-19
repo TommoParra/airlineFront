@@ -40,6 +40,11 @@ export class FlightsService {
     )
   }
 
+  // getCalendarData(): Promise<any[]> {
+  //   return firstValueFrom(this.httpClient.get<any[]>(`${this.apiUrl}/calendar`));
+
+  // }
+
 
 
 

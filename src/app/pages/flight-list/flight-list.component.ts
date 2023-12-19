@@ -31,6 +31,9 @@ export class FlightListComponent {
   hide = false;
   // clicked = false;
 
+  //
+  calendarData: any[] = [];
+  //
 
 
   ngOnInit() {
@@ -45,6 +48,10 @@ export class FlightListComponent {
         this.outboundArr = this.arrResults[0];
         this.returnArr = this.arrResults[1];
 
+        //
+        const calendarData = this.generateCalendarData([...this.outboundArr, ...this.returnArr]);
+        this.updateCalendarHTML(calendarData);
+
       } catch (error) {
         console.log(error);
       }
@@ -52,6 +59,16 @@ export class FlightListComponent {
     });
 
   }
+
+  generateCalendarData(flights: any[]): any[] {
+    return flights.map(flight => ({ day: flight.day, price: flight.price }));
+  }
+
+  updateCalendarHTML(calendarData: any[]): void {
+    console.log(calendarData);
+    calendarData = calendarData;
+  }
+
 
   checkoutOnClick() {
     localStorage.removeItem('reservations')
@@ -66,7 +83,7 @@ export class FlightListComponent {
 
     console.log(this.arrReservations)
     if (this.userService.isLogged()) {
-      this.calculateTotalPrice();
+      // this.calculateTotalPrice();
       this.router.navigate(['/reservation'])
     } else {
       this.router.navigate(['/login'])
@@ -75,23 +92,25 @@ export class FlightListComponent {
 
   }
 
+  //************************************ */
   onFlightClikedOutbond($event: number) {
     this.outboundArr = this.outboundArr.filter(flightOutbond => flightOutbond.id === $event);
+    this.totalOutbound = this.outboundArr[0].price * this.passengers;
+
     console.log(this.outboundArr);
+    console.log(this.totalOutbound)
     this.shown = true;
   }
 
   onFlightClikedReturn($event: number) {
     this.returnArr = this.returnArr.filter(flightReturn => flightReturn.id === $event);
     this.hide = true;
+    this.totalReturn = this.returnArr[0].price * this.passengers;
+    console.log(this.totalReturn)
   }
+  //*********************************** */
 
-  // onClick() {
-  //   this.clicked = true;
-  // }
 
-  calculateTotalPrice() {
-    this.totalOutbound = this.outboundArr.reduce((total, flight) => total + flight.price, 0);
-    this.totalReturn = this.returnArr.reduce((total, flight) => total + flight.price, 0);
-  }
+
+
 }
