@@ -1,5 +1,7 @@
+import { AnimateTimings } from '@angular/animations';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IFlight } from 'src/app/interfaces/iflight';
 import { FlightsService } from 'src/app/services/flights.service';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -19,8 +21,16 @@ export class FlightListComponent {
   totalOutbound: number = 0;
   totalReturn: number = 0;
 
-  arrReservations: any[] = []
+  arrReservations: any[] = [];
 
+  fromFlight: any;
+  uniqueFromCity: any;
+  fromFlightName: any;
+  uniqueFromName: any;
+  toFlight: any;
+  uniqueToCity: any;
+  toFlightName: any;
+  uniqueToName: any;
 
   flightService = inject(FlightsService);
   userService = inject(UsersService)
@@ -32,22 +42,42 @@ export class FlightListComponent {
   // clicked = false;
 
 
-
   ngOnInit() {
     localStorage.removeItem('reservations_summary')
 
     this.activateRoute.queryParams.subscribe(async (queryParams: any) => {
       console.log(queryParams);
       this.passengers = queryParams.passengers;
-      this.ticket_class = queryParams.class
+      this.ticket_class = queryParams.class;
+
       try {
         this.arrResults = await this.flightService.getFullSearch(queryParams);
         this.outboundArr = this.arrResults[0];
         this.returnArr = this.arrResults[1];
 
+        /* Gets Outbound flight city and airport name */
+        this.uniqueFromCity = Array.from(new Set(this.outboundArr.map(item => item.city)));
+
+        if (Array.from(new Set(this.outboundArr.map(item => item.name))).length > 1) {
+          this.uniqueFromName = ' All Airports';
+        } else {
+          this.uniqueFromName = Array.from(new Set(this.outboundArr.map(item => item.name)));
+        }
+
+        /* Gets Inbound flight city and airport name */
+
+        this.uniqueToCity = Array.from(new Set(this.returnArr.map(item => item.city)));
+
+        if (Array.from(new Set(this.returnArr.map(item => item.name))).length > 1) {
+          this.uniqueToName = 'All Airports';
+        } else {
+          this.uniqueToName = Array.from(new Set(this.returnArr.map(item => item.name)));
+        }
+
       } catch (error) {
         console.log(error);
       }
+
 
     });
 
@@ -94,4 +124,5 @@ export class FlightListComponent {
     this.totalOutbound = this.outboundArr.reduce((total, flight) => total + flight.price, 0);
     this.totalReturn = this.returnArr.reduce((total, flight) => total + flight.price, 0);
   }
+
 }

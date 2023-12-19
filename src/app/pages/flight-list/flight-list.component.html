@@ -1,74 +1,72 @@
-<section class="body">
-    <div class="options">
-        <div class="arrow">
-            <span class="option1">1 - Select your flight </span>
-            <div class="triangle1"></div>
-        </div>
-        <div>
-            <span class="option2">2 - Add passengers</span>
-        </div>
-        <div>
-            <span class="option3">3 - Complete payment</span>
-        </div>
-        <div>
-            <span class="option4">4 - Your booking</span>
-            <div class="triangle2"></div>
-        </div>
-    </div>
-</section>
-
-<section class="wrap">
-    <section class="calendar">
-        <div class="calendar1">
-            <div class="weekdays">
-                <div class="weekday">Mon</div>
-                <div class="weekday">Tue</div>
-                <div class="weekday">Wed</div>
-                <div class="weekday">Thu</div>
-                <div class="weekday">Fri</div>
-                <div class="weekday">Sat</div>
-                <div class="weekday">Sun</div>
+<div class="wrapper">
+    <div class="content_wrapper">
+        <section class="flight_select_breadcrum col_all">
+            <div class="breadcrum_item current">
+                <p>Select your flight </p>
             </div>
-            <div class="prices">
-                <div class="day"><span class="day-num">1</span><span class="price">150€</span></div>
-                <div class="day"><span class="day-num">2</span><span class="price">200€</span></div>
-                <div class="day"><span class="day-num">3</span><span class="price">180€</span></div>
-                <div class="day"><span class="day-num">4</span><span class="price">190€</span></div>
-                <div class="day"><span class="day-num">5</span><span class="price">170€</span></div>
-                <div class="day"><span class="day-num">6</span><span class="price">160€</span></div>
-                <div class="day"><span class="day-num">7</span><span class="price">220€</span></div>
+
+            <div class="breadcrum_item">
+                <p>Add passengers</p>
             </div>
+
+            <div class="breadcrum_item">
+                <p>Complete payment</p>
+            </div>
+
+            <div class="breadcrum_item">
+                <p>Your booking</p>
+            </div>
+        </section>
+
+        <section class="flights_calendar_week col_all">
+            <div class="flights_calendar_day" *ngFor="let dayData of outboundArr">
+                <div class="flight_calendar_day_price">
+                    <p>{{ dayData.departure | date:"shortTime"}}</p>
+                    <span class="price">{{ dayData.price | currency:'EUR' }}</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="flight_list_display col_all">
+            <h3 class="section_title" *ngIf="!shown">
+                <span>{{this.uniqueFromCity}}, {{this.uniqueFromName}}</span>
+                <span class="fromToArrow_container"><img class="fromToArrow" src="assets/arrDown.png" alt=""></span>
+                <span>{{this.uniqueToCity}}, {{this.uniqueToName}}</span>
+            </h3>
+
+            <article class="col_all" *ngFor="let result of outboundArr | slice:0:4">
+
+                <app-flight-results-card (flightClicked)="onFlightClikedOutbond($event)" [result]="result"
+                    [passengers]="passengers">
+                </app-flight-results-card>
+            </article>
+        </section>
+
+
+
+
+
+        <section class="flight_list_display col_all">
+            <h3 class="section_title" *ngIf="!hide">
+                <span>{{this.uniqueToCity}},
+                    {{this.uniqueToName}}
+                </span>
+                <span><img class="fromToArrow" src="assets/arrDown.png" alt=""></span>
+                <span>{{this.uniqueFromCity}},
+                    {{this.uniqueFromName}}</span>
+            </h3>
+            <article *ngFor="let result of returnArr | slice:0:4">
+                <app-flight-results-card (flightClicked)="onFlightClikedReturn($event)" [result]="result"
+                    [passengers]="passengers">
+                </app-flight-results-card>
+            </article>
+        </section>
+
+
+        <div class="total_flights">
+            <span class="total_price">{{totalOutbound + totalReturn |currency:'EUR'}} </span>
+
+            <input (click)="checkoutOnClick()" class="btn btn_light" type="submit" value="Confirm">
         </div>
-    </section>
-
-    <div class="header">
-        <h2 class="outbond" *ngIf="!shown">Paris (ALL) -> London (ALL)</h2>
     </div>
-    <article *ngFor="let result of outboundArr | slice:0:4">
-
-        <app-flight-results-card (flightClicked)="onFlightClikedOutbond($event)" [result]="result"
-            [passengers]="passengers">
-        </app-flight-results-card>
-    </article>
-</section>
-
-
-
-
-<section class=" wrap">
-    <div class="header">
-        <h2 class="return" *ngIf="!hide">London (ALL) Paris (ALL)</h2>
-    </div>
-    <article *ngFor="let result of returnArr | slice:0:4">
-        <app-flight-results-card (flightClicked)="onFlightClikedReturn($event)" [result]="result"
-            [passengers]="passengers">
-        </app-flight-results-card>
-    </article>
-</section>
-
-
-<div class="btn">
-    <span>{{totalOutbound + totalReturn |currency:'EUR'}} </span>
-    <!-- <button (click)="checkoutOnClick()"></button> -->
-    <input (click)="checkoutOnClick()" class="btn btn_light" type="submit" value="Confirm">
 </div>
