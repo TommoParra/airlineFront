@@ -1,35 +1,27 @@
-.wrap {
+.content_wrapper {
     max-width: 900px;
-    margin: 0 auto;
-    color: #313131;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 3rem;
 }
 
-.header {
-    font-size: 24px;
-    font-weight: 300;
-    text-align: left;
-    margin-bottom: 10px;
-    font-size: 18px;
+.section_title {
+    line-height: 2.5rem;
 }
 
-.body {
+.flight_select_breadcrum {
     display: flex;
-    /* flex-direction: row; */
-    gap: 10px;
-    margin-top: 20px;
-    align-items: left;
-    justify-content: left;
+    width: 100%;
 }
 
-.options {
+.breadcrum_item {
     display: flex;
-    padding: 40px;
     position: relative;
     margin: 0 auto;
 
 }
 
-/* .triangle1 {
+.triangle1 {
     width: 28px;
     height: 28px;
     position: absolute;
@@ -46,7 +38,9 @@
     width: 28px;
     height: 28px;
     position: absolute;
-    transform: rotate(45deg);   
+    transform: rotate(45deg);
+    /* border-left: none;
+    border-bottom: none; */
     border-left: transparent;
     border-bottom: transparent;
     background-color: lightgray;
@@ -57,7 +51,7 @@
 .arrow {
     position: relative;
     display: inline-block;
-} */
+}
 
 .option1 {
     border: 1px #FFD800 solid;
@@ -65,6 +59,8 @@
     padding: 10px;
     border-right: none;
     flex: 1;
+    position: relative;
+    overflow: hidden;
     padding-right: 70px;
     padding-left: 20px;
 }
@@ -99,94 +95,84 @@
     padding-left: 20px;
 }
 
-.calendar1 {
+.flights_calendar {
     display: flex;
     flex-direction: column;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     justify-content: center;
     margin: 20px;
     padding-bottom: 15px;
 }
 
-.weekdays {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    color: #313131;
+.flight_list_display {
+    display: grid;
+    grid-gap: 1rem;
 }
 
-.weekday {
+.total_flights {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.total_price {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.fromToArrow {
+    rotate: -90deg;
+    width: 30px;
+    margin: 0 10px;
+}
+
+.flights_calendar_week {
+    display: flex;
+    grid-gap: 1rem;
+    justify-content: space-between;
+    color: var(--almostBlack);
+}
+
+.flights_calendar_day {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     text-align: center;
-    width: calc(100% / 7);
     padding: 5px 0;
     font-weight: bold;
     color: #333;
     flex: 1;
 }
 
-.prices {
-    display: flex;
-    justify-content: space-between;
-    color: #333;
-    gap: 20px;
 
-}
-
-.day {
+.flight_calendar_day_price {
+    display: grid;
+    grid-row-gap: .5rem;
     text-align: center;
-    width: calc(100% / 7);
-    padding: 10px 10px;
-    border: 1px solid #ddd;
+    padding: 10px;
+    border: 2px solid var(--lightGrey);
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: 0.25s;
     border-radius: 10px;
 }
 
-.day:hover {
-    outline: 2px #FFD800 solid;
+.flight_calendar_day_price:hover {
+    border: 2px var(--primaryYellow) solid;
 }
 
-.day.selected {
-    background-color: #0056b3;
-    color: white;
-}
 
-.day-num {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
+@media (width < 600px) {
+    .breadcrum_item {
+        font-size: .8rem;
+    }
 
-.price {
-    font-size: 14px;
-    color: #555;
-}
+    .flights_calendar_week {
+        grid-gap: .1rem;
+    }
 
-.outbond {
-    font-size: 30px;
-    margin-bottom: 10px;
-    padding-top: 30px;
-    opacity: 0.8;
-    color: #313131;
-}
+    .flight_calendar_day_price {
+        font-size: .8rem;
+    }
 
-small {
-    font-size: 11px;
-}
-
-.return {
-    font-size: 30px;
-    margin-bottom: 10px;
-    padding-top: 20px;
-    opacity: 0.8;
-    color: #313131;
-}
-
-.btn {
-    margin-top: 30px;
-    display: flex;
-    justify-content: flex-end;
-    border-radius: 1px solid #333;
-    grid-column: span 4;
-    margin-top: 30px;
 }

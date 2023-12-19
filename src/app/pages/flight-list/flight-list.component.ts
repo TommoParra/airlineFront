@@ -19,8 +19,16 @@ export class FlightListComponent {
   totalOutbound: number = 0;
   totalReturn: number = 0;
 
-  arrReservations: any[] = []
+  arrReservations: any[] = [];
 
+  fromFlight: any;
+  uniqueFromCity: any;
+  fromFlightName: any;
+  uniqueFromName: any;
+  toFlight: any;
+  uniqueToCity: any;
+  toFlightName: any;
+  uniqueToName: any;
 
   flightService = inject(FlightsService);
   userService = inject(UsersService)
@@ -35,26 +43,43 @@ export class FlightListComponent {
   calendarData: any[] = [];
   //
 
-
   ngOnInit() {
     localStorage.removeItem('reservations_summary')
 
     this.activateRoute.queryParams.subscribe(async (queryParams: any) => {
       console.log(queryParams);
       this.passengers = queryParams.passengers;
-      this.ticket_class = queryParams.class
+      this.ticket_class = queryParams.class;
+
       try {
         this.arrResults = await this.flightService.getFullSearch(queryParams);
         this.outboundArr = this.arrResults[0];
         this.returnArr = this.arrResults[1];
 
-        //
-        const calendarData = this.generateCalendarData([...this.outboundArr, ...this.returnArr]);
-        this.updateCalendarHTML(calendarData);
+
+        /* Gets Outbound flight city and airport name */
+        this.uniqueFromCity = Array.from(new Set(this.outboundArr.map(item => item.city)));
+
+        if (Array.from(new Set(this.outboundArr.map(item => item.name))).length > 1) {
+          this.uniqueFromName = ' All Airports';
+        } else {
+          this.uniqueFromName = Array.from(new Set(this.outboundArr.map(item => item.name)));
+        }
+
+        /* Gets Inbound flight city and airport name */
+
+        this.uniqueToCity = Array.from(new Set(this.returnArr.map(item => item.city)));
+
+        if (Array.from(new Set(this.returnArr.map(item => item.name))).length > 1) {
+          this.uniqueToName = 'All Airports';
+        } else {
+          this.uniqueToName = Array.from(new Set(this.returnArr.map(item => item.name)));
+        }
 
       } catch (error) {
         console.log(error);
       }
+
 
     });
 
@@ -92,7 +117,7 @@ export class FlightListComponent {
 
   }
 
-  //************************************ */
+
   onFlightClikedOutbond($event: number) {
     this.outboundArr = this.outboundArr.filter(flightOutbond => flightOutbond.id === $event);
     this.totalOutbound = this.outboundArr[0].price * this.passengers;
@@ -108,9 +133,6 @@ export class FlightListComponent {
     this.totalReturn = this.returnArr[0].price * this.passengers;
     console.log(this.totalReturn)
   }
-  //*********************************** */
-
-
 
 
 }
