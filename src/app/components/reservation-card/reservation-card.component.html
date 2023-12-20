@@ -1,34 +1,38 @@
 <section>
-    <div class="container">
-        <h1 class="heading">Flight Summary</h1>
-        <div class="flight-summary">
-            <div class="flight-info">
-                <span class="label">Flight:</span>
-                <span class="value">Flightfy - {{reservation.id}}</span>
+    <div class="reservation_card">
+        <h3 class="reservation_card_title">Flight Summary</h3>
+        <div class="flight_summary">
+            <div class="flight_info_row">
+                <p class="flight_info_key">Flight:</p>
+                <p class="flight_info_value">Flightfy - {{reservation.id}}</p>
             </div>
-            <div class="flight-info">
-                <span class="label">Passenger:</span>
-                <span class="value">{{reservation.passenger_name}}</span>
+            <div class="flight_info_row">
+                <p class="flight_info_key">Passenger:</p>
+                <p class="flight_info_value">{{reservation.passenger_name}}</p>
             </div>
-            <div class="flight-info">
-                <span class="label">Passport Number:</span>
-                <span class="value">{{reservation.passport}}</span>
+            <div class="flight_info_row">
+                <p class="flight_info_key">Passport Number:</p>
+                <p class="flight_info_value">{{reservation.passport}}</p>
             </div>
-            <div class="flight-info">
-                <span class="label">Departure:</span>
-                <span class="value">{{reservation.city}}</span>
+            <div class="flight_info_row">
+                <p class="flight_info_key">Departure:</p>
+                <p class="flight_info_value">{{reservation.city}}</p>
             </div>
-            <div class="flight-info">
-                <span class="label">Arrival:</span>
-                <span class="value">{{reservation.destination_city}}</span>
+            <div class="flight_info_row">
+                <p class="flight_info_key">Arrival:</p>
+                <p class="flight_info_value">{{reservation.destination_city}}</p>
             </div>
-            <div class="flight-info">
-                <span class="label">Departure Time:</span>
-                <span class="value">{{reservation.departure | date: "shortTime"}}</span>
+            <div class="flight_info_row">
+                <p class="flight_info_key">Departure Time:</p>
+                <p class="flight_info_value">{{reservation.departure | date: "shortTime"}}</p>
             </div>
-            <div class="flight-info">
-                <span class="label">Date:</span>
-                <span class="value">{{reservation.arrival | date}}</span>
+            <div class="flight_info_row">
+                <p class="flight_info_key">Date:</p>
+                <p class="flight_info_value">{{reservation.arrival | date}}</p>
+            </div>
+            <div class="flight_info_row">
+                <p class="flight_info_key">Fligth status:</p>
+                <p class="flight_info_value">{{reservation.status}}</p>
             </div>
         </div>
     </div>

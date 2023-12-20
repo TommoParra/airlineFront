@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { IUser } from 'src/app/interfaces/iuser';
 import { UsersService } from 'src/app/services/users.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-panel',
@@ -10,9 +11,12 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class UserPanelComponent {
 
+  isOpen = false;
+
   userEditForm: FormGroup;
 
   usersService = inject(UsersService);
+  activatedRoute = inject(ActivatedRoute);
 
   userData!: IUser;
   isFormDisabled: boolean = true;
@@ -23,6 +27,8 @@ export class UserPanelComponent {
 
   showAlert2 = false;
   hiden = false;
+
+  fragment: string | null = '';
 
 
 
@@ -40,6 +46,7 @@ export class UserPanelComponent {
   }
 
   async ngOnInit() {
+
     this.userEditForm.disable();
     try {
       this.userData = await this.usersService.getLoggedUser()
@@ -53,10 +60,23 @@ export class UserPanelComponent {
 
       this.arrReservations = await this.usersService.getAllReservations({ userId: this.userData.id })
 
+      this.activatedRoute.fragment.subscribe(fragment => { this.fragment = fragment; });
+
+      console.log(this.arrReservations);
 
     } catch (error) {
       console.log(error)
     }
+  }
+
+  scrollToSection() {
+    setTimeout(() => {
+      document.querySelector('#' + this.fragment)!.scrollIntoView({ behavior: "smooth" });
+    }, 50);
+  }
+
+  ngAfterViewInit() {
+    this.scrollToSection();
   }
 
   async editToggle() {
@@ -94,6 +114,10 @@ export class UserPanelComponent {
 
   onCloseAlert2() {
     this.showAlert2 = false;
+  }
+
+  toggleForm() {
+    this.isOpen = !this.isOpen;
   }
 
 }

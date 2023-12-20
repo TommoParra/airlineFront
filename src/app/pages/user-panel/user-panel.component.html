@@ -1,11 +1,30 @@
-<section class="My bookins">
+<div class="wrapper">
+    <div class="content_wrapper">
+        <div class="aside_navbar">
+            <div class="aside_floating_nav">
+                <h3 class="section_title aside_title">What can we get you today?</h3>
+                <nav>
+                    <ul>
+                        <li class="navbar_item">
+                            <a [routerLink]="['/user']" fragment="user_details" (click)="scrollToSection()">Personal
+                                information</a>
+                        </li>
+                        <li class="navbar_item">
+                            <a [routerLink]="['/user']" fragment="user_checkIn" (click)="scrollToSection()">Check in</a>
+                        </li>
+                        <li class="navbar_item">
+                            <a [routerLink]="['/user']" fragment="user_booking" (click)="scrollToSection()">See my
+                                bookings</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="panel_content">
 
-    <div id="container">
-        <div class="item">
-            <div class="heading">1 - My details</div>
-            <div class="content_wrapper">
-                <!-- <h3 class="form_title">User information</h3> -->
-                <form class="form flight_registration_form" [formGroup]="userEditForm">
+            <section class="panel_content_section user_details" id="user_details">
+                <h4 class="section_title">Personal information</h4>
+                <form class="form" [formGroup]="userEditForm">
                     <div class="form_field col_4">
                         <label>First name:</label>
                         <input type="text" formControlName="first_name">
@@ -36,24 +55,12 @@
                         <input type="text" formControlName="membership">
                         <div class="form_field_underline"></div>
                     </div>
-                    <button class="btn btn-success col_all" type="button" (click)="editToggle()">Edit
+                    <button class="btn btn_yellow col_all" type="button" (click)="editToggle()">Edit
                         information</button>
                 </form>
-            </div>
-        </div>
-        <div class="item active">
-            <div class="heading">2 - My bookins</div>
-            <div>
-                <div class="info">
-                    <app-reservation-card [reservation]="reservation"
-                        *ngFor="let reservation of arrReservations"></app-reservation-card>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="heading">3 - Chek In</div>
-            <div class="content_wrapper">
-                <!-- <h3 class="form_title">User information</h3> -->
+            </section>
+            <section class="panel_content_section user_checkIn" id="user_checkIn">
+                <h3 class="section_title">Check in</h3>
                 <form class="form flight_registration_form">
                     <div class="form_field col_4">
                         <!-- <label>Flight number</label> -->
@@ -70,65 +77,19 @@
                         <input placeholder="Flight date" type="text">
                         <div class="form_field_underline"></div>
                     </div>
-                    <button *ngIf="!hide" class="btn btn-success col_all" type="button" (click)="onClick($event)">Check
+                    <button *ngIf="!hide" class="btn btn_yellow col_all" type="button" (click)="onClick($event)">Check
                         In</button>
                 </form>
-            </div>
-            <div class="alert" *ngIf="showAlert">
-                <span class="closebtn" (click)="onCloseAlert()">&times;</span>
-                You have succesfully done your Ckeck In!
-            </div>
+            </section>
+            <section class="panel_content_section user_booking" [ngClass]="{active : isOpen}" id="user_booking">
+                <h3 class="section_title" (click)="toggleForm()">See my bookings <span>Click to see all your
+                        bookings</span></h3>
 
+                <img class="open_form" src="assets/arrDown.png" (click)="toggleForm()" alt="Arrow down">
+                <app-reservation-card [reservation]="reservation"
+                    *ngFor="let reservation of arrReservations"></app-reservation-card>
+            </section>
 
-        </div>
-        <div class="item">
-            <div class="heading">4 - Flight status</div>
-
-            <!-- <div class="content_wrapper">
-                <div class="row">
-                    <p>On time</p>
-                    <label class="label">
-                        <input class="input" type="checkbox" checked="checked">
-                    </label>
-                </div>
-                <div class="row">
-                    <p>Cancelled</p>
-                    <label class="label">
-                        <input class="input" type="checkbox">
-                    </label>
-                </div> -->
-
-
-            <div class="content_wrapper">
-                <!-- <h3 class="form_title">User information</h3> -->
-                <form class="form flight_registration_form">
-                    <div class="form_field col_4">
-                        <!-- <label>Flight number</label> -->
-                        <input placeholder="Fly from" type="text">
-                        <div class="form_field_underline"></div>
-                    </div>
-                    <div class="form_field col_4">
-                        <!-- <label>Last name:</label> -->
-                        <input placeholder="Fy to" type="text">
-                        <div class="form_field_underline"></div>
-                    </div>
-                    <div class="form_field col_4">
-                        <!-- <label>Email:</label> -->
-                        <input placeholder="Flight date" type="text">
-                        <div class="form_field_underline"></div>
-                    </div>
-                    <button *ngIf="!hiden" class="btn btn-success col_all" type="button" (click)="onClick2($event)">See
-                        flights</button>
-                </form>
-            </div>
-            <div class="alert" *ngIf="showAlert2">
-                <span class="closebtn" (click)="onCloseAlert2()">&times;</span>
-                Your flight is running on time
-            </div>
         </div>
     </div>
-
-    <!-- </div> -->
-
-
-</section>
+</div>

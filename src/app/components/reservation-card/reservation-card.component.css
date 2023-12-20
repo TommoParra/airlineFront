@@ -1,37 +1,33 @@
-.container {
-    max-width: 900px;
-    margin: 0 auto;
+.reservation_card {
+    display: grid;
+    grid-row-gap: 2rem;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: var(--lightGrey);
+    border-radius: 10px;
     font-family: Arial, sans-serif;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.heading {
-    font-size: 24px;
-    font-weight: bold;
+.reservation_card_title {
     text-align: center;
 }
 
-.flight-summary {
-    margin-top: 30px;
-    background-color: #fff;
+.flight_summary {
+    background-color: white;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--DP2);
 }
 
-.flight-info {
+
+.flight_info_row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    padding: 10px 0px;
+    border-bottom: 1px solid var(--grey);
 }
 
-.flight-info .label {
+.flight_info_key {
     font-weight: bold;
-    color: #555;
-}
-
-.flight-info .value {
-    color: #333;
+    color: var(--almostBlack);
 }
