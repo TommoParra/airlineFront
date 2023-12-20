@@ -23,11 +23,13 @@ export class HomeComponent {
   userPosition: any;
 
   async ngOnInit() {
-    localStorage.removeItem('booking')
+    localStorage.removeItem('reservations')
     try {
       this.arrFlights = await this.flightService.getAll()
       let token = this.jwt.checkPermissions()
       console.log(token)
+      this.sortForSpain()
+      this.sortByCity()
 
     } catch (error) {
       console.log(error)
@@ -48,6 +50,37 @@ export class HomeComponent {
       }
     })
 
+  }
+
+  sortForSpain() {
+    const madridArr = []
+    for (let flight of this.arrFlights) {
+      // CHANGE ID TO MADRID! Should be ID 3.
+      if (flight.origin_id === 3) {
+        madridArr.push(flight)
+      }
+    }
+    this.arrFlights = madridArr
+    console.log(madridArr)
+  }
+
+  sortByCity() {
+    const selectedCities: any = {}
+    const selectedFlights = []
+
+    for (let flight of this.arrFlights) {
+      const city = flight.destination_city;
+
+      if (!selectedCities[city]) {
+        selectedCities[city] = true
+        selectedFlights.push(flight)
+      }
+    }
+
+    this.arrFlights = selectedFlights
+    console.log(this.arrFlights)
+
+    console.log(Object.keys(selectedCities))
   }
 
 
