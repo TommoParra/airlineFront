@@ -1,32 +1,23 @@
-<section class="wrapper">
+<div class="flight_result_card">
     <div class="logo">
         <img src="assets/logo.png" alt="Flightify Logo">
     </div>
-    <div class="results-card">
+    <div class="flight_results">
 
-        <!-- <span class="value5">{{result.duration | date:"mediumDate"}}</span> -->
-
-
-        <div class="flight_info">
-            <span class="value3">{{result.city}} </span>
-            <hr class="line">
-            <img class="plane" src="../../../assets/takeof.png" alt="">
-            <hr class="line">
-            <span class="value4">{{result.destination_city}}</span>
+        <div class="flight_route_graph">
+            <p>{{result.city}} </p>
+            <hr class="flight_route_graph_line">
+            <img class="plane_icon" src="../../../assets/takeof.png" alt="">
+            <hr class="flight_route_graph_line">
+            <p class="value4">{{result.destination_city}}</p>
         </div>
 
-        <div class="second-line">
-            <span class="value2">{{result.arrival | date:"shortTime" }} </span>
-            <span class="value1">{{result.price + "€"}}</span>
-
+        <div class="flight_details">
+            <p class="value2">{{result.arrival | date:"shortTime" }} </p>
+            <p class="value1">{{result.price + "€"}}</p>
         </div>
 
-        <input *ngIf="!clicked" (click)="onClick()" class="btn btn_light" type="submit" value="Reserve">
     </div>
+    <input *ngIf="!clicked" (click)="onClick()" class="btn btn_light" type="submit" value="Reserve flight">
 
-
-
-
-
-
-</section>
+</div>

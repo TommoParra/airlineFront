@@ -31,7 +31,7 @@ export class LoginComponent {
       localStorage.setItem('auth_token', response.token)
     console.log(response.token)
 
-    if (localStorage.getItem('booking')) {
+    if (localStorage.getItem('reservations')) {
       this.router.navigate(['/reservation'])
     } else {
       this.router.navigate(['/home'])
