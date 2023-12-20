@@ -21,6 +21,8 @@ export class UserPanelComponent {
   userData!: IUser;
   isFormDisabled: boolean = true;
   arrReservations: any[] = [];
+  editButton: string = 'Edit';
+
 
   showAlert = false;
   hide = false;
@@ -84,12 +86,13 @@ export class UserPanelComponent {
   async editToggle() {
     if (this.isFormDisabled) {
       this.userEditForm.enable();
+      this.userEditForm.controls['membership'].disable();
     } else {
       this.userEditForm.disable();
       console.log(this.userEditForm.value)
       await this.usersService.editUser(this.userData.id, this.userEditForm.value)
     }
-
+    this.editButton = this.editButton === 'Edit' ? 'Save' : 'Edit';
     this.isFormDisabled = !this.isFormDisabled;
   }
 

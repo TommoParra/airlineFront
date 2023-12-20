@@ -19,6 +19,7 @@ export class FlightManagementComponent {
   isFormDisabled: boolean = true;
   targetFlight!: IFlight;
   error: boolean = false;
+  editButton: string = 'Edit flight';
 
 
   constructor() {
@@ -133,6 +134,7 @@ export class FlightManagementComponent {
 
 
     }
+    this.editButton = this.editButton === 'Edit flight' ? 'Save' : 'Edit flight';
     this.isFormDisabled = !this.isFormDisabled;
   }
 

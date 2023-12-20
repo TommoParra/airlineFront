@@ -1,5 +1,5 @@
 <div class="form" [ngClass]="{active : isOpen}">
-    <h3 class="form_title" (click)="toggleForm()">Edit airport information</h3>
+    <h3 class="form_title" (click)="toggleForm()">Edit flight information</h3>
     <img class="open_form" src="assets/arrDown.png" alt="Arrow down">
     <form class="form flight_registration_form col_all" [formGroup]="flightSearchForm">
         <h4 class="form_title">Choose an airport</h4>
@@ -121,7 +121,8 @@
         </div>
 
 
-        <button class="btn btn-success col_all" type="button" (click)="editToggle()">Edit information</button>
+        <button class="btn btn-success col_all" type="button" (click)="editToggle()">{{ editButton
+            }}</button>
 
     </form>
 </div>

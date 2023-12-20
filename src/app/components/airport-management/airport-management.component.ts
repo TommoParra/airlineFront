@@ -21,6 +21,7 @@ export class AirportManagementComponent {
   arrAirports: IAirport[] = []
   targetAirport!: IAirport;
   error: boolean = false;
+  editButton: string = 'Edit airport';
 
 
   constructor() {
@@ -88,6 +89,7 @@ export class AirportManagementComponent {
       }
 
     }
+    this.editButton = this.editButton === 'Edit airport' ? 'Save' : 'Edit airport';
     this.isFormDisabled = !this.isFormDisabled;
   }
 

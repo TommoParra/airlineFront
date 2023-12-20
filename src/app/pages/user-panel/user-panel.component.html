@@ -55,8 +55,8 @@
                         <input type="text" formControlName="membership">
                         <div class="form_field_underline"></div>
                     </div>
-                    <button class="btn btn_yellow col_all" type="button" (click)="editToggle()">Edit
-                        information</button>
+                    <button class="btn btn_yellow col_all" type="button" (click)="editToggle()">{{ editButton
+                        }}</button>
                 </form>
             </section>
             <section class="panel_content_section user_checkIn" id="user_checkIn">
@@ -71,10 +71,9 @@
                         </select>
                         <div class="form_field_underline"></div>
                         <!-- <p class="field_error" *ngIf="checkError('airport_id', 'required') || error">Can't be blank.</p> -->
-                        <p class="field_error">Can't be blank.</p>
-                        <p [ngClass]="{'checkedIn' : !showAlert}">
+                        <!-- <p [ngClass]="{'checkedIn' : !showAlert}">
                             Holita
-                        </p>
+                        </p> -->
                     </div>
 
                     <button *ngIf="!hide" class="btn btn_yellow col_all" type="button" (click)="onClick()">Check
