@@ -19,7 +19,7 @@
         </section>
 
         <section class="flights_calendar_week col_all">
-            <div class="flights_calendar_day" *ngFor="let dayData of outboundArr">
+            <div class="flights_calendar_day" *ngFor="let dayData of outboundArr | slice:0:7">
                 <div class="flight_calendar_day_price">
                     <p>{{ dayData.departure | date:"shortTime"}}</p>
                     <span class="price">{{ dayData.price | currency:'EUR' }}</span>

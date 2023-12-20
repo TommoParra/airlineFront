@@ -17,13 +17,15 @@ export class PassengerReservationComponent {
 
   flightsData: any;
   flightId: number = 0;
+  completedForm: boolean = false;
 
   passengerNumber!: number;
   Arr = Array;
   userDataArr: any = []
   num: number;
   counter: number;
-  disabledButtons: any = {}
+  disabledButtons: boolean[] = [];
+  uncompletedForms: string[] = [];
 
   userData: any;
 
@@ -53,8 +55,10 @@ export class PassengerReservationComponent {
     }
 
     for (let i = 1; i < this.passengerNumber; i++) {
-      this.disabledButtons[i] = true
+      this.disabledButtons[i] = true;
+      this.uncompletedForms[i] = 'ucompleted_form';
     }
+
 
   }
 
@@ -63,7 +67,7 @@ export class PassengerReservationComponent {
     this.counter = this.counter + 1
   }
 
-  async addOnClick() {
+  async addOnClick(j: number) {
     const formValues = this.flightReservationForm.value;
     this.userDataArr.push(formValues);
 
@@ -75,6 +79,7 @@ export class PassengerReservationComponent {
     this.disabledButtons[this.counter] = true
     this.disabledButtons[this.counter + 1] = false
     this.increaseCounter()
+    this.uncompletedForms[j] = 'completed_form';
 
   }
 

@@ -1,55 +1,48 @@
-<!--status top line-->
-
-<section class="body">
-    <div class="options">
-        <div class="arrow">
-            <span class="option1">1 - Select your flight </span>
-            <div class="triangle1"></div>
-        </div>
-        <div>
-            <span class="option2">2 - Add passengers</span>
-        </div>
-        <div>
-            <span class="option3">3 - Complete payment</span>
-        </div>
-        <div>
-            <span class="option4">4 - Your booking</span>
-            <div class="triangle2"></div>
-        </div>
-    </div>
-</section>
-
-
-
-
-<div id="container">
+<div class="wrapper">
     <div class="content_wrapper">
-        <form class="form flight_search_form" [formGroup]="flightReservationForm"
-            *ngFor="let i of Arr(num).fill(1); let j = index" style="max-width: 400px; margin: 7rem auto 5rem auto">
-            <h3>Passenger {{j + 1}}</h3>
-            <div class="passenger_form_group">
-                <h3 class="single_passenger_title"></h3>
-                <div class="form_field">
-                    <!-- <label>Passenger full name</label> -->
-                    <input type="text" formControlName="passenger_name" placeholder="Full Name">
-                    <div class="form_field_underline"></div>
-                </div>
-                <div class="form_field">
-                    <!-- <label>Passenger passport</label> -->
-                    <input type="text" formControlName="passport" placeholder="Passport number">
-                    <div class="form_field_underline"></div>
-                </div>
-                <div class="form_field">
-                    <!-- <label>How much(20kg) luggage?</label> -->
-                    <input type="number" formControlName="luggage" placeholder="Your luggage">
-                    <div class="form_field_underline"></div>
-                </div>
+        <section class="flight_select_breadcrum col_all">
+            <div class="breadcrum_item">
+                <p>Select your flight </p>
             </div>
 
-            <button class="btn btn-success col_all" type="button" (click)="addOnClick();"
-                [disabled]="disabledButtons[j]">Add</button>
-        </form>
+            <div class="breadcrum_item current">
+                <p>Add passengers</p>
+            </div>
 
-        <button class="btn btn-success col_all" type="button" (click)="onSubmit()">Submit</button>
-    </div>
-</div>
+            <div class="breadcrum_item">
+                <p>Complete payment</p>
+            </div>
+
+            <div class="breadcrum_item">
+                <p>Your booking</p>
+            </div>
+        </section>
+
+        <section class="passenger_reservation_forms">
+            <form class="form flight_search_form" [formGroup]="flightReservationForm" [class]="uncompletedForms[j]"
+                *ngFor="let i of Arr(num).fill(1); let j = index">
+                <h3 class="pasenger_name">Passenger {{j + 1}}</h3>
+                <div class="passenger_form">
+                    <div class="form_field">
+                        <!-- <label>Passenger full name</label> -->
+                        <input type="text" formControlName="passenger_name" placeholder="Full Name">
+                        <div class="form_field_underline"></div>
+                    </div>
+                    <div class="form_field">
+                        <!-- <label>Passenger passport</label> -->
+                        <input type="text" formControlName="passport" placeholder="Passport number">
+                        <div class="form_field_underline"></div>
+                    </div>
+                    <div class="form_field">
+                        <!-- <label>How much(20kg) luggage?</label> -->
+                        <input type="number" formControlName="luggage" placeholder="Your luggage">
+                        <div class="form_field_underline"></div>
+                    </div>
+                </div>
+
+                <button class="btn col_all" type="button" (click)="addOnClick(j);"
+                    [disabled]="disabledButtons[j]">Add</button>
+            </form>
+
+        </section>
+        <button class=" btn btn_yellow col_all" type="button" (click)="onSubmit()">Continue to payment</button>

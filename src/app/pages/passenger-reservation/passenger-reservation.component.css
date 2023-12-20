@@ -1,102 +1,65 @@
-.body {
-    display: flex;
-    /* flex-direction: row; */
-    gap: 10px;
-    margin-top: 20px;
-    align-items: left;
-    justify-content: left;
-}
-
-.options {
-    display: flex;
-    padding: 40px;
-    position: relative;
-    margin: 0 auto;
-
-}
-
-/* .triangle1 {
-    width: 40px;
-    height: 40px;
-    border: 2px #FFD800 solid;
-    position: absolute;
-    transform: translate(-50%, -50%) rotate(45deg);
-    left: 50%;
-    top: 50%;
-    border-left: transparent;
-    border-bottom: transparent;
-    background-color: #FFD800;
-
-}
-
-.triangle2 {
-    width: 40px;
-    height: 40px;
-    border: 1px lightgray solid;
-    position: absolute;
-    transform: translate(-50%, -50%) rotate(45deg);
-    left: 50%;
-    top: 50%;
-    border-left: none;
-    border-bottom: none;
-    border-left: transparent;
-    border-bottom: transparent;
-    background-color: lightgray;
-}
-
-.arrow {
-    position: relative;
-    display: inline-block;
-} */
-
-.option1 {
-    border: 1px lightgray solid;
-    background-color: lightgray;
-    padding: 10px;
-    border-right: none;
-    flex: 1;
-    padding-right: 70px;
-    padding-left: 20px;
-}
-
-.option2 {
-    border: 1px #FFD800 solid;
-    padding: 10px;
-    border-right: none;
-    border-left: none;
-    background-color: #FFD800;
-    padding-right: 70px;
-    padding-left: 20px;
-}
-
-.option3 {
-    border: 1px lightgray solid;
-    padding: 10px;
-    border-right: none;
-    border-left: none;
-    background-color: lightgray;
-    padding-right: 70px;
-    padding-left: 20px;
-}
-
-.option4 {
-    border: 1px lightgray solid;
-    padding: 10px;
-    border-right: none;
-    border-left: none;
-    background-color: lightgray;
-    padding-right: 70px;
-    padding-left: 20px;
-}
-
 .content_wrapper {
-    display: flex;
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 3rem;
 }
 
-h3 {
-    font-size: 20px;
+.passenger_reservation_forms {
+    display: grid;
+    max-height: 50vh;
+    grid-row-gap: 2rem;
+    height: max-content;
+    overflow: scroll;
 }
 
-.form_field_underline {
-    opacity: 0.5;
+/* Firefox */
+.passenger_reservation_forms {
+    scrollbar-width: thin;
+    scrollbar-color: #ffd800 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+
+.passenger_reservation_forms::-webkit-scrollbar {
+    width: 16px;
+}
+
+.passenger_reservation_forms::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+.passenger_reservation_forms::-webkit-scrollbar-thumb {
+    background-color: #ffd800;
+    border-radius: 50px;
+    border: 3px solid #ffffff;
+}
+
+.flight_search_form {
+    min-width: 350px;
+    grid-template-columns: 1fr;
+    border-radius: 0px 10px 10px 0px;
+    border: none;
+    border-left: 6px var(--primaryYellow) solid;
+    margin: auto;
+}
+
+.flight_search_form.completed_form {
+    border-left: 6px var(--primaryGreen) solid;
+}
+
+.passenger_form {
+    display: grid;
+    grid-row-gap: 1rem;
+}
+
+.pasenger_name {}
+
+.flight_search_form .btn {
+    margin: auto;
+    background-color: var(--primaryYellow);
+}
+
+.flight_search_form .btn:disabled {
+    background-color: var(--grey);
 }

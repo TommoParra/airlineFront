@@ -40,12 +40,11 @@ export class RegisterComponent {
     const response = await this.userService.register(this.registerForm.value);
     console.log(response);
 
-    //comprobar que me llega el success
-    // if (response.success) {
-    //   this.router.navigate(['/login']);
-
-    // }
-
+    if (localStorage.getItem('reservations')) {
+      this.router.navigate(['/reservation'])
+    } else {
+      this.router.navigate(['/home'])
+    }
   }
 
   checkError(controlName: string, errorName: string) {

@@ -1,72 +1,54 @@
-.wrapper {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.flight_result_card {
     display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--DP2);
     justify-content: space-between;
+    transition: .25s;
 }
 
-.heading {
-    font-size: 16px;
-    font-weight: lighter;
-    text-align: left;
+.flight_result_card:hover {
+    box-shadow: var(--DP4);
 }
 
-.results-card {
-    margin-top: 30px;
-    background-color: #fff;
+.flight_results {
+    display: grid;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    flex: 1;
-    display: grid;
 }
 
-.line {
+.flight_route_graph {
     display: flex;
-    height: 0;
-    width: 40%;
-    border: .5px #ececed solid;
-    margin-bottom: 10px;
-    margin: 20px;
-}
-
-.flight_info {
-    display: flex;
+    gap: 1.5rem;
     align-items: center;
-    margin-bottom: 15px;
+}
+
+.flight_route_graph_line {
+    width: 100%;
+    border: 1px var(--grey) solid;
 }
 
 .logo {
-    text-align: left;
     display: flex;
-    width: 35px;
-    height: 20px;
+    width: 80px;
+    height: max-content;
 }
 
-.plane {
+.logo img {
+    width: 100%;
+    margin: auto;
+}
+
+.plane_icon {
     width: 23px;
     opacity: 0.3;
 }
 
-.journey {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.journey .label {
-    font-weight: bold;
-    justify-content: center;
-}
-
-.journey .value3 {
-    padding-right: 10px;
-}
-
-.second-line {
+.flight_details {
     display: flex;
     justify-content: space-around;
 }
@@ -79,4 +61,13 @@
 
 .results-card .btn {
     margin-right: 0;
+}
+
+@media (width < 600px) {
+    .flight_details {
+        display: flex;
+        justify-content: space-between;
+    }
+
+
 }

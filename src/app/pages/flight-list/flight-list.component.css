@@ -9,28 +9,6 @@
     line-height: 2.5rem;
 }
 
-.flight_select_breadcrum {
-    display: flex;
-    width: 100%;
-}
-
-.breadcrum_item {
-    display: flex;
-    position: relative;
-    height: 50px;
-    justify-content: center;
-    align-items: center;
-    flex-basis: 25%;
-    background-color: var(--lightGrey);
-    border-left: 1px var(--grey) solid;
-    text-align: center;
-    clip-path: polygon(90% 0, 100% 48%, 90% 100%, 0% 100%, 10% 50%, 0% 0%);
-}
-
-.breadcrum_item.current {
-    border: 1px var(--primaryYellow) solid;
-    background-color: var(--primaryYellow);
-}
 
 .flights_calendar {
     display: flex;
@@ -66,6 +44,7 @@
 
 .flights_calendar_week {
     display: flex;
+    flex-wrap: wrap;
     grid-gap: 1rem;
     justify-content: space-between;
     color: var(--almostBlack);
@@ -73,18 +52,20 @@
 
 .flights_calendar_day {
     display: flex;
+    width: 20%;
     flex-direction: column;
     gap: 1rem;
     text-align: center;
     padding: 5px 0;
     font-weight: bold;
-    color: #333;
+    color: var(--darkGrey);
     flex: 1;
 }
 
 
 .flight_calendar_day_price {
     display: grid;
+    width: max-content;
     grid-row-gap: .5rem;
     text-align: center;
     padding: 10px;
@@ -102,6 +83,7 @@
 @media (width < 600px) {
     .breadcrum_item {
         font-size: .8rem;
+        padding: 5px 10px;
     }
 
     .flights_calendar_week {

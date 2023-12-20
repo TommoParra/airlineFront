@@ -27,6 +27,7 @@
     --grey: #D6D6D6;
     --lightGrey: #F3F3F3;
     --primaryYellow: #FFD800;
+    --primaryGreen: #26ff00;
     --errorRed: #DB4437;
     --linkBlue: #0026ff;
 
@@ -296,8 +297,8 @@ h5 {
 
 .form_field_underline {
     width: 100%;
-    height: 2px;
-    background-color: var(--darkGrey);
+    height: 0;
+    border-bottom: 1px var(--darkGrey) solid;
 }
 
 .form_field select,
@@ -386,6 +387,10 @@ input[type=number] {
     background-color: var(--lightGrey);
 }
 
+.btn_yellow {
+    background-color: var(--primaryYellow);
+}
+
 /* Card general styles */
 
 .card_txt_container {
@@ -444,4 +449,30 @@ input[type=number] {
 
 .social_icon {
     width: 25px;
+}
+
+/* Registration breadcrum */
+
+.flight_select_breadcrum {
+    display: flex;
+    width: 100%;
+}
+
+.breadcrum_item {
+    display: flex;
+    position: relative;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 25%;
+    background-color: var(--lightGrey);
+    border-left: 1px var(--grey) solid;
+    text-align: center;
+    clip-path: polygon(90% 0, 100% 48%, 90% 100%, 0% 100%, 10% 50%, 0% 0%);
+    padding: 5px 20px;
+}
+
+.breadcrum_item.current {
+    border: 1px var(--primaryYellow) solid;
+    background-color: var(--primaryYellow);
 }
