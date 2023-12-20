@@ -17,12 +17,14 @@
 .passenger_reservation_forms {
     scrollbar-width: thin;
     scrollbar-color: #ffd800 #ffffff;
+    border: solid 2px var(--lightGrey);
+    padding: 10px;
 }
 
 /* Chrome, Edge, and Safari */
-
 .passenger_reservation_forms::-webkit-scrollbar {
-    width: 16px;
+    width: 10px;
+    height: 5px;
 }
 
 .passenger_reservation_forms::-webkit-scrollbar-track {
@@ -31,14 +33,15 @@
 
 .passenger_reservation_forms::-webkit-scrollbar-thumb {
     background-color: #ffd800;
-    border-radius: 50px;
+    border-radius: 5px;
+    /* Adjust the border-radius for rounded ends */
     border: 3px solid #ffffff;
 }
 
 .flight_search_form {
-    min-width: 350px;
-    grid-template-columns: 1fr;
-    border-radius: 0px 10px 10px 0px;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    border-radius: 0px;
     border: none;
     border-left: 6px var(--primaryYellow) solid;
     margin: auto;
@@ -53,8 +56,6 @@
     grid-row-gap: 1rem;
 }
 
-.pasenger_name {}
-
 .flight_search_form .btn {
     margin: auto;
     background-color: var(--primaryYellow);
@@ -62,4 +63,21 @@
 
 .flight_search_form .btn:disabled {
     background-color: var(--grey);
+}
+
+.pasenger_name {
+    margin: auto;
+    opacity: .6;
+}
+
+.reservation_icon {
+    margin: auto;
+    opacity: .6;
+    display: var(--onlydesktopGrid);
+}
+
+@media (width < 768px) {
+    .flight_search_form {
+        grid-template-columns: 1fr;
+    }
 }

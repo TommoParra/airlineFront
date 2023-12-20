@@ -152,19 +152,6 @@ h5 {
     cursor: pointer;
     z-index: 2;
 
-    &::before {
-        content: " ";
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        height: 1px;
-        width: 100%;
-        border-bottom: 2px solid var(--linkBlue);
-        background-color: #fff;
-        opacity: 0.7;
-        transform: translateY(-0.1px);
-        z-index: -1;
-    }
 }
 
 * {

@@ -1,38 +1,39 @@
 <!--status top line-->
 
-<section class="body">
-    <div class="options">
-        <div class="arrow">
-            <span class="option1">1 - Select your flight </span>
-            <div class="triangle1"></div>
+<div class="content_wrapper">
+    <section class="flight_select_breadcrum col_all">
+        <div class="breadcrum_item">
+            <p>Select your flight </p>
         </div>
-        <div>
-            <span class="option2">2 - Add passengers</span>
+
+        <div class="breadcrum_item">
+            <p>Add passengers</p>
         </div>
-        <div>
-            <span class="option3">3 - Complete payment</span>
+
+        <div class="breadcrum_item">
+            <p>Complete payment</p>
         </div>
-        <div>
-            <span class="option4">4 - Your booking</span>
-            <div class="triangle2"></div>
+
+        <div class="breadcrum_item current">
+            <p>Your booking</p>
         </div>
-    </div>
-</section>
+    </section>
+    <h1 class="section_title">Your bookings</h1>
 
 
 
 
-<section class="wrapper">
-    <div class="info">
+    <section class="reservations_container">
         <app-reservation-card [reservation]="reservation"
             *ngFor="let reservation of arrReservations[0]"></app-reservation-card>
-    </div>
+    </section>
 
-</section>
-<section class="wrapper">
-    <div class="info">
+    <section class="reservations_container">
         <app-reservation-card [reservation]="reservation"
             *ngFor="let reservation of arrReservations[1]"></app-reservation-card>
-    </div>
+    </section>
 
-</section>
+    <h4 class="section_title">You're al set! Access your <span class="link" [routerLink]="['/user']">user panel</span>
+        to see the details of your
+        flights.</h4>
+</div>

@@ -35,13 +35,15 @@
                     </div>
                     <div class="form_field">
                         <!-- <label>How much(20kg) luggage?</label> -->
-                        <input type="number" formControlName="luggage" placeholder="Your luggage">
+                        <input type="number" formControlName="luggage" placeholder="In kg, max 50kg">
                         <div class="form_field_underline"></div>
                     </div>
                 </div>
 
-                <button class="btn col_all" type="button" (click)="addOnClick(j);"
-                    [disabled]="disabledButtons[j]">Add</button>
+                <img class="reservation_icon" src="assets/passenger.png" alt="Passenger icon">
+
+                <button class="btn col_all" type="button" (click)="addOnClick(j);" [disabled]="disabledButtons[j]">Add
+                    passenger</button>
             </form>
 
         </section>

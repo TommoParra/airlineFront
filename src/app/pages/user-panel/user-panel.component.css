@@ -1,102 +1,181 @@
-#container {
+.content_wrapper {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    min-height: 100vh;
+    max-width: unset;
+    padding: 0px;
+}
+
+.form {
+    border: none;
+    border-radius: 0px;
+    box-shadow: unset;
+}
+
+.aside_navbar {
     display: flex;
-    justify-content: center;
-    margin: 20px;
-    padding: 0;
-    gap: 30px;
-
+    flex-direction: column;
+    padding: 2rem;
+    background-color: var(--primaryYellow);
 }
 
-.read {
-    font-size: smaller;
-    text-align: center;
+.aside_floating_nav {
+    display: grid;
+    grid-row-gap: 2rem;
+    position: sticky;
+    top: 0;
+}
+
+.aside_navbar ul {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
 }
 
-
-.item .heading {
-    background-color: lightgray;
-    padding: 30px 30px;
-    color: black;
-    cursor: pointer;
-    margin-bottom: 20px;
-    font-size: 20px;
-}
-
-.item .heading:hover {
-    background-color: #FFD800;
-    outline: 1px solid #FFD800;
-
-}
-
-.content {
-    background-color: lightgray;
-    padding: 0px 20px;
-    border: 1px solid #FFD800;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.4s ease-in-out;
-}
-
-.active .content {
-    padding: 20px;
-    max-height: inherit;
-}
-
-.btn:hover {
-    background-color: #FFD800;
-
-}
-
-.row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 30px 0;
-    font-size: 24;
-}
-
-.label {
+.aside_navbar .navbar_item {
     position: relative;
-    width: 25px;
-    height: 25px;
+    padding-left: 20px;
+    width: max-content;
 }
 
-.input {
-    width: 100%;
-    height: 100%;
+.aside_navbar .navbar_item::after {
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0px;
+    content: "\2022";
+    font-size: 40px;
+    margin-right: 5px;
 }
 
-.alert {
-    padding: 20px;
-    background-color: green;
-    color: white;
-    width: 350px;
-    height: auto;
-    font-weight: bold;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(35%, -50%);
-    padding: 30px;
-}
-
-.closebtn {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
+.navbar_item a {
+    font-size: 1.5rem;
+    text-align: left;
     cursor: pointer;
-    transition: 0.3s;
-    position: absolute;
-    top: 5px;
-    right: 5px;
 }
 
-.closebtn:hover {
-    color: black;
+.navbar_item a::before {
+    position: absolute;
+    bottom: -4px;
+    left: 10px;
+    content: '';
+    width: 0%;
+    height: 3px;
+    background-color: var(--almostBlack);
+    transition: .25s;
+}
+
+.navbar_item a:hover::before {
+    width: 100%;
+}
+
+.panel_content {
+    display: grid;
+    grid-row-gap: 2rem;
+    padding: 2rem var(--contentPadding);
+    grid-template-rows: min-content;
+
+}
+
+.panel_content_section {
+    display: grid;
+    grid-row-gap: 1.5rem;
+    padding: 10px;
+    height: min-content;
+    box-shadow: var(--DP2);
+    border-radius: 10px;
+}
+
+.panel_content_section>* {
+    width: 100%;
+}
+
+.user_booking {
+    display: grid;
+    grid-row-gap: 2rem;
+    position: relative;
+    height: 80px;
+    overflow: hidden;
+}
+
+.section_title {
+    padding: 15px 0px;
+    cursor: pointer;
+    display: flex;
+    gap: 1rem;
+}
+
+.section_title span {
+    font-size: 1rem;
+    margin: auto auto 5px 0px;
+}
+
+.user_booking.active {
+    height: max-content;
+}
+
+
+.open_form {
+    position: absolute;
+    width: 25px !important;
+    top: 27px;
+    right: 20px;
+    transition: .25s;
+}
+
+
+.user_booking.active .open_form {
+    transform: rotate(180deg);
+}
+
+@media (width < 1000px) {
+    .navbar_item a {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    .content_wrapper {
+        grid-template-columns: 100%;
+    }
+
+    .aside_navbar {
+        position: sticky;
+        width: 100%;
+        z-index: 1;
+        top: 0;
+        padding: 1rem;
+        bottom: 0px;
+        box-shadow: var(--DP2);
+    }
+
+    .aside_navbar ul {
+        flex-direction: row;
+    }
+
+    .aside_floating_nav {
+        position: relative;
+        gap: 0.5rem;
+    }
+
+    .aside_navbar ul {
+        gap: 1rem;
+    }
+
+
+    .section_title {
+        font-size: 1.5rem;
+    }
+
+}
+
+@media (width < 450px) {
+
+    .aside_navbar {
+        position: relative;
+    }
+
+    .aside_navbar ul {
+        flex-direction: column;
+    }
+
 }

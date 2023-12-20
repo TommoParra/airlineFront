@@ -43,7 +43,6 @@ export class PassengerReservationComponent {
 
   }
 
-
   ngOnInit() {
     this.userData = this.jwt.checkPermissions();
     this.flightsData = localStorage.getItem('reservations') || null;
@@ -61,7 +60,6 @@ export class PassengerReservationComponent {
 
 
   }
-
 
   increaseCounter() {
     this.counter = this.counter + 1
