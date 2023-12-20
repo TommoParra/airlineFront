@@ -19,10 +19,11 @@
         </section>
 
         <section class="flights_calendar_week col_all">
-            <div class="flights_calendar_day" *ngFor="let dayData of outboundArr | slice:0:7">
+            <div class="flights_calendar_day" *ngFor="let dayData of arrOutboundDates | slice:0:4">
                 <div class="flight_calendar_day_price">
-                    <p>{{ dayData.departure | date:"shortTime"}}</p>
-                    <span class="price">{{ dayData.price | currency:'EUR' }}</span>
+                    <p>{{ dayData.departure | date:"EEEE"}}</p>
+                    <span class="price">{{ dayData.departure | date:"shortTime"}} | {{ dayData.price | currency:'EUR'
+                        }}</span>
                 </div>
             </div>
         </section>
@@ -45,10 +46,11 @@
 
 
         <section class="flights_calendar_week col_all">
-            <div class="flights_calendar_day" *ngFor="let dayData of returnArr | slice:0:7">
+            <div class="flights_calendar_day" *ngFor="let dayData of arrReturnDates | slice:0:4">
                 <div class="flight_calendar_day_price">
-                    <p>{{ dayData.departure | date:"shortTime"}}</p>
-                    <span class="price">{{ dayData.price | currency:'EUR' }}</span>
+                    <p>{{ dayData.departure | date:"EEEE"}}</p>
+                    <span class="price">{{ dayData.departure | date:"shortTime"}} | {{ dayData.price | currency:'EUR'
+                        }}</span>
                 </div>
             </div>
         </section>

@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-login',
@@ -25,12 +26,22 @@ export class LoginComponent {
   }
 
   async onSubmit() {
-    const response = await this.userService.login(this.loginForm.value);
 
-    console.log(response)
-    if (response.success)
+    const response = await this.userService.login(this.loginForm.value);
+    if (response.success) {
       localStorage.setItem('auth_token', response.token)
-    console.log(response.token)
+
+    }
+    const decodedToken: any = jwtDecode(response.token)
+    console.log(decodedToken.access_level)
+    // console.log(response)
+
+    if (decodedToken.access_level === "admin") {
+      localStorage.setItem('admin_token', "admin")
+    }
+
+
+
 
     if (localStorage.getItem('reservations')) {
       this.router.navigate(['/reservation'])

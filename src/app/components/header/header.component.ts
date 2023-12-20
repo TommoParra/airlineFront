@@ -19,6 +19,7 @@ export class HeaderComponent {
 
   onClickLogout() {
     localStorage.removeItem('auth_token')
+    localStorage.removeItem('admin_token')
     this.router.navigate(['/home'])
   }
 

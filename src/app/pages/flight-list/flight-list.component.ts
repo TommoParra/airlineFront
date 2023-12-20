@@ -20,6 +20,8 @@ export class FlightListComponent {
   totalReturn: number = 0;
 
   arrReservations: any[] = [];
+  arrOutboundDates: any[] = [];
+  arrReturnDates: any[] = [];
 
   fromFlight: any;
   uniqueFromCity: any;
@@ -56,6 +58,7 @@ export class FlightListComponent {
         this.arrResults = await this.flightService.getFullSearch(queryParams);
         this.outboundArr = this.arrResults[0];
         this.returnArr = this.arrResults[1];
+        console.log(this.outboundArr);
 
 
         /* Gets Outbound flight city and airport name */
@@ -64,7 +67,7 @@ export class FlightListComponent {
         if (Array.from(new Set(this.outboundArr.map(item => item.name))).length > 1) {
           this.uniqueFromName = ' All Airports';
         } else {
-          this.uniqueFromName = Array.from(new Set(this.outboundArr.map(item => item.name)));
+          this.uniqueFromName = Array.from(new Set(this.outboundArr.map(item => item.name_acr)));
         }
 
         /* Gets Inbound flight city and airport name */
@@ -74,8 +77,10 @@ export class FlightListComponent {
         if (Array.from(new Set(this.returnArr.map(item => item.name))).length > 1) {
           this.uniqueToName = 'All Airports';
         } else {
-          this.uniqueToName = Array.from(new Set(this.returnArr.map(item => item.name)));
+          this.uniqueToName = Array.from(new Set(this.returnArr.map(item => item.name_acr)));
         }
+
+        console.log(this.sortByWeekday())
 
       } catch (error) {
         console.log(error);
@@ -86,9 +91,9 @@ export class FlightListComponent {
 
   }
 
-  generateCalendarData(flights: any[]): any[] {
-    return flights.map(flight => ({ day: flight.day, price: flight.price }));
-  }
+  // generateCalendarData(flights: any[]): any[] {
+  //   return flights.map(flight => ({ day: flight.day, price: flight.price }));
+  // }
 
   updateCalendarHTML(calendarData: any[]): void {
     console.log(calendarData);
@@ -122,17 +127,31 @@ export class FlightListComponent {
   onFlightClikedOutbond($event: number) {
     this.outboundArr = this.outboundArr.filter(flightOutbond => flightOutbond.id === $event);
     this.totalOutbound = this.outboundArr[0].price * this.passengers;
-
-    console.log(this.outboundArr);
-    console.log(this.totalOutbound)
     this.shown = true;
+    this.arrOutboundDates = []
+
   }
 
   onFlightClikedReturn($event: number) {
     this.returnArr = this.returnArr.filter(flightReturn => flightReturn.id === $event);
     this.hide = true;
     this.totalReturn = this.returnArr[0].price * this.passengers;
-    console.log(this.totalReturn)
+    this.arrReturnDates = []
+  }
+
+  sortByWeekday() {
+    setTimeout(() => {
+      this.arrOutboundDates = this.outboundArr.filter(function (value, index, Arr) {
+        return index % 3 == 0;
+      });
+      this.arrReturnDates = this.returnArr.filter(function (value, index, Arr) {
+        return index % 3 == 0;
+      });
+      console.log(this.arrOutboundDates)
+      console.log(this.arrReturnDates)
+    }, 150);
+
+
   }
 
 

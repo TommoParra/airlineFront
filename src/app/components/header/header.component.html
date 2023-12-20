@@ -37,6 +37,10 @@
                 <a [routerLink]="['/register']">Register</a>
             </li>
 
+            <li *ngIf="userService.isAdmin()" class="navbar_item">
+                <a [routerLink]="['/admin']">Admin panel</a>
+            </li>
+            <div *ngIf="userService.isAdmin()" class="hor_nav_divider"></div>
             <li *ngIf="userService.isLogged()" class="navbar_item">
                 <a [routerLink]="['/user']">My flights</a>
             </li>

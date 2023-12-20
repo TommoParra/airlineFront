@@ -12,7 +12,6 @@ type LoginResponse = { success: string, token: string, error: any };
 })
 export class UsersService {
 
-
   private httpClient = inject(HttpClient);
 
 
@@ -58,7 +57,7 @@ export class UsersService {
 
 
 
-
   isLogged(): boolean { return localStorage.getItem('auth_token') ? true : false }
+  isAdmin(): boolean { return localStorage.getItem('admin_token') ? true : false }
 
 }
