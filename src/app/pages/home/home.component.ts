@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
+import { IAirport } from 'src/app/interfaces/iairport';
 import { IFlight } from 'src/app/interfaces/iflight';
+import { AirportsService } from 'src/app/services/airports.service';
 import { FlightsService } from 'src/app/services/flights.service';
 import { JwtService } from 'src/app/services/jwt.service';
 
@@ -14,9 +16,13 @@ export class HomeComponent {
 
   router = inject(Router)
   flightService = inject(FlightsService)
+  airportService = inject(AirportsService)
   jwt = inject(JwtService)
 
   arrFlights: IFlight[] = []
+  targetFlight!: IFlight;
+  targetAirport!: IAirport;
+  today: any = new Date();
 
 
   center: any;
@@ -38,12 +44,12 @@ export class HomeComponent {
 
   ngAfterViewInit() {
     navigator.geolocation.getCurrentPosition(position => {
-      console.log(position)
+
       this.center = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       }
-      console.log(position)
+
       this.userPosition = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
@@ -61,7 +67,6 @@ export class HomeComponent {
       }
     }
     this.arrFlights = madridArr
-    console.log(madridArr)
   }
 
   sortByCity() {
@@ -78,9 +83,27 @@ export class HomeComponent {
     }
 
     this.arrFlights = selectedFlights
-    console.log(this.arrFlights)
+  }
 
-    console.log(Object.keys(selectedCities))
+  async onFlightClicked(flightId: number) {
+    this.targetFlight = await this.flightService.getById(flightId)
+    this.targetAirport = await this.airportService.getById(this.targetFlight.destination_id)
+
+    const formattedDate = `${this.today.getFullYear()}-${(this.today.getMonth() + 1)
+      .toString()
+      .padStart(2, '0')}-${this.today
+        .getDate()
+        .toString()
+        .padStart(2, '0')}`;
+
+    let navigationExtras: NavigationExtras = {
+      queryParams: { 'fare': "round_trip", "origin": "Madrid-MAD-Spain", "destination": `${this.targetAirport.city}-${this.targetAirport.name_acr}-${this.targetAirport.country}`, departure: formattedDate, return_date: formattedDate, passengers: 1, class: "Economy" },
+      fragment: 'anchor'
+    };
+
+    // // Navigate to the login page with extras
+    this.router.navigate(['/flight-list'], navigationExtras);
+
   }
 
 

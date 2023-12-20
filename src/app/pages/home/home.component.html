@@ -2,6 +2,7 @@
 <div class="content_wrapper">
     <section class="col_4_section">
         <h2 class="section_title">Our most popular flights</h2>
-        <app-flight-card [Flight]="flight" *ngFor="let flight of arrFlights | slice:0:8"></app-flight-card>
+        <app-flight-card [Flight]="flight" *ngFor="let flight of arrFlights | slice:0:8"
+            (flightClicked)="onFlightClicked($event)"></app-flight-card>
     </section>
 </div>
