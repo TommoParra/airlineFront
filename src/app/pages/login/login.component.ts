@@ -14,6 +14,7 @@ export class LoginComponent {
 
   router = inject(Router);
   userService = inject(UsersService);
+  generalPassword: string = "1234"
 
   constructor() {
     this.loginForm = new FormGroup({
@@ -37,5 +38,16 @@ export class LoginComponent {
       this.router.navigate(['/home'])
     }
 
+  }
+
+
+  // FOR TESTING PURPOSES ONLY
+
+  onClickUser() {
+    this.loginForm.patchValue({ email: "jim@gmail.com", password: this.generalPassword })
+  }
+
+  onClickAdmin() {
+    this.loginForm.patchValue({ email: "dmitriy.tatarenko@gmail.com", password: this.generalPassword })
   }
 }

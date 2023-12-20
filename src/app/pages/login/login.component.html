@@ -13,8 +13,12 @@
                 <div class="form_field_underline"></div>
             </div>
             <input class="btn btn_dark col_all" type="submit" value="Login">
+            <div class="form_field col_all">
+                <input class="btn btn_dark col_all" value="User" (click)="onClickUser()">
+                <input class="btn btn_dark col_all" value="Admin" (click)="onClickAdmin()">
+            </div>
         </form>
-        <p class="form_caption">You don't have an account? <span class="link"
-                [routerLink]="['/register']">Register</span>.</p>
+        <p class="form_caption">Don't have an account?<span class="link" [routerLink]="['/register']">Register</span>.
+        </p>
     </div>
 </section>
