@@ -13,13 +13,11 @@ export class FlightCardComponent {
 
   // //
   // @Input() result: any;
-  // @Output() flightClicked: EventEmitter<number> = new EventEmitter();
+  @Output() flightClicked: EventEmitter<number> = new EventEmitter();
 
 
 
-  // onClick(){
-  //   this.flightClicked.emit(this.result.id);
-  //   this.clicked = true;
-
-  // }
+  onClick() {
+    this.flightClicked.emit(this.Flight.id);
+  }
 }
