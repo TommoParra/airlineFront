@@ -27,7 +27,6 @@ export class RegisterComponent {
       password: new FormControl(),
       passport: new FormControl(null, [this.passportValidator]),
       repeat_password: new FormControl(),
-      membership: new FormControl(),
       phone: new FormControl()
 
     }, [
@@ -37,6 +36,8 @@ export class RegisterComponent {
   }
 
   async onSubmit() {
+    this.registerForm.patchValue({ access_level: "user", membership: "general" })
+
     const response = await this.userService.register(this.registerForm.value);
     console.log(response);
 
