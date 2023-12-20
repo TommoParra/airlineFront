@@ -128,6 +128,14 @@
     transform: rotate(180deg);
 }
 
+.checkin_alert {
+    display: none;
+}
+
+.checkin_alert.checked {
+    display: block;
+}
+
 @media (width < 1000px) {
     .navbar_item a {
         font-size: 1rem;

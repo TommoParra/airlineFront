@@ -25,7 +25,7 @@ export class UserPanelComponent {
   showAlert = false;
   hide = false;
 
-  showAlert2 = false;
+  showAlert2 = true;
   hiden = false;
 
   fragment: string | null = '';
@@ -67,6 +67,8 @@ export class UserPanelComponent {
     } catch (error) {
       console.log(error)
     }
+
+
   }
 
   scrollToSection() {
@@ -91,15 +93,8 @@ export class UserPanelComponent {
     this.isFormDisabled = !this.isFormDisabled;
   }
 
-  // onClick($event: any) {
 
-  //   this.hide = true;
-  //   this.show = false;
-
-  // }
-
-  onClick($event: Event) {
-    this.hide = !this.hide;
+  onClick() {
     this.showAlert = !this.showAlert;
   }
 

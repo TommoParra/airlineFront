@@ -62,22 +62,22 @@
             <section class="panel_content_section user_checkIn" id="user_checkIn">
                 <h3 class="section_title">Check in</h3>
                 <form class="form flight_registration_form">
-                    <div class="form_field col_4">
-                        <!-- <label>Flight number</label> -->
-                        <input placeholder="Flight number" type="text">
+                    <div class="form_field col_all">
+                        <select formControlName="airport_id">
+                            <option *ngFor="let reservation of arrReservations" [ngValue]="reservation.id">
+                                Flight number:{{reservation.id}} | {{reservation.passenger_name}} |
+                                {{reservation.departure | date:"short"}}
+                            </option>
+                        </select>
                         <div class="form_field_underline"></div>
+                        <!-- <p class="field_error" *ngIf="checkError('airport_id', 'required') || error">Can't be blank.</p> -->
+                        <p class="field_error">Can't be blank.</p>
+                        <p [ngClass]="{'checkedIn' : !showAlert}">
+                            Holita
+                        </p>
                     </div>
-                    <div class="form_field col_4">
-                        <!-- <label>Last name:</label> -->
-                        <input placeholder="Last name" type="text">
-                        <div class="form_field_underline"></div>
-                    </div>
-                    <div class="form_field col_4">
-                        <!-- <label>Email:</label> -->
-                        <input placeholder="Flight date" type="text">
-                        <div class="form_field_underline"></div>
-                    </div>
-                    <button *ngIf="!hide" class="btn btn_yellow col_all" type="button" (click)="onClick($event)">Check
+
+                    <button *ngIf="!hide" class="btn btn_yellow col_all" type="button" (click)="onClick()">Check
                         In</button>
                 </form>
             </section>
