@@ -1,6 +1,7 @@
 .content_wrapper.login {
     display: grid;
     min-height: 60vh;
+    grid-row-gap: 1rem;
 }
 
 .content_wrapper.login .form {

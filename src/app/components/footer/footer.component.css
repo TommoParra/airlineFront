@@ -1,7 +1,7 @@
 footer {
     box-shadow: var(--DP4);
     width: 100%;
-    padding: 3rem var(--contentPadding);
+    padding: 2rem var(--contentPadding);
 }
 
 footer .content_wrapper {
@@ -15,15 +15,16 @@ footer .content_wrapper .footer_col:nth-child(1) {
     margin: auto;
 }
 
+footer .logo {
+    width: 280px;
+}
+
 .footer_col {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
 
-.footer_navbar {
-    margin: auto;
-}
 
 .footer_navbar ul {
     display: flex;
@@ -34,6 +35,7 @@ footer .content_wrapper .footer_col:nth-child(1) {
 
 .footer_navbar ul .navbar_item a {
     text-align: left;
+    font-size: 1rem;
 }
 
 .footer_navbar ul .navbar_item:nth-child(1) a {

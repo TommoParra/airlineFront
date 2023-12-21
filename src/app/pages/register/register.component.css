@@ -1,5 +1,5 @@
 .content_wrapper.register {
     display: grid;
-    grid-gap: 2rem;
+    grid-gap: 1rem;
     min-height: 60vh;
 }
