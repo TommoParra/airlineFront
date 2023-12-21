@@ -12,8 +12,6 @@ export class FlightManagementComponent {
 
   flightSearchForm: FormGroup;
   flightEditForm: FormGroup;
-  isOpen = false;
-
   flightService = inject(FlightsService)
 
   isFormDisabled: boolean = true;
@@ -48,10 +46,6 @@ export class FlightManagementComponent {
       img: new FormControl(null, [Validators.required]),
       status: new FormControl(null, [])
     });
-  }
-
-  toggleForm() {
-    this.isOpen = !this.isOpen;
   }
 
 

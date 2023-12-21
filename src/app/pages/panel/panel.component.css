@@ -2,3 +2,180 @@
     display: grid;
     grid-gap: 2rem;
 }
+
+.content_wrapper {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    min-height: 100vh;
+    max-width: unset;
+    padding: 0px;
+}
+
+.form {
+    border: none;
+    border-radius: 0px;
+    box-shadow: unset;
+}
+
+.aside_navbar {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: var(--primaryYellow);
+}
+
+.aside_floating_nav {
+    display: grid;
+    grid-row-gap: 2rem;
+    position: sticky;
+    top: 0;
+}
+
+.aside_navbar ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.aside_navbar .navbar_item {
+    position: relative;
+    padding-left: 20px;
+    width: max-content;
+}
+
+.aside_navbar .navbar_item::after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0px;
+    content: "\2022";
+    font-size: 40px;
+    margin-right: 5px;
+}
+
+.navbar_item a {
+    font-size: 1.5rem;
+    text-align: left;
+    cursor: pointer;
+}
+
+.navbar_item a::before {
+    position: absolute;
+    bottom: -4px;
+    left: 10px;
+    content: '';
+    width: 0%;
+    height: 3px;
+    background-color: var(--almostBlack);
+    transition: .25s;
+}
+
+.navbar_item a:hover::before {
+    width: 100%;
+}
+
+.panel_content {
+    display: grid;
+    grid-row-gap: 2rem;
+    padding: 2rem var(--contentPadding);
+    grid-template-rows: min-content;
+
+}
+
+.panel_content_section {
+    display: grid;
+    height: min-content;
+    border-radius: 10px;
+}
+
+.panel_content_section>* {
+    width: 100%;
+}
+
+.user_booking {
+    display: grid;
+    grid-row-gap: 2rem;
+    position: relative;
+}
+
+.section_title {
+    padding: 15px 0px;
+    cursor: pointer;
+    display: flex;
+    gap: 1rem;
+}
+
+.section_title span {
+    font-size: 1rem;
+    margin: auto auto 5px 0px;
+}
+
+
+.open_form {
+    position: absolute;
+    width: 25px !important;
+    top: 27px;
+    right: 20px;
+    transition: .25s;
+}
+
+
+.checkin_alert {
+    display: none;
+}
+
+.checkin_alert.checked {
+    display: block;
+}
+
+@media (width < 1000px) {
+    .navbar_item a {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    .content_wrapper {
+        grid-template-columns: 100%;
+    }
+
+    .aside_navbar {
+        position: sticky;
+        width: 100%;
+        z-index: 1;
+        top: 0;
+        padding: 1rem;
+        bottom: 0px;
+        box-shadow: var(--DP2);
+    }
+
+    .aside_navbar ul {
+        flex-direction: row;
+    }
+
+    .aside_floating_nav {
+        position: relative;
+        gap: 0.5rem;
+    }
+
+    .aside_navbar ul {
+        gap: 1rem;
+    }
+
+
+    .section_title {
+        font-size: 1.5rem;
+    }
+
+}
+
+@media (width < 450px) {
+
+    .aside_navbar {
+        position: relative;
+    }
+
+    .aside_navbar ul {
+        flex-direction: column;
+    }
+
+}

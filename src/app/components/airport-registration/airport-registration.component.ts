@@ -11,7 +11,6 @@ import { AirportsService } from 'src/app/services/airports.service';
 export class AirportRegistrationComponent {
 
   airportForm: FormGroup;
-  isOpen = false;
 
   airportService = inject(AirportsService);
   router = inject(Router);
@@ -33,9 +32,6 @@ export class AirportRegistrationComponent {
 
   }
 
-  toggleForm() {
-    this.isOpen = !this.isOpen;
-  }
 
   checkError(controlName: string, errorName: string) {
     // if (this.error === true) {

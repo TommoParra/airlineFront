@@ -1,16 +1,15 @@
-<div class="form" [ngClass]="{active : isOpen}">
-    <h3 class="form_title" (click)="toggleForm()">Edit flight information</h3>
-    <img class="open_form" src="assets/arrDown.png" alt="Arrow down">
+<div class="form">
+    <h3 class="form_title">Edit flight information</h3>
     <form class="form flight_registration_form col_all" [formGroup]="flightSearchForm">
-        <h4 class="form_title">Choose an airport</h4>
-        <div class="form_field col_2">
+        <h4 class="form_title col_all">Choose an airport</h4>
+        <div class="form_field col_all">
             <label>Flight id:</label>
             <input type="text" formControlName="flight_id" placeholder="E.g.: 1">
             <div class="form_field_underline"></div>
         </div>
 
-        <button class="btn col_2" type="button" (click)="getFlight()">Choose this flight</button>
     </form>
+    <button class="btn col_all" type="button" (click)="getFlight()">Choose this flight</button>
 
 
     <form class="form flight_registration_form col_all" [formGroup]="flightEditForm">

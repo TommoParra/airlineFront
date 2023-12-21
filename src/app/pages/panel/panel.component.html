@@ -1,10 +1,50 @@
 <div class="wrapper">
-    <section class="content_wrapper admin_panel">
-        <h2 class="section_title">Administration panel</h2>
-        <h5>Expand the forms below for more information.</h5>
-        <app-airport-registration></app-airport-registration>
-        <app-flight-registration></app-flight-registration>
-        <app-airport-management></app-airport-management>
-        <app-flight-management></app-flight-management>
-    </section>
+    <div class="content_wrapper">
+        <div class="aside_navbar">
+            <div class="aside_floating_nav">
+                <h3 class="section_title aside_title">Control Panel</h3>
+                <nav>
+                    <ul>
+                        <li class="navbar_item">
+                            <a [routerLink]="['/admin']" fragment="airport_registration"
+                                (click)="scrollToSection()">Register a airport</a>
+                        </li>
+                        <li class="navbar_item">
+                            <a [routerLink]="['/admin']" fragment="register_flight" (click)="scrollToSection()">Register
+                                a
+                                flight</a>
+                        </li>
+                        <li class="navbar_item">
+                            <a [routerLink]="['/admin']" fragment="airport_manager" (click)="scrollToSection()">Edit an
+                                airport</a>
+                        </li>
+                        <li class="navbar_item">
+                            <a [routerLink]="['/admin']" fragment="flight_management" (click)="scrollToSection()">Edit
+                                an
+                                airport</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="panel_content">
+
+            <section class="panel_content_section user_details" id="airport_registration">
+                <app-airport-registration></app-airport-registration>
+            </section>
+
+            <section class="panel_content_section user_checkIn" id="register_flight">
+                <app-flight-registration></app-flight-registration>
+            </section>
+
+            <section class="panel_content_section user_booking" id="airport_manager">
+                <app-airport-management></app-airport-management>
+            </section>
+
+            <section class="panel_content_section user_booking" id="flight_management">
+                <app-flight-management></app-flight-management>
+            </section>
+
+        </div>
+    </div>
 </div>

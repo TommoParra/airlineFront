@@ -1,9 +1,8 @@
-<div class="form" [ngClass]="{active : isOpen}">
-    <h3 class="form_title" (click)="toggleForm()">Edit airport information</h3>
-    <img class="open_form" src="assets/arrDown.png" alt="Arrow down">
+<div class="form">
+    <h3 class="form_title">Edit airport information</h3>
     <form class="form flight_registration_form col_all" [formGroup]="airportSearchForm">
-        <h4 class="form_title">Choose an airport</h4>
-        <div class="form_field col_2">
+        <h4 class="form_title col_all">Choose an airport</h4>
+        <div class="form_field col_all">
             <select formControlName="airport_id">
                 <option *ngFor="let airport of arrAirports" [ngValue]="airport.id">
                     {{airport.country}} |
@@ -15,8 +14,8 @@
             <p class="field_error" *ngIf="checkError('airport_id', 'required') || error">Can't be blank.</p>
         </div>
 
-        <button class="btn col_2" type="button" (click)="getAirport()">Choose this airport</button>
     </form>
+    <button class="btn col_all" type="button" (click)="getAirport()">Choose this airport</button>
     <form class="form flight_registration_form col_all" [formGroup]="airportEditForm">
         <h4 class="form_title">Airport information</h4>
         <div class="form_field col_4">

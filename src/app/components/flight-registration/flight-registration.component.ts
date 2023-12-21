@@ -13,7 +13,7 @@ import { FlightsService } from 'src/app/services/flights.service';
 export class FlightRegistrationComponent {
 
   flightForm: FormGroup;
-  isOpen = false;
+
 
   airportService = inject(AirportsService)
   flightService = inject(FlightsService);
@@ -50,9 +50,6 @@ export class FlightRegistrationComponent {
     this.arrAirports = await this.airportService.getAll();
   }
 
-  toggleForm() {
-    this.isOpen = !this.isOpen;
-  }
 
   async getDestinationCity() {
     this.targetAirport = await this.airportService.getById(this.flightForm.value.destination_id)
