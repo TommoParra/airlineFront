@@ -41,7 +41,7 @@ export class FlightRegistrationComponent {
       terminal: new FormControl(null, [Validators.required]),
       gate: new FormControl(null, [Validators.required]),
       img: new FormControl(null, [Validators.required]),
-      status: new FormControl("active", [])
+      status: new FormControl("on time", [])
     })
 
   }
@@ -64,20 +64,29 @@ export class FlightRegistrationComponent {
   }
 
   onSubmit() {
-    if (this.flightForm.valid) {
-      let fullDeparture = `${this.flightForm.value.departure_date} ${this.flightForm.value.departure_time}`
-      this.flightForm.patchValue({ departure: fullDeparture })
-      let fullArrival = `${this.flightForm.value.arrival_date} ${this.flightForm.value.arrival_time}`
-      this.flightForm.patchValue({ arrival: fullArrival })
+    // if (this.flightForm.valid) {
+    let fullDeparture = `${this.flightForm.value.departure_date} ${this.flightForm.value.departure_time}`
+    this.flightForm.patchValue({ departure: fullDeparture })
+    let fullArrival = `${this.flightForm.value.arrival_date} ${this.flightForm.value.arrival_time}`
+    this.flightForm.patchValue({ arrival: fullArrival })
 
-      const formValues = this.flightForm.value;
-      console.log(formValues)
+    const formValues = this.flightForm.value;
+    console.log(formValues)
 
-      this.flightService.createFlight(formValues);
-    } else {
-      this.error = true;
-    }
+    this.flightService.createFlight(formValues);
+    // } else {
+    //   this.error = true;
+    // }
 
+
+  }
+
+
+
+  // TEST
+
+  onClickFill() {
+    this.flightForm.patchValue({ origin_id: 2, destination_id: 1, price: 200, img: "https://www.delta.com/content/dam/delta-www/responsive/destinations/airport/PDX.jpg?width=1200&height=600&crop=true", departure_date: "2023-12-22", departure_time: "22:25", arrival_date: "2023-12-22", arrival_time: "01:25", duration: 3, available_seats: 200, available_luggage: 5000, terminal: 1, gate: 2, destination_city: "Portland" });
 
   }
 

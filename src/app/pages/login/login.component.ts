@@ -55,7 +55,7 @@ export class LoginComponent {
   // FOR TESTING PURPOSES ONLY
 
   onClickUser() {
-    this.loginForm.patchValue({ email: "jim@gmail.com", password: this.generalPassword })
+    this.loginForm.patchValue({ email: "tomas.moralparra@gmail.com", password: this.generalPassword })
   }
 
   onClickAdmin() {

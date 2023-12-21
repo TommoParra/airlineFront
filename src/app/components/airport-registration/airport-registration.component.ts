@@ -54,4 +54,27 @@ export class AirportRegistrationComponent {
     }
   }
 
+
+
+
+
+
+
+  // TEST
+
+  onClickFill() {
+    this.airportForm.patchValue({
+      "name": "John F. Kennedy International Airport",
+      "name_acr": "JFK",
+      "city": "New York",
+      "city_acr": "NYC",
+      "country": "United States",
+      "country_acr": "US",
+      "terminals": 8,
+      "gates": 128,
+      "img": "https://www.state.gov/wp-content/uploads/2022/01/shutterstock_248799484-scaled.jpg"
+    });
+
+  }
+
 }

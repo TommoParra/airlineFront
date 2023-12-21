@@ -27,7 +27,9 @@ export class RegisterComponent {
       password: new FormControl(),
       passport: new FormControl(null, [this.passportValidator]),
       repeat_password: new FormControl(),
-      phone: new FormControl()
+      phone: new FormControl(),
+      access_level: new FormControl(),
+      membership: new FormControl()
 
     }, [
       this.passwordRepeatValidator
