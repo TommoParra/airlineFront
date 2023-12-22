@@ -1,7 +1,10 @@
 footer {
-    box-shadow: var(--DP4);
+    position: relative;
     width: 100%;
     padding: 2rem var(--contentPadding);
+    box-shadow: var(--DP4);
+    background-color: white;
+    z-index: 2;
 }
 
 footer .content_wrapper {

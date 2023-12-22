@@ -27,6 +27,7 @@
     --grey: #D6D6D6;
     --lightGrey: #F3F3F3;
     --primaryYellow: #FFD800;
+    --secondaryYellow: #fcec3f;
     --primaryGreen: #26ff00;
     --errorRed: #DB4437;
     --linkBlue: #0026ff;
@@ -376,6 +377,10 @@ input[type=number] {
 
 .btn_yellow {
     background-color: var(--primaryYellow);
+}
+
+.btn_yellow:hover {
+    background-color: var(--secondaryYellow);
 }
 
 /* Card general styles */

@@ -3,16 +3,17 @@
     grid-template-columns: 30% 70%;
     min-height: 100vh;
     max-width: unset;
-    padding: 0px;
+    padding: 0em;
 }
 
 .form {
     border: none;
-    border-radius: 0px;
+    border-radius: 0em;
     box-shadow: unset;
 }
 
 .aside_navbar {
+    position: relative;
     display: flex;
     flex-direction: column;
     padding: 2rem;
@@ -32,41 +33,80 @@
     gap: 2rem;
 }
 
-.aside_navbar .navbar_item {
+.navbar_item {
     position: relative;
-    padding-left: 20px;
+    display: flex;
+    gap: .5rem;
+    align-items: center;
     width: max-content;
 }
 
-.aside_navbar .navbar_item::after {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0px;
-    content: "\2022";
-    font-size: 40px;
-    margin-right: 5px;
+.navbar_item img {
+    width: 1.5625em;
+    object-fit: contain;
 }
 
+
 .navbar_item a {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     text-align: left;
     cursor: pointer;
 }
 
-.navbar_item a::before {
+.navbar_item::before {
     position: absolute;
-    bottom: -4px;
-    left: 10px;
+    bottom: -0.25em;
+    left: -0.25em;
     content: '';
-    width: 0%;
-    height: 3px;
+    width: 104%;
+    height: 0.125em;
     background-color: var(--almostBlack);
+    border-radius: 1.25em;
+    transform: scale(1);
+    transform-origin: left;
     transition: .25s;
 }
 
-.navbar_item a:hover::before {
-    width: 100%;
+.navbar_item:hover::before {
+    transform: scale(0);
+}
+
+.navbar_item::after {
+    content: '';
+    position: absolute;
+    left: -0.3125em;
+    bottom: -0.25em;
+    height: 104%;
+    width: 0.125em;
+    transform: scale(0);
+    transform-origin: bottom;
+    transition: .25s;
+    background-color: var(--almostBlack);
+    border-radius: 1.25em;
+}
+
+.navbar_item:hover::after {
+    transform: scale(1);
+}
+
+.aside_contact {
+    display: flex;
+    gap: 1rem;
+    position: fixed;
+    width: 30%;
+    bottom: 0%;
+    left: 0;
+    padding: 2rem;
+    background-color: var(--primaryYellow);
+}
+
+.aside_contact img {
+    width: 1.875em;
+    object-fit: contain;
+}
+
+.aside_contact h5 span {
+    font-weight: 700;
 }
 
 .panel_content {
@@ -80,10 +120,10 @@
 .panel_content_section {
     display: grid;
     grid-row-gap: 1.5rem;
-    padding: 10px;
+    padding: 0.625em;
     height: min-content;
     box-shadow: var(--DP2);
-    border-radius: 10px;
+    border-radius: 0.625em;
 }
 
 .panel_content_section>* {
@@ -94,12 +134,12 @@
     display: grid;
     grid-row-gap: 2rem;
     position: relative;
-    height: 80px;
+    height: 5em;
     overflow: hidden;
 }
 
 .section_title {
-    padding: 15px 0px;
+    padding: 0.9375em 0em;
     cursor: pointer;
     display: flex;
     gap: 1rem;
@@ -107,7 +147,7 @@
 
 .section_title span {
     font-size: 1rem;
-    margin: auto auto 5px 0px;
+    margin: auto auto 0.3125em 0em;
 }
 
 .user_booking.active {
@@ -118,8 +158,8 @@
 .open_form {
     position: absolute;
     width: 25px !important;
-    top: 27px;
-    right: 20px;
+    top: 1.6875em;
+    right: 1.25em;
     transition: .25s;
 }
 
@@ -147,12 +187,11 @@
     }
 
     .aside_navbar {
-        position: sticky;
         width: 100%;
         z-index: 1;
         top: 0;
         padding: 1rem;
-        bottom: 0px;
+        bottom: 0em;
         box-shadow: var(--DP2);
     }
 
@@ -169,6 +208,31 @@
         gap: 1rem;
     }
 
+    .aside_contact {
+        display: flex;
+        gap: 1rem;
+        position: fixed;
+        width: 4.375em;
+        height: 4.375em;
+        bottom: 1rem;
+        right: 1rem;
+        left: unset;
+        padding: 0rem;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: var(--DP4);
+        z-index: 100;
+    }
+
+    .aside_contact img {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .aside_contact h5 {
+        display: none;
+    }
+
 
     .section_title {
         font-size: 1.5rem;
@@ -176,7 +240,7 @@
 
 }
 
-@media (width < 450px) {
+@media (width < 550px) {
 
     .aside_navbar {
         position: relative;

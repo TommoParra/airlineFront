@@ -72,7 +72,7 @@ header .hamb_menu {
 }
 
 header.active .header_nav_container {
-    height: 170px;
+    height: 210px;
 }
 
 header.active .hamb_menu .hamb_menu_line:nth-child(1) {
