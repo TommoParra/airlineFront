@@ -64,7 +64,7 @@
     border-radius: 1.25em;
     transform: scale(1);
     transform-origin: left;
-    transition: .25s;
+    transition: .25s ease-out;
 }
 
 .navbar_item:hover::before {
@@ -80,7 +80,7 @@
     width: 0.125em;
     transform: scale(0);
     transform-origin: bottom;
-    transition: .25s;
+    transition: .25s ease-in;
     background-color: var(--almostBlack);
     border-radius: 1.25em;
 }
